@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Нейросети и профессии будущего — гайд для родителей подростков 10–14 лет | Зерокодер</title>
+<meta name="description" content="Бесплатный авторский гайд от Зерокодер: какие профессии исчезнут к 2030 году, а какие будут востребованы. На основе данных World Economic Forum.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* === tokens.css === */
+/**
+ * ============================================================
+ * DESIGN TOKENS — top107 Design System
+ * Based on UntitledUI PRO v8.0 + custom brand
+ * ============================================================
+ *
+ * Usage: import this file first, then components.css
+ * <link rel="stylesheet" href="tokens.css">
+ * <link rel="stylesheet" href="components.css">
+ */
+
+:root {
+
+  /* ── Brand (Purple) ──────────────────────────────────────── */
+  --brand-50:  #F9F5FF;
+  --brand-100: #F4EBFF;
+  --brand-200: #E9D7FE;
+  --brand-300: #D6BBFB;
+  --brand-400: #B692F6;
+  --brand-500: #9E77ED;
+  --brand-600: #7F56D9;   /* ← primary action */
+  --brand-700: #6941C6;   /* ← hover */
+  --brand-800: #53389E;
+  --brand-900: #42307D;
+
+  /* ── Neutral ─────────────────────────────────────────────── */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-200: #E5E5E5;
+  --neutral-300: #D4D4D4;
+  --neutral-400: #A3A3A3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-900: #171717;
+  --neutral-950: #0A0A0A;
+
+  /* ── Semantic ────────────────────────────────────────────── */
+  --color-success:      #16A34A;
+  --color-success-bg:   #F0FDF4;
+  --color-success-border: #BBF7D0;
+
+  --color-warning:      #CA8A04;   /* Yellow-600 — NOT orange */
+  --color-warning-bg:   #FEFCE8;
+  --color-warning-border: #FEF08A;
+
+  --color-error:        #DC2626;
+  --color-error-bg:     #FEF2F2;
+  --color-error-border: #FECACA;
+
+  --color-info:         #0369A1;
+  --color-info-bg:      #F0F9FF;
+  --color-info-border:  #BAE6FD;
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-family:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-size-xs:   11px;
+  --font-size-sm:   13px;
+  --font-size-md:   15px;
+  --font-size-base: 16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   20px;
+  --font-size-2xl:  24px;
+  --font-size-3xl:  30px;
+  --font-size-4xl:  36px;
+  --font-size-5xl:  48px;
+
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight:   1.2;
+  --line-height-snug:    1.35;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.65;
+  --line-height-loose:   1.75;
+
+  /* letter-spacing: всегда -0.02em на заголовках ≥30px */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em;   /* uppercase labels */
+
+  /* ── Spacing (8pt grid) ──────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ── Border radius ───────────────────────────────────────── */
+  --radius-sm:   6px;    /* inputs, small tags */
+  --radius-md:   8px;    /* buttons, badges */
+  --radius-lg:   12px;   /* cards */
+  --radius-xl:   16px;   /* large blocks */
+  --radius-2xl:  24px;   /* hero blocks */
+  --radius-pill: 9999px; /* pills, tags */
+
+  /* ── Shadows (multi-layer — NEVER single layer) ──────────── */
+  --shadow-xs:
+    0px 1px 2px rgba(0, 0, 0, 0.05);
+
+  --shadow-sm:
+    0px 1px 2px -1px rgba(0, 0, 0, 0.10),
+    0px 1px 3px rgba(0, 0, 0, 0.10);
+
+  --shadow-md:
+    0px 2px 4px -2px rgba(0, 0, 0, 0.06),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.10);
+
+  --shadow-lg:
+    0px 2px 2px -1px rgba(0, 0, 0, 0.04),
+    0px 4px 6px -2px rgba(0, 0, 0, 0.03),
+    0px 12px 16px -4px rgba(0, 0, 0, 0.08);
+
+  --shadow-xl:
+    0px 4px 6px -2px rgba(0, 0, 0, 0.03),
+    0px 8px 8px -4px rgba(0, 0, 0, 0.03),
+    0px 20px 24px -4px rgba(0, 0, 0, 0.08);
+
+  --shadow-btn:
+    0px 1px 2px rgba(0, 0, 0, 0.05),
+    0px -2px 0px 0px rgba(0, 0, 0, 0.05) inset,
+    0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+
+  /* ── Focus ring ──────────────────────────────────────────── */
+  --focus-ring:
+    0px 0px 0px 4px var(--brand-500),
+    0px 0px 0px 2px white;
+
+  /* ── Z-index ─────────────────────────────────────────────── */
+  --z-sticky:  100;
+  --z-overlay: 200;
+  --z-modal:   300;
+  --z-toast:   400;
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  --container-max:    1280px;
+  --container-pad:    80px;   /* desktop */
+  --container-pad-md: 32px;   /* tablet  */
+  --container-pad-sm: 16px;   /* mobile  */
+
+  --header-height: 64px;
+  --sidebar-width: 300px;
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family:             var(--font-family);
+  font-size:               var(--font-size-base);
+  font-weight:             var(--font-weight-regular);
+  line-height:             var(--line-height-normal);
+  color:                   var(--neutral-900);
+  -webkit-font-smoothing:  antialiased;
+  margin: 0;
+}
+
+/* ── Focus ring ──────────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+/* === components.css === */
+/**
+ * ============================================================
+ * COMPONENTS — top107 Design System
+ * Requires: tokens.css
+ * ============================================================
+ */
+
+/* ── Container ───────────────────────────────────────────────── */
+.t107-container {
+  max-width: var(--container-max);
+  margin:    0 auto;
+  padding:   0 var(--container-pad);
+}
+@media (max-width: 1024px) { .t107-container { padding: 0 var(--container-pad-md); } }
+@media (max-width: 768px)  { .t107-container { padding: 0 var(--container-pad-sm); } }
+
+/* ══════════════════════════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════════════════════════ */
+
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             8px;
+  font-family:     var(--font-family);
+  font-weight:     var(--font-weight-semibold);
+  border:          none;
+  border-radius:   var(--radius-md);
+  cursor:          pointer;
+  text-decoration: none;
+  white-space:     nowrap;
+  transition:      background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+  line-height:     1.25;
+}
+
+/* Sizes */
+.btn-sm  { height: 36px; padding: 8px 14px;  font-size: 14px; }
+.btn-md  { height: 40px; padding: 10px 16px; font-size: 15px; }
+.btn-lg  { height: 44px; padding: 10px 18px; font-size: 16px; }
+.btn-xl  { height: 48px; padding: 12px 20px; font-size: 16px; }
+.btn-2xl { height: 56px; padding: 14px 28px; font-size: 18px; }
+
+/* Primary */
+.btn-primary {
+  background:  var(--brand-600);
+  color:       #FFFFFF;
+  box-shadow:  var(--shadow-btn);
+}
+.btn-primary:hover { background: var(--brand-700); color: #FFFFFF; }
+.btn-primary:active { transform: translateY(1px); }
+
+/* Secondary (outlined brand) */
+.btn-secondary {
+  background:  #FFFFFF;
+  color:       var(--brand-700);
+  border:      1px solid var(--brand-300);
+  box-shadow:  var(--shadow-xs);
+}
+.btn-secondary:hover { background: var(--brand-50); border-color: var(--brand-400); }
+
+/* Ghost (neutral outlined) */
+.btn-ghost {
+  background:  #FFFFFF;
+  color:       var(--neutral-700);
+  border:      1px solid var(--neutral-200);
+  box-shadow:  var(--shadow-xs);
+}
+.btn-ghost:hover { background: var(--neutral-50); border-color: var(--neutral-300); }
+
+/* Destructive */
+.btn-danger {
+  background:  var(--color-error);
+  color:       #FFFFFF;
+  box-shadow:  var(--shadow-btn);
+}
+.btn-danger:hover { background: #B91C1C; }
+
+/* Icon-only */
+.btn-icon { padding: 0; width: 40px; }
+.btn-icon.btn-sm  { width: 36px; }
+.btn-icon.btn-lg  { width: 44px; }
+
+/* ══════════════════════════════════════════════════════════════
+   BADGES / TAGS
+══════════════════════════════════════════════════════════════ */
+
+.badge {
+  display:      inline-flex;
+  align-items:  center;
+  gap:          4px;
+  padding:      3px 10px;
+  border-radius: var(--radius-pill);
+  font-size:    var(--font-size-xs);
+  font-weight:  var(--font-weight-medium);
+  border:       1px solid;
+  line-height:  1.4;
+  white-space:  nowrap;
+}
+
+.badge-brand   { color: var(--brand-700);         background: var(--brand-100);         border-color: var(--brand-200); }
+.badge-success { color: var(--color-success);     background: var(--color-success-bg);  border-color: var(--color-success-border); }
+.badge-warning { color: var(--color-warning);     background: var(--color-warning-bg);  border-color: var(--color-warning-border); }
+.badge-error   { color: var(--color-error);       background: var(--color-error-bg);    border-color: var(--color-error-border); }
+.badge-info    { color: var(--color-info);        background: var(--color-info-bg);     border-color: var(--color-info-border); }
+.badge-neutral { color: var(--neutral-600);       background: var(--neutral-100);       border-color: var(--neutral-200); }
+
+/* Pricing badges (used in service cards) */
+.badge-price   { color: var(--color-success);  background: var(--color-success-bg); border-color: var(--color-success-border); }
+.badge-free    { color: var(--color-info);     background: var(--color-info-bg);    border-color: var(--color-info-border); }
+.badge-trial   { color: var(--color-warning);  background: var(--color-warning-bg); border-color: var(--color-warning-border); }
+.badge-feature { color: var(--brand-700);      background: var(--brand-50);         border-color: var(--brand-200); }
+
+/* ══════════════════════════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════════════════════════ */
+
+.card {
+  background:    #FFFFFF;
+  border:        1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  box-shadow:    var(--shadow-sm);
+  transition:    box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card:hover {
+  box-shadow:   var(--shadow-md);
+  border-color: var(--neutral-300);
+}
+
+.card-body    { padding: var(--space-5); }
+.card-body-lg { padding: var(--space-6); }
+
+/* Service card (toplist item) */
+.service-card {
+  border:        1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding:       var(--space-6);
+  margin:        var(--space-8) 0;
+  background:    #FFFFFF;
+  box-shadow:    var(--shadow-sm);
+  transition:    box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.service-card:hover {
+  box-shadow:   var(--shadow-md);
+  border-color: var(--brand-200);
+}
+.service-card h2,
+.service-card h3 {
+  font-size:      18px !important;
+  font-weight:    700 !important;
+  color:          var(--neutral-900) !important;
+  margin:         0 0 12px !important;
+  padding:        0 !important;
+  border:         none !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+.service-card__meta {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           8px;
+  margin-bottom: 14px;
+}
+.service-card__pros-cons {
+  display:       grid;
+  grid-template-columns: 1fr 1fr;
+  gap:           16px;
+  margin-top:    16px;
+  padding-top:   16px;
+  border-top:    1px solid var(--neutral-100);
+}
+@media (max-width: 600px) {
+  .service-card__pros-cons { grid-template-columns: 1fr; }
+}
+.service-card__pros h4,
+.service-card__cons h4 {
+  font-size:      12px !important;
+  font-weight:    600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: var(--tracking-wide) !important;
+  margin:         0 0 8px !important;
+  padding:        0 !important;
+  border:         none !important;
+}
+.service-card__pros h4 { color: var(--color-success) !important; }
+.service-card__cons h4 { color: var(--color-error) !important; }
+.service-card__pros ul,
+.service-card__cons ul { list-style: none; padding: 0; margin: 0; }
+.service-card__pros li,
+.service-card__cons li {
+  font-size:   14px;
+  color:       var(--neutral-600);
+  padding:     3px 0;
+  display:     flex;
+  align-items: baseline;
+  gap:         6px;
+}
+.service-card__pros li::before { content: '+'; color: var(--color-success); font-weight: 700; }
+.service-card__cons li::before { content: '−'; color: var(--color-error);   font-weight: 700; }
+
+/* ══════════════════════════════════════════════════════════════
+   ARTICLE CONTENT TYPOGRAPHY
+══════════════════════════════════════════════════════════════ */
+
+.article-content {
+  font-size:   16px;
+  line-height: var(--line-height-loose);
+  color:       var(--neutral-700);
+}
+.article-content h2 {
+  font-size:      22px;
+  font-weight:    700;
+  color:          var(--neutral-900);
+  margin:         2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom:  2px solid var(--neutral-100);
+  letter-spacing: var(--tracking-tight);
+}
+.article-content h3 {
+  font-size:      18px;
+  font-weight:    600;
+  color:          var(--neutral-900);
+  margin:         1.75rem 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+.article-content p  { margin: 0 0 1.25rem; }
+.article-content a  { color: var(--brand-600); text-decoration: none; }
+.article-content a:hover { text-decoration: underline; color: var(--brand-700); }
+.article-content strong  { color: var(--neutral-900); font-weight: 600; }
+.article-content ul,
+.article-content ol { margin: 0 0 1.25rem 1.25rem; padding: 0; }
+.article-content li { margin-bottom: 0.4rem; }
+.article-content blockquote {
+  border-left:   3px solid var(--brand-600);
+  margin:        1.5rem 0;
+  padding:       0.75rem 1.25rem;
+  background:    var(--brand-50);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color:         var(--brand-700);
+  font-style:    italic;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TABLES
+══════════════════════════════════════════════════════════════ */
+
+.article-content table,
+.t107-table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       14px;
+  overflow-x:      auto;
+  display:         block;
+  border-radius:   var(--radius-md);
+  border:          1px solid var(--neutral-200);
+  margin:          1.5rem 0;
+}
+.article-content thead th,
+.t107-table thead th {
+  background:    var(--neutral-50);
+  text-align:    left;
+  padding:       11px 16px;
+  border-bottom: 1px solid var(--neutral-200);
+  font-weight:   600;
+  color:         var(--neutral-700);
+  white-space:   nowrap;
+  font-size:     13px;
+}
+.article-content tbody td,
+.t107-table tbody td {
+  padding:         10px 16px;
+  border-bottom:   1px solid var(--neutral-100);
+  vertical-align:  middle;
+  color:           var(--neutral-600);
+}
+.article-content tbody tr:last-child td,
+.t107-table tbody tr:last-child td { border-bottom: none; }
+.article-content tbody tr:hover td,
+.t107-table tbody tr:hover td { background: var(--neutral-50); }
+
+/* ══════════════════════════════════════════════════════════════
+   FORMS
+══════════════════════════════════════════════════════════════ */
+
+.form-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            6px;
+}
+
+.form-label {
+  font-size:   14px;
+  font-weight: var(--font-weight-medium);
+  color:       var(--neutral-700);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width:         100%;
+  height:        44px;
+  padding:       0 16px;
+  font-family:   var(--font-family);
+  font-size:     15px;
+  color:         var(--neutral-900);
+  background:    #FFFFFF;
+  border:        1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  outline:       none;
+  transition:    border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.form-textarea { height: auto; padding: 12px 16px; resize: vertical; }
+.form-select   { appearance: none; cursor: pointer; }
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--brand-600);
+  box-shadow:   0 0 0 3px rgba(127, 86, 217, 0.12);
+}
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--neutral-400); }
+
+.form-hint  { font-size: 13px; color: var(--neutral-500); }
+.form-error { font-size: 13px; color: var(--color-error); }
+
+/* ══════════════════════════════════════════════════════════════
+   BREADCRUMBS
+══════════════════════════════════════════════════════════════ */
+
+.breadcrumbs {
+  display:     flex;
+  align-items: center;
+  flex-wrap:   wrap;
+  gap:         4px;
+  font-size:   13px;
+  color:       var(--neutral-400);
+  margin-bottom: 16px;
+}
+.breadcrumbs a    { color: var(--neutral-500); text-decoration: none; transition: color 0.15s; }
+.breadcrumbs a:hover { color: var(--brand-600); }
+.breadcrumbs .sep { color: var(--neutral-300); }
+
+/* ══════════════════════════════════════════════════════════════
+   PAGINATION
+══════════════════════════════════════════════════════════════ */
+
+.nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav-links a,
+.nav-links span {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  min-width:       36px;
+  height:          36px;
+  padding:         0 10px;
+  border-radius:   var(--radius-md);
+  font-size:       14px;
+  font-weight:     500;
+  border:          1px solid var(--neutral-200);
+  color:           var(--neutral-700);
+  text-decoration: none;
+  transition:      all 0.15s ease;
+}
+.nav-links a:hover { border-color: var(--brand-600); color: var(--brand-600); background: var(--brand-50); }
+.nav-links .current { background: var(--brand-600); color: #FFFFFF; border-color: var(--brand-600); }
+
+/* ══════════════════════════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════════════════════════ */
+
+.faq-item {
+  border:        1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+  overflow:      hidden;
+}
+.faq-item summary {
+  padding:         14px 18px;
+  font-weight:     600;
+  font-size:       15px;
+  color:           var(--neutral-900);
+  cursor:          pointer;
+  list-style:      none;
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  gap:             16px;
+  user-select:     none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::marker               { display: none; }
+.faq-item summary:hover                 { background: var(--neutral-50); }
+.faq-item[open] summary .faq-chevron    { transform: rotate(180deg); }
+.faq-chevron { transition: transform 0.2s ease; flex-shrink: 0; color: var(--neutral-500); }
+.faq-answer {
+  padding:   0 18px 14px;
+  font-size: 15px;
+  color:     var(--neutral-600);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════════════════════════ */
+
+.t107-header {
+  position:    sticky;
+  top:         0;
+  left:        0;
+  right:       0;
+  z-index:     var(--z-sticky);
+  height:      var(--header-height);
+  background:  rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid transparent;
+  transition:  border-color 0.2s ease, box-shadow 0.2s ease, backdrop-filter 0.2s ease;
+}
+.t107-header.scrolled {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background:    rgba(255, 255, 255, 0.88);
+  border-bottom-color: var(--neutral-200);
+  box-shadow:    var(--shadow-sm);
+}
+.t107-header-inner {
+  max-width:   var(--container-max);
+  margin:      0 auto;
+  padding:     0 32px;
+  height:      100%;
+  display:     flex;
+  align-items: center;
+  gap:         32px;
+}
+.t107-logo {
+  font-size:       20px;
+  font-weight:     800;
+  color:           var(--brand-600);
+  text-decoration: none;
+  letter-spacing:  var(--tracking-tight);
+  flex-shrink:     0;
+}
+.t107-logo:hover { color: var(--brand-700); }
+
+.t107-nav {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  list-style:  none;
+  margin:      0;
+  padding:     0;
+  flex:        1;
+}
+.t107-nav a {
+  display:         block;
+  padding:         6px 12px;
+  font-size:       14px;
+  font-weight:     500;
+  color:           var(--neutral-600);
+  text-decoration: none;
+  border-radius:   var(--radius-sm);
+  transition:      color 0.15s ease, background 0.15s ease;
+  white-space:     nowrap;
+}
+.t107-nav a:hover,
+.t107-nav a.active { color: var(--neutral-900); background: var(--neutral-50); }
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════════ */
+
+.t107-footer {
+  background: var(--neutral-950);
+  padding:    64px 0 0;
+  color:      rgba(255, 255, 255, 0.6);
+}
+.t107-footer-grid {
+  display:               grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap:                   48px;
+  padding-bottom:        48px;
+}
+.t107-footer-logo {
+  font-size:       22px;
+  font-weight:     800;
+  color:           #FFFFFF;
+  text-decoration: none;
+  letter-spacing:  var(--tracking-tight);
+  display:         inline-block;
+  margin-bottom:   12px;
+}
+.t107-footer-logo:hover { color: var(--brand-500); }
+.t107-footer-col h4 {
+  font-size:      14px;
+  font-weight:    600;
+  color:          #FFFFFF;
+  margin:         0 0 16px;
+  letter-spacing: 0.01em;
+}
+.t107-footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.t107-footer-col a  { font-size: 14px; color: rgba(255, 255, 255, 0.55); text-decoration: none; transition: color 0.15s ease; }
+.t107-footer-col a:hover { color: #FFFFFF; }
+.t107-footer-accent { color: var(--brand-500) !important; font-weight: 500; }
+.t107-footer-accent:hover { color: var(--brand-400) !important; }
+.t107-footer-divider { border: none; border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 0; }
+.t107-footer-bottom {
+  padding:         24px 0;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  flex-wrap:       wrap;
+  gap:             12px;
+}
+
+@media (max-width: 1024px) { .t107-footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+@media (max-width: 480px)  { .t107-footer-grid { grid-template-columns: 1fr; } }
+
+/* ══════════════════════════════════════════════════════════════
+   PAGE SECTION BACKGROUNDS
+══════════════════════════════════════════════════════════════ */
+
+.section-white  { background: #FFFFFF; }
+.section-subtle { background: var(--neutral-50); }   /* #FAFAFA */
+.section-brand  { background: var(--brand-50); border-top: 1px solid var(--brand-200); border-bottom: 1px solid var(--brand-200); }
+.section-dark   { background: var(--neutral-950); color: #FFFFFF; }
+
+/* Page header zone (inner pages) */
+.page-header {
+  background:    var(--neutral-50);
+  border-bottom: 1px solid var(--neutral-200);
+  padding:       40px 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   UTILS
+══════════════════════════════════════════════════════════════ */
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.truncate     { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+html { scroll-behavior: smooth; }
+
+</style>
+<style>
+  /* ───────── Page ───────── */
+  body { background: #FFFFFF; }
+
+  section { padding: 96px 0; }
+  @media (max-width: 768px) { section { padding: 64px 0; } }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-700);
+    background: var(--brand-50);
+    border: 1px solid var(--brand-200);
+    border-radius: var(--radius-pill);
+    padding: 6px 14px;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+  }
+
+  h1, h2, h3 { letter-spacing: var(--tracking-tight); color: var(--neutral-900); margin: 0; }
+
+  .section-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .section-subtitle {
+    font-size: 18px;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 56px;
+  }
+  @media (max-width: 768px) {
+    .section-title { font-size: 30px; }
+    .section-subtitle { font-size: 16px; margin-bottom: 40px; }
+  }
+
+  /* ───────── Hero ───────── */
+  .hero {
+    background:
+      radial-gradient(ellipse 90% 60% at 80% 0%, var(--brand-100) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 0% 100%, #F4EBFF 0%, transparent 55%),
+      #FFFFFF;
+    padding: 80px 0 120px;
+    border-bottom: 1px solid var(--neutral-100);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero { padding: 56px 0 72px; }
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .hero h1 .accent { color: var(--brand-600); }
+  @media (max-width: 768px) { .hero h1 { font-size: 36px; } }
+
+  .hero-lead {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--neutral-600);
+    margin-bottom: 32px;
+    max-width: 560px;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--neutral-500);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-meta svg { color: var(--color-success); flex-shrink: 0; }
+
+  /* Hero card mockup */
+  .hero-mock {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    max-width: 380px;
+    margin: 0 auto;
+    background: linear-gradient(160deg, var(--brand-600) 0%, var(--brand-800) 100%);
+    border-radius: var(--radius-2xl);
+    padding: 36px 32px;
+    color: #fff;
+    box-shadow: var(--shadow-xl), 0 40px 80px -20px rgba(127, 86, 217, 0.45);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+  }
+  .hero-mock:hover { transform: rotate(0deg) translateY(-4px); }
+  .hero-mock::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-2xl);
+    background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.18), transparent 50%);
+    pointer-events: none;
+  }
+  .hero-mock-brand {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+  .hero-mock-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero-mock-sub {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+  .hero-mock-stat {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .hero-mock-stat-num {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-mock-stat-label {
+    font-size: 12px;
+    opacity: 0.85;
+    line-height: 1.3;
+  }
+  .hero-mock-pages {
+    position: absolute;
+    bottom: 24px;
+    right: 28px;
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Floating badge */
+  .hero-mock-wrap { position: relative; }
+  .hero-badge-float {
+    position: absolute;
+    top: 12%;
+    left: -8%;
+    background: #fff;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-pill);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--neutral-900);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: rotate(-4deg);
+  }
+  .hero-badge-float .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-success); }
+  .hero-badge-float-2 {
+    position: absolute;
+    bottom: 14%;
+    right: -4%;
+    background: #fff;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    box-shadow: var(--shadow-lg);
+    transform: rotate(3deg);
+    max-width: 180px;
+  }
+  .hero-badge-float-2 .num {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--brand-600);
+    line-height: 1;
+  }
+  .hero-badge-float-2 .lbl {
+    font-size: 11px;
+    color: var(--neutral-500);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  @media (max-width: 600px) {
+    .hero-badge-float, .hero-badge-float-2 { display: none; }
+  }
+
+  /* ───────── Stats strip ───────── */
+  .stats-strip {
+    background: var(--neutral-950);
+    color: #fff;
+    padding: 56px 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+  @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+  .stat-num {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--brand-400);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  /* ───────── Problem ───────── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .problem-grid { grid-template-columns: 1fr; } }
+
+  .problem-card {
+    background: #fff;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    transition: all 0.2s ease;
+  }
+  .problem-card:hover {
+    border-color: var(--brand-300);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .problem-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--brand-50);
+    color: var(--brand-600);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .problem-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .problem-card p {
+    font-size: 15px;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ───────── Inside / TOC ───────── */
+  .section-subtle-bg { background: var(--neutral-50); }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 768px) { .toc-grid { grid-template-columns: 1fr; } }
+
+  .toc-item {
+    background: #fff;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: all 0.2s ease;
+  }
+  .toc-item:hover {
+    border-color: var(--brand-400);
+    box-shadow: var(--shadow-sm);
+  }
+  .toc-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--brand-600), var(--brand-700));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .toc-content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .toc-content p {
+    font-size: 14px;
+    color: var(--neutral-600);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ───────── Comparison: уходят / на подъёме ───────── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  .compare-col {
+    border-radius: var(--radius-xl);
+    padding: 36px;
+    border: 1px solid;
+  }
+  .compare-col.down {
+    background: var(--color-error-bg);
+    border-color: var(--color-error-border);
+  }
+  .compare-col.up {
+    background: var(--color-success-bg);
+    border-color: var(--color-success-border);
+  }
+  .compare-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .compare-head h3 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .compare-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+  }
+  .compare-col.down .compare-tag { background: var(--color-error); color: #fff; }
+  .compare-col.up .compare-tag { background: var(--color-success); color: #fff; }
+
+  .compare-list { list-style: none; padding: 0; margin: 0; }
+  .compare-list li {
+    padding: 12px 0;
+    border-top: 1px dashed rgba(0,0,0,0.08);
+    font-size: 15px;
+    color: var(--neutral-700);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .compare-list li:first-child { border-top: none; }
+  .compare-list li strong { color: var(--neutral-900); font-weight: 600; }
+  .compare-list .marker { flex-shrink: 0; font-weight: 700; }
+  .compare-col.down .marker { color: var(--color-error); }
+  .compare-col.up .marker { color: var(--color-success); }
+
+  /* ───────── Quote ───────── */
+  .quote-section {
+    background: linear-gradient(135deg, var(--brand-700) 0%, var(--brand-900) 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .quote-section blockquote {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    max-width: 820px;
+    margin: 0 auto 20px;
+  }
+  .quote-section cite {
+    font-style: normal;
+    font-size: 14px;
+    color: var(--brand-200);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 768px) { .quote-section blockquote { font-size: 22px; } }
+
+  /* ───────── For whom ───────── */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) { .who-grid { grid-template-columns: 1fr; } }
+  .who-card {
+    padding: 28px;
+    border-radius: var(--radius-xl);
+    background: #fff;
+    border: 1px solid var(--neutral-200);
+  }
+  .who-card .check {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--color-success-bg);
+    color: var(--color-success);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .who-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .who-card p { margin: 0; font-size: 14px; color: var(--neutral-600); line-height: 1.6; }
+
+  /* ───────── FAQ ───────── */
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+
+  /* ───────── CTA Final ───────── */
+  .cta-final {
+    background:
+      radial-gradient(circle at 20% 0%, rgba(127, 86, 217, 0.12), transparent 50%),
+      radial-gradient(circle at 80% 100%, rgba(127, 86, 217, 0.08), transparent 50%),
+      var(--neutral-50);
+    text-align: center;
+  }
+  .cta-card {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-2xl);
+    padding: 56px 48px;
+    box-shadow: var(--shadow-xl);
+  }
+  .cta-card h2 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .cta-card p {
+    font-size: 17px;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin: 0 0 32px;
+  }
+  @media (max-width: 768px) {
+    .cta-card { padding: 40px 24px; }
+    .cta-card h2 { font-size: 28px; }
+  }
+
+  .cta-form {
+    display: flex;
+    gap: 8px;
+    max-width: 480px;
+    margin: 0 auto 16px;
+  }
+  .cta-form input {
+    flex: 1;
+    height: 56px;
+    padding: 0 18px;
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-family: inherit;
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .cta-form input:focus {
+    outline: none;
+    border-color: var(--brand-600);
+    box-shadow: 0 0 0 3px rgba(127, 86, 217, 0.15);
+  }
+  @media (max-width: 600px) {
+    .cta-form { flex-direction: column; }
+    .cta-form .btn { width: 100%; }
+  }
+  .cta-fineprint {
+    font-size: 13px;
+    color: var(--neutral-500);
+    margin-top: 12px;
+  }
+
+  /* ───────── Header ───────── */
+  .lp-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--neutral-100);
+  }
+  .lp-header-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  @media (max-width: 1024px) { .lp-header-inner { padding: 0 var(--container-pad-md); } }
+  @media (max-width: 768px)  { .lp-header-inner { padding: 0 var(--container-pad-sm); } }
+  .lp-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--brand-600);
+    text-decoration: none;
+    letter-spacing: var(--tracking-tight);
+  }
+  .lp-logo span { color: var(--neutral-400); font-weight: 500; font-size: 13px; margin-left: 6px; }
+  @media (max-width: 600px) { .lp-logo span { display: none; } }
+
+  /* ───────── Footer ───────── */
+  .lp-footer {
+    background: var(--neutral-950);
+    color: rgba(255,255,255,0.55);
+    padding: 48px 0 32px;
+    font-size: 14px;
+  }
+  .lp-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .lp-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .lp-footer a:hover { color: #fff; }
+
+</style>
+</head>
+<body>
+
+<!-- ───────── Header ───────── -->
+<header class="lp-header">
+  <div class="lp-header-inner">
+    <a href="#" class="lp-logo">Зерокодер<span>· гайды для родителей</span></a>
+    <a href="#download" class="btn btn-primary btn-md">Скачать бесплатно</a>
+  </div>
+</header>
+
+<!-- ───────── Hero ───────── -->
+<section class="hero">
+  <div class="t107-container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Авторский гайд · PDF · 11 страниц</span>
+        <h1>Какие профессии исчезнут <span class="accent">к 2030 году</span> — и кем стать вашему ребёнку</h1>
+        <p class="hero-lead">
+          Разбор отчёта World Economic Forum «Future of Jobs 2025» простым языком — для родителей подростков 10–14 лет. Без паники, без воды и без «угадывания профессий».
+        </p>
+        <div class="hero-cta-row">
+          <a href="#download" class="btn btn-primary btn-2xl">Скачать гайд бесплатно →</a>
+          <a href="#inside" class="btn btn-ghost btn-2xl">Что внутри</a>
+        </div>
+        <div class="hero-meta">
+          <span>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            Бесплатно, без регистрации
+          </span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            Данные ВЭФ 2025
+          </span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            Чек-лист в подарок
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-mock-wrap">
+        <div class="hero-badge-float"><span class="dot"></span> На основе ВЭФ 2025</div>
+        <div class="hero-mock">
+          <div class="hero-mock-brand">Зерокодер</div>
+          <div class="hero-mock-title">Нейросети и профессии будущего</div>
+          <div class="hero-mock-sub">Гайд для родителей подростков 10–14 лет</div>
+
+          <div class="hero-mock-stat">
+            <div class="hero-mock-stat-num">22%</div>
+            <div class="hero-mock-stat-label">рабочих мест изменятся к 2030</div>
+          </div>
+          <div class="hero-mock-stat">
+            <div class="hero-mock-stat-num">170 млн</div>
+            <div class="hero-mock-stat-label">новых рабочих мест появится</div>
+          </div>
+
+          <div class="hero-mock-pages">11 страниц · PDF</div>
+        </div>
+        <div class="hero-badge-float-2">
+          <div class="num">39%</div>
+          <div class="lbl">навыков устареют<br>к 2030 году</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Stats strip ───────── -->
+<section class="stats-strip" style="padding: 56px 0;">
+  <div class="t107-container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">22%</div>
+        <div class="stat-label">рабочих мест изменятся<br>к 2030 году</div>
+      </div>
+      <div>
+        <div class="stat-num">170M</div>
+        <div class="stat-label">новых рабочих мест<br>появится в мире</div>
+      </div>
+      <div>
+        <div class="stat-num">92M</div>
+        <div class="stat-label">старых рабочих мест<br>исчезнут</div>
+      </div>
+      <div>
+        <div class="stat-num">86%</div>
+        <div class="stat-label">работодателей назвали ИИ<br>главной технологией</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Problem ───────── -->
+<section>
+  <div class="t107-container">
+    <div style="text-align:center;">
+      <span class="eyebrow">Знакомая ситуация?</span>
+    </div>
+    <h2 class="section-title">Вашему ребёнку 11 — а мир меняется быстрее, чем вы успеваете прочитать новости</h2>
+    <p class="section-subtitle">Через 5 лет он будет выбирать, кем стать. Но никто не может уверенно сказать, какие профессии вообще будут существовать. Знакомые тревоги:</p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>«А вдруг ИИ всех заменит?»</h3>
+        <p>Каждый день новости о том, что нейросети пишут код, рисуют картинки и сдают экзамены за людей. Непонятно — это угроза или возможность.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>«На кого учить ребёнка?»</h3>
+        <p>Юрист, экономист, программист — все говорят разное. А списки «профессий будущего» в интернете противоречат друг другу.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>«Как объяснить, не пугая?»</h3>
+        <p>Хочется поговорить с подростком о будущем по-взрослому, но без школьных лекций и без «всё пропало». А аргументов под рукой нет.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Inside (TOC) ───────── -->
+<section class="section-subtle-bg" id="inside">
+  <div class="t107-container">
+    <div style="text-align:center;">
+      <span class="eyebrow">Что внутри гайда</span>
+    </div>
+    <h2 class="section-title">11 страниц, после которых станет понятно</h2>
+    <p class="section-subtitle">Никакой воды и абстракций. Только факты из отчёта ВЭФ, конкретные профессии, навыки и план действий — для вас и для ребёнка.</p>
+
+    <div class="toc-grid">
+      <div class="toc-item">
+        <div class="toc-num">1</div>
+        <div class="toc-content">
+          <h3>Что вообще происходит на рынке труда</h3>
+          <p>Главные цифры из отчёта ВЭФ 2025 — без жаргона. Почему ИИ меняет всё, и что такое «аугментация».</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">2</div>
+        <div class="toc-content">
+          <h3>Профессии, которые уйдут в тень</h3>
+          <p>Конкретный список с цифрами: кассиры (–16 млн), операторы ввода (–34%), графические дизайнеры — впервые в списке.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">3</div>
+        <div class="toc-content">
+          <h3>Что будет с юристами, экономистами, бухгалтерами</h3>
+          <p>Спойлер: они не исчезнут. Но изменятся так, что начальный уровень станет не нужен.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">4</div>
+        <div class="toc-content">
+          <h3>Профессии, которые будут на подъёме</h3>
+          <p>Три большие группы: технологические, «зелёные» и «человеческие». С объяснением каждого термина.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">5</div>
+        <div class="toc-content">
+          <h3>Неожиданные лидеры роста</h3>
+          <p>Топ-5 профессий по абсолютному приросту мест — и почему «или айтишник, или безработный» это миф.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">6</div>
+        <div class="toc-content">
+          <h3>7 ключевых навыков 2030 года</h3>
+          <p>Что развивать прямо сейчас, чтобы ребёнок не оказался «лишним» в новом мире — независимо от профессии.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">7</div>
+        <div class="toc-content">
+          <h3>5 шагов для родителя</h3>
+          <p>Конкретные действия на этой неделе. От «познакомить с ChatGPT» до «как поощрять проекты до результата».</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">8</div>
+        <div class="toc-content">
+          <h3>Чек-лист готовности ребёнка</h3>
+          <p>5 признаков, которые покажут, готов ли подросток к профессиям будущего. Можно пройти за 2 минуты.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Comparison ───────── -->
+<section>
+  <div class="t107-container">
+    <div style="text-align:center;">
+      <span class="eyebrow">Главный разворот гайда</span>
+    </div>
+    <h2 class="section-title">Уходят в тень vs. На подъёме</h2>
+    <p class="section-subtitle">Самый важный разворот гайда — конкретные профессии с цифрами из отчёта ВЭФ 2025. Вот фрагмент:</p>
+
+    <div class="compare-grid">
+      <div class="compare-col down">
+        <div class="compare-head">
+          <span class="compare-tag">Уходят в тень</span>
+        </div>
+        <h3 style="margin-bottom: 16px;">Профессии под ударом</h3>
+        <ul class="compare-list">
+          <li><span class="marker">−</span><div><strong>Кассиры и билетёры</strong> — минус 16 млн рабочих мест</div></li>
+          <li><span class="marker">−</span><div><strong>Административные ассистенты</strong> — минус 6 млн</div></li>
+          <li><span class="marker">−</span><div><strong>Почтовые служащие</strong> — −40%</div></li>
+          <li><span class="marker">−</span><div><strong>Банковские кассиры</strong> — −35%</div></li>
+          <li><span class="marker">−</span><div><strong>Операторы ввода данных</strong> — −34%</div></li>
+          <li><span class="marker">−</span><div><strong>Графические дизайнеры</strong> — впервые в списке в 2025</div></li>
+          <li><span class="marker">−</span><div><strong>Бухгалтеры начального уровня</strong>, делопроизводители</div></li>
+        </ul>
+      </div>
+
+      <div class="compare-col up">
+        <div class="compare-head">
+          <span class="compare-tag">На подъёме</span>
+        </div>
+        <h3 style="margin-bottom: 16px;">Профессии в росте</h3>
+        <ul class="compare-list">
+          <li><span class="marker">+</span><div><strong>Специалисты по ИИ и большим данным</strong> — №1 по росту в мире</div></li>
+          <li><span class="marker">+</span><div><strong>FinTech-инженеры</strong> и Software-разработчики</div></li>
+          <li><span class="marker">+</span><div><strong>Кибербезопасность</strong> — защита данных и систем</div></li>
+          <li><span class="marker">+</span><div><strong>Инженеры возобновляемой энергетики</strong></div></li>
+          <li><span class="marker">+</span><div><strong>Фермеры и сельхозработники</strong> — +34 млн мест</div></li>
+          <li><span class="marker">+</span><div><strong>Курьеры, строители</strong> — взрывной рост</div></li>
+          <li><span class="marker">+</span><div><strong>Врачи, учителя, психологи</strong> — то, что ИИ не заменит</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 40px;">
+      <a href="#download" class="btn btn-primary btn-xl">Скачать полный список →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Quote ───────── -->
+<section class="quote-section">
+  <div class="t107-container">
+    <blockquote>«Выигрывает не тот, кого ИИ не коснётся, а тот, кто научится работать вместе с ИИ»</blockquote>
+    <cite>— главный принцип гайда</cite>
+  </div>
+</section>
+
+<!-- ───────── For whom ───────── -->
+<section class="section-subtle-bg">
+  <div class="t107-container">
+    <div style="text-align:center;">
+      <span class="eyebrow">Для кого этот гайд</span>
+    </div>
+    <h2 class="section-title">Если хотя бы один пункт про вас — гайд точно пригодится</h2>
+    <p class="section-subtitle"></p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="check">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+        </div>
+        <h3>У вас ребёнок 10–14 лет</h3>
+        <p>Самый важный возраст для разговоров о будущем. Через 4–6 лет он будет выбирать вуз и профессию.</p>
+      </div>
+      <div class="who-card">
+        <div class="check">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+        </div>
+        <h3>Вы хотите фактов, а не страшилок</h3>
+        <p>Без истерики «ИИ всех уволит» и без розовых очков «всё будет хорошо». Только данные и здравый смысл.</p>
+      </div>
+      <div class="who-card">
+        <div class="check">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+        </div>
+        <h3>Вам некогда читать 200-страничные отчёты</h3>
+        <p>Мы прочитали отчёт ВЭФ за вас и упаковали главное в 11 страниц с примерами и чек-листом.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FAQ ───────── -->
+<section>
+  <div class="t107-container">
+    <div style="text-align:center;">
+      <span class="eyebrow">Частые вопросы</span>
+    </div>
+    <h2 class="section-title">Вопросы, которые задают чаще всего</h2>
+    <p class="section-subtitle"></p>
+
+    <div class="faq-wrap">
+      <details class="faq-item" open>
+        <summary>
+          Гайд правда бесплатный? В чём подвох?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">Да, гайд полностью бесплатный. Мы — школа Зерокодер, и наша цель — чтобы родители и подростки лучше понимали мир нейросетей. После скачивания мы предложим вам бесплатный пробный урок 1-на-1 для ребёнка, но это не обязательное условие.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Откуда данные? Это не просто мнение?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">Все цифры — из Future of Jobs Report 2025 от World Economic Forum. Это крупнейшее в мире исследование рынка труда: опрос более 1000 работодателей из 55 стран. Мы не выдумываем профессии — мы пересказываем отчёт простым языком.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Моему ребёнку 9 (или 15) — гайд подойдёт?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">Гайд написан для родителей, у которых дети 10–14 лет — это возраст, когда уже можно говорить о будущем, но ещё есть время на эксперименты. Если ребёнок чуть младше или старше — большая часть советов всё равно применима.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Мой ребёнок не интересуется компьютерами. Это плохо?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">Нет. Один из ключевых выводов гайда: профессии будущего — это не только программирование. Половина важных навыков — «человеческие»: креативность, любопытство, гибкость. Гайд поможет понять, как развивать эти качества независимо от того, любит ли ребёнок код.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Сколько времени займёт чтение?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">15–20 минут. Гайд специально сделан коротким и плотным: 11 страниц, без воды, с чёткой структурой. Можно прочитать за чашкой кофе.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Final CTA ───────── -->
+<section class="cta-final" id="download">
+  <div class="t107-container">
+    <div class="cta-card">
+      <span class="eyebrow">Скачать гайд</span>
+      <h2>Узнайте, к какому будущему готовить ребёнка — за 15 минут</h2>
+      <p>Оставьте email — и сразу получите PDF-гайд «Нейросети и профессии будущего». Бесплатно, без спама.</p>
+
+      <form class="cta-form" onsubmit="event.preventDefault(); alert('Спасибо! Гайд отправлен на ' + this.email.value);">
+        <input type="email" name="email" placeholder="ваш@email.ru" required>
+        <button type="submit" class="btn btn-primary btn-2xl">Получить гайд →</button>
+      </form>
+      <div class="cta-fineprint">
+        🔒 Мы не передаём email третьим лицам. Отписаться можно в один клик.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Footer ───────── -->
+<footer class="lp-footer">
+  <div class="t107-container">
+    <div class="lp-footer-inner">
+      <div>
+        © 2026 Зерокодер · Источник данных: World Economic Forum, Future of Jobs Report 2025
+      </div>
+      <div style="display:flex; gap:24px;">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Контакты</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
