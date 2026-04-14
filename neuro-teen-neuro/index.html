@@ -62,16 +62,19 @@
         @media(max-width:767px){
             h1{font-size:2.5rem !important;line-height:1 !important}
             h2{font-size:1.75rem !important}
-            .nav-glass{padding:0.5rem 0.75rem;gap:0.5rem}
+            .nav-glass{padding:0.5rem 0.75rem}
         }
+        /* Prevent horizontal overflow from orbs */
+        body{overflow-x:hidden}
+        section{overflow:hidden}
     </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4 md:pt-6 px-4">
-    <div class="nav-glass rounded-full px-4 md:px-8 py-3 flex items-center justify-between w-full max-w-5xl">
-        <a href="#" class="text-lg md:text-xl font-extrabold tracking-tight text-white">ЗЕРОКОДЕР</a>
+<nav class="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4 md:pt-6 px-3 md:px-4">
+    <div class="nav-glass rounded-full px-3 md:px-8 py-2.5 md:py-3 flex items-center justify-between w-full max-w-5xl">
+        <a href="#" class="text-base md:text-xl font-extrabold tracking-tight text-white">ЗЕРОКОДЕР</a>
         <div class="hidden md:flex items-center gap-8">
             <a href="#results" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Результаты</a>
             <a href="#program" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Программа</a>
@@ -366,10 +369,10 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="border-t border-white/5 py-12 px-4">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="text-lg font-extrabold tracking-tight text-white">ЗЕРОКОДЕР</div>
-        <div class="flex items-center gap-6">
+<footer class="border-t border-white/5 py-8 md:py-12 px-4">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
+        <div class="text-base md:text-lg font-extrabold tracking-tight text-white">ЗЕРОКОДЕР</div>
+        <div class="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
             <a href="#program" class="text-sm text-zinc-500 hover:text-white transition-colors duration-500">Программа</a>
             <a href="#pricing" class="text-sm text-zinc-500 hover:text-white transition-colors duration-500">Стоимость</a>
             <a href="#faq" class="text-sm text-zinc-500 hover:text-white transition-colors duration-500">Вопросы</a>
