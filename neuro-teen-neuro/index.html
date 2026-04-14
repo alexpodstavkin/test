@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НейроТин — 12 профессий за 9 месяцев | Зерокодер</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { surface: '#050508', accent: '#8b5cf6', accentHover: '#a78bfa', lime: '#d4ff00' }
+                }
+            }
+        }
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:#050508;color:#fafafa;overflow-x:hidden}
+        body::after{content:'';position:fixed;inset:0;z-index:50;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        .orb-1{position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.15) 0%,transparent 70%);top:-200px;right:-200px;filter:blur(80px);pointer-events:none}
+        .orb-2{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,255,0,.08) 0%,transparent 70%);bottom:-100px;left:-200px;filter:blur(80px);pointer-events:none}
+        .orb-3{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(100px);pointer-events:none}
+        .reveal{opacity:0;transform:translateY(40px);filter:blur(8px);transition:all .9s cubic-bezier(.32,.72,0,1)}
+        .reveal.visible{opacity:1;transform:translateY(0);filter:blur(0)}
+        .delay-1{transition-delay:100ms}.delay-2{transition-delay:200ms}.delay-3{transition-delay:300ms}.delay-4{transition-delay:400ms}.delay-5{transition-delay:500ms}
+        .bz-o{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:6px;border-radius:1.5rem}
+        .bz-i{background:rgba(255,255,255,.02);border-radius:calc(1.5rem - 6px);box-shadow:inset 0 1px 1px rgba(255,255,255,.08)}
+        .btn-p{transition:all .5s cubic-bezier(.32,.72,0,1)}
+        .btn-p:hover{transform:scale(1.02);box-shadow:0 0 40px rgba(139,92,246,.3)}
+        .btn-p:active{transform:scale(.98)}
+        .btn-p .btn-icon{transition:all .5s cubic-bezier(.32,.72,0,1)}
+        .btn-p:hover .btn-icon{transform:translateX(3px) translateY(-1px) scale(1.05)}
+        .btn-s{transition:all .5s cubic-bezier(.32,.72,0,1)}
+        .btn-s:hover{transform:scale(1.02);box-shadow:0 0 40px rgba(212,255,0,.15)}
+        .btn-s:active{transform:scale(.98)}
+        .acc-content{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.32,.72,0,1)}
+        .acc-item.open .acc-content{max-height:600px}
+        .acc-item.open .acc-chev{transform:rotate(180deg)}
+        .acc-chev{transition:transform .5s cubic-bezier(.32,.72,0,1)}
+        .nav-glass{background:rgba(5,5,8,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.06)}
+        .mobile-menu{opacity:0;pointer-events:none;transition:opacity .5s cubic-bezier(.32,.72,0,1)}
+        .mobile-menu.open{opacity:1;pointer-events:all}
+        .mobile-menu.open .menu-link{opacity:1;transform:translateY(0)}
+        .menu-link{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.32,.72,0,1)}
+        .featured{position:relative}
+        .featured .bz-i{position:relative;z-index:1}
+        .featured::before{content:'';position:absolute;inset:-1px;border-radius:1.5rem;padding:1px;background:linear-gradient(135deg,rgba(139,92,246,.5),rgba(212,255,0,.3),rgba(139,92,246,.5));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+        @keyframes pulse-ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+        .pulse-dot::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:#d4ff00;animation:pulse-ring 2s cubic-bezier(.32,.72,0,1) infinite}
+        .grad-t{background:linear-gradient(135deg,#d4ff00 0%,#8b5cf6 50%,#38bdf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .pain-line{border-left:2px solid rgba(239,68,68,.4)}
+        /* Unified section spacing */
+        .sec{position:relative;padding:7rem 1rem}
+        @media(min-width:768px){.sec{padding:10rem 1rem}}
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4 md:pt-6 px-4">
+    <div class="nav-glass rounded-full px-4 md:px-8 py-3 flex items-center justify-between w-full max-w-5xl">
+        <a href="#" class="text-lg md:text-xl font-extrabold tracking-tight text-white">ЗЕРОКОДЕР</a>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#results" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Результаты</a>
+            <a href="#program" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Программа</a>
+            <a href="#pricing" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Стоимость</a>
+            <a href="#faq" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Вопросы</a>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="#signup" class="hidden md:flex btn-p bg-accent hover:bg-accentHover text-white rounded-full px-5 py-2.5 text-sm font-semibold items-center gap-2">Записаться <span class="btn-icon w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">&#8599;</span></a>
+            <button class="md:hidden w-10 h-10 rounded-full bg-white/5 flex items-center justify-center" onclick="toggleMenu()"><div class="flex flex-col gap-1.5 items-center"><span class="block w-5 h-[1.5px] bg-white rounded-full transition-all duration-500 origin-center" id="line1"></span><span class="block w-5 h-[1.5px] bg-white rounded-full transition-all duration-500 origin-center" id="line2"></span></div></button>
+        </div>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu fixed inset-0 z-30 bg-surface/95 flex flex-col items-center justify-center gap-8" style="backdrop-filter:blur(40px)">
+    <a href="#results" class="menu-link text-3xl font-bold" style="transition-delay:100ms" onclick="toggleMenu()">Результаты</a>
+    <a href="#program" class="menu-link text-3xl font-bold" style="transition-delay:150ms" onclick="toggleMenu()">Программа</a>
+    <a href="#pricing" class="menu-link text-3xl font-bold" style="transition-delay:200ms" onclick="toggleMenu()">Стоимость</a>
+    <a href="#faq" class="menu-link text-3xl font-bold" style="transition-delay:250ms" onclick="toggleMenu()">Вопросы</a>
+    <a href="#signup" class="menu-link btn-p bg-accent text-white rounded-full px-8 py-4 text-lg font-semibold mt-4" style="transition-delay:300ms" onclick="toggleMenu()">Записаться бесплатно</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden px-4 pt-24 pb-16">
+    <div class="orb-1"></div><div class="orb-2"></div>
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+        <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 mb-8">
+            <span class="relative w-2 h-2 rounded-full bg-lime pulse-dot"></span>
+            <span class="text-[11px] uppercase tracking-[0.2em] font-medium text-zinc-400">Осталось 3 места в потоке</span>
+        </div>
+        <h1 class="reveal delay-1 text-4xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight mb-6">12 профессий<br><span class="grad-t">за 9 месяцев</span></h1>
+        <p class="reveal delay-2 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">Научим ребёнка использовать нейросети, поможем освоить современные профессии и заработать первые деньги</p>
+        <div class="reveal delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#signup" class="btn-p bg-accent hover:bg-accentHover text-white rounded-full px-8 py-4 text-base font-semibold flex items-center gap-3 w-full sm:w-auto justify-center">Записаться на бесплатный урок <span class="btn-icon w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm">&#8599;</span></a>
+            <a href="#program" class="btn-s border border-white/10 bg-white/5 text-white rounded-full px-8 py-4 text-base font-semibold w-full sm:w-auto text-center">Смотреть программу</a>
+        </div>
+        <div class="reveal delay-4 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-16 max-w-5xl mx-auto">
+            <div class="bz-o"><div class="bz-i p-4 text-center"><div class="text-2xl md:text-3xl font-extrabold text-white">+0,7</div><div class="text-[10px] text-zinc-500 mt-1 uppercase tracking-wider">к среднему баллу</div></div></div>
+            <div class="bz-o"><div class="bz-i p-4 text-center"><div class="text-2xl md:text-3xl font-extrabold text-lime">12</div><div class="text-[10px] text-zinc-500 mt-1 uppercase tracking-wider">профессий</div></div></div>
+            <div class="bz-o"><div class="bz-i p-4 text-center"><div class="text-2xl md:text-3xl font-extrabold text-sky-400">27</div><div class="text-[10px] text-zinc-500 mt-1 uppercase tracking-wider">проектов</div></div></div>
+            <div class="bz-o"><div class="bz-i p-4 text-center"><div class="text-2xl md:text-3xl font-extrabold text-accent">Онлайн</div><div class="text-[10px] text-zinc-500 mt-1 uppercase tracking-wider">формат</div></div></div>
+        </div>
+        <div class="reveal delay-5 text-xs text-zinc-600 mt-6 max-w-md mx-auto text-center">*Все иностранные термины и названия сервисов вы можете найти с расшифровкой <a href="#glossary" class="underline text-zinc-500 hover:text-white transition-colors duration-500">внизу страницы</a></div>
+    </div>
+</section>
+
+<!-- ===== PAIN POINTS ===== -->
+<section class="sec">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-extrabold leading-tight">Узнаёте <span class="grad-t">своего ребёнка?</span></h2>
+        </div>
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal bz-o"><div class="bz-i p-8 md:p-12">
+                <ul class="space-y-6">
+                    <li class="pain-line pl-5"><div class="font-bold text-white text-base md:text-lg">Сидит в телефоне часами</div><div class="text-sm text-zinc-400 mt-1">Смотрит блогеров, листает ленту — время уходит впустую</div></li>
+                    <li class="pain-line pl-5"><div class="font-bold text-white text-base md:text-lg">Использует ИИ как решебник</div><div class="text-sm text-zinc-400 mt-1">Копирует ответы из ChatGPT, ничего не понимая</div></li>
+                    <li class="pain-line pl-5"><div class="font-bold text-white text-base md:text-lg">Делает домашку до поздней ночи</div><div class="text-sm text-zinc-400 mt-1">Вы проверяете уроки, ругаетесь, теряете нервы и время</div></li>
+                    <li class="pain-line pl-5"><div class="font-bold text-white text-base md:text-lg">Не знает, кем хочет стать</div><div class="text-sm text-zinc-400 mt-1">Не понимает современные профессии, нет мотивации</div></li>
+                </ul>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY NOW ===== -->
+<section class="sec">
+    <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="reveal">
+                <h2 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">Почему важно <span class="text-accent">начинать учиться</span> уже сейчас</h2>
+                <p class="text-zinc-400 text-base md:text-lg leading-relaxed">ИИ уже трансформирует рынок труда. По данным аналитиков, внедрение генеративного ИИ в экономику России может принести до 10,8 трлн рублей ежегодной экономии к 2030 году. Ни одна профессия не останется прежней.</p>
+            </div>
+            <div class="reveal delay-2">
+                <div class="bz-o"><div class="bz-i p-8 md:p-10 space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent"><path d="M10 2v16M2 10h16"/></svg></div>
+                        <div><div class="font-semibold text-white mb-1">Даже гуманитарии будут кодить</div><div class="text-sm text-zinc-500">Литература, география, искусство — везде будет нужна основа программирования и работа с ИИ</div></div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-lime/10 flex items-center justify-center flex-shrink-0 mt-1"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" class="text-lime"><circle cx="10" cy="10" r="7"/><path d="M10 7v6M7 10h6"/></svg></div>
+                        <div><div class="font-semibold text-white mb-1">Нейросети — новый интернет</div><div class="text-sm text-zinc-500">Они уже вошли в нашу жизнь и скоро станут так же необходимы, как доступ в сеть</div></div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center flex-shrink-0 mt-1"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" class="text-sky-400"><path d="M3 17l6-12 4 8 4-4"/></svg></div>
+                        <div><div class="font-semibold text-white mb-1">Навык, который окупится</div><div class="text-sm text-zinc-500">Выпускники осваивают инструменты, с которыми можно зарабатывать уже с 15 лет</div></div>
+                    </div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section id="results" class="sec">
+    <div class="orb-3"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-extrabold leading-tight">Наш курс не волшебная палочка, но что <span class="grad-t">реально изменится</span></h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="reveal bz-o"><div class="bz-i p-6 md:p-8 h-full"><div class="text-3xl font-extrabold text-lime mb-3">+0,7</div><h3 class="font-bold text-lg mb-2">Вырастут оценки</h3><p class="text-sm text-zinc-500 leading-relaxed">В среднем ученики Зерокодер получают оценки на 0,7 баллов выше, чем сверстники. Ребёнок научится учиться эффективно с помощью ИИ</p></div></div>
+            <div class="reveal delay-1 bz-o"><div class="bz-i p-6 md:p-8 h-full"><div class="text-3xl font-extrabold text-accent mb-3">5-7 ч</div><h3 class="font-bold text-lg mb-2">Свободного времени</h3><p class="text-sm text-zinc-500 leading-relaxed">В неделю для родителя. Больше не нужно проверять домашку до поздней ночи — ребёнок справляется сам</p></div></div>
+            <div class="reveal delay-2 bz-o"><div class="bz-i p-6 md:p-8 h-full"><div class="text-3xl font-extrabold text-sky-400 mb-3">5-10K</div><h3 class="font-bold text-lg mb-2">Первый заработок</h3><p class="text-sm text-zinc-500 leading-relaxed">Научится зарабатывать карманные деньги самостоятельно. Первые 5-10 тыс. &#8381; уже в 14 лет</p></div></div>
+            <div class="reveal bz-o"><div class="bz-i p-6 md:p-8 h-full"><div class="w-12 h-12 rounded-2xl bg-rose-500/10 flex items-center justify-center mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-rose-400"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div><h3 class="font-bold text-lg mb-2">12 профессий за 9 месяцев</h3><p class="text-sm text-zinc-500 leading-relaxed">От дизайнера до блогера — ребёнок попробует каждую и выберет своё направление</p></div></div>
+            <div class="reveal delay-1 bz-o"><div class="bz-i p-6 md:p-8 h-full"><div class="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-amber-400"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4"/></svg></div><h3 class="font-bold text-lg mb-2">Мягкие навыки</h3><p class="text-sm text-zinc-500 leading-relaxed">Освоит эмоциональный интеллект, публичные выступления, коммуникацию, тайм-менеджмент и работу в команде</p></div></div>
+            <div class="reveal delay-2 bz-o"><div class="bz-i p-6 md:p-8 h-full"><div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-emerald-400"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="font-bold text-lg mb-2">Цифровая безопасность</h3><p class="text-sm text-zinc-500 leading-relaxed">Научится распознавать фейки, защищать данные и грамотно вести себя в интернете</p></div></div>
+        </div>
+        <div class="text-center mt-10"><a href="#signup" class="reveal btn-p bg-accent hover:bg-accentHover text-white rounded-full px-8 py-4 text-base font-semibold inline-flex items-center gap-3">Записаться на бесплатный урок <span class="btn-icon w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm">&#8599;</span></a></div>
+    </div>
+</section>
+
+<!-- ===== PROGRAM ===== -->
+<section id="program" class="sec">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-extrabold leading-tight">Каждая четверть — <span class="grad-t">новая профессия</span></h2>
+            <p class="reveal delay-1 text-zinc-400 mt-4 text-base md:text-lg max-w-2xl mx-auto">Обучение через практику: каждый урок привязан к реальному проекту</p>
+        </div>
+        <div class="space-y-3" id="accordion">
+            <div class="reveal acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-accent bg-accent/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">01</span><span class="font-bold text-base md:text-lg">Компьютерная грамотность</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Основы работы с компьютером, операционной системой. Можно с полного нуля — даже если впервые сел за ПК.</p></div></div></div></div>
+            <div class="reveal delay-1 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-lime bg-lime/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">02</span><span class="font-bold text-base md:text-lg">Цифровая безопасность</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Защита данных, распознавание фейков, авторские права, безопасность в социальных сетях.</p></div></div></div></div>
+            <div class="reveal delay-2 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-sky-400 bg-sky-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">03</span><span class="font-bold text-base md:text-lg">Школьные нейросети</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Для математики, естественных и гуманитарных наук. Учим не списывать, а формулировать вопросы для нейросетей так, чтобы ребёнок понимал материал</p></div></div></div></div>
+            <div class="reveal delay-3 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-rose-400 bg-rose-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">04</span><span class="font-bold text-base md:text-lg">Графический дизайнер</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Работа в Pixso (аналог Figma). Композиция, цвет, типографика + генерация с помощью нейросетей.</p></div></div></div></div>
+            <div class="reveal delay-4 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-amber-400 bg-amber-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">05</span><span class="font-bold text-base md:text-lg">Веб-разработчик</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Создание сайтов на Тильде. Свой первый лендинг — можно сразу начинать зарабатывать.</p></div></div></div></div>
+            <div class="reveal delay-5 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">06</span><span class="font-bold text-base md:text-lg">Геймдизайнер</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Scratch и Construct — создание своих игр от идеи до публикации. Учимся не только играть, но и создавать.</p></div></div></div></div>
+            <div class="reveal acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-pink-400 bg-pink-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">07</span><span class="font-bold text-base md:text-lg">Сценарист</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Написание историй, сценариев и диалогов с помощью ИИ. Развитие креативного мышления и навыков сторителлинга.</p></div></div></div></div>
+            <div class="reveal delay-1 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-violet-400 bg-violet-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">08</span><span class="font-bold text-base md:text-lg">Иллюстратор</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Создание иллюстраций и комиксов: от концепции до финального арта. Нейросети генерируют визуалы по промптам ученика.</p></div></div></div></div>
+            <div class="reveal delay-2 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-cyan-400 bg-cyan-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">09</span><span class="font-bold text-base md:text-lg">Саунд-дизайнер</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Создание музыки и звуковых эффектов с помощью ИИ. Свой первый трек за один урок.</p></div></div></div></div>
+            <div class="reveal delay-3 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-orange-400 bg-orange-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">10</span><span class="font-bold text-base md:text-lg">Режиссёр и монтажёр</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Съёмка и монтаж видеороликов. Генерация визуальных эффектов нейросетями. Публикация готового проекта.</p></div></div></div></div>
+            <div class="reveal delay-4 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-teal-400 bg-teal-500/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">11</span><span class="font-bold text-base md:text-lg">Джуниор-разработчик</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Основы программирования и предпринимательского мышления. Навык, с которым можно начать зарабатывать.</p></div></div></div></div>
+            <div class="reveal delay-5 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-white bg-white/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">12</span><span class="font-bold text-base md:text-lg">Блогер</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Создание и ведение блога. Работа с аудиторией, контент-план, продвижение — навыки, которые пригодятся в любой профессии.</p></div></div></div></div>
+            <div class="reveal acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><div class="flex items-center gap-4"><span class="text-xs font-bold text-lime bg-lime/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">13</span><span class="font-bold text-base md:text-lg">Финальный проект</span></div><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Итоговый проект, объединяющий все навыки. Сборка портфолио из лучших работ — готовый актив для будущей карьеры.</p></div></div></div></div>
+        </div>
+        <div class="text-center mt-10"><a href="#signup" class="reveal btn-p bg-accent hover:bg-accentHover text-white rounded-full px-8 py-4 text-base font-semibold inline-flex items-center gap-3">Записаться на бесплатный урок <span class="btn-icon w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm">&#8599;</span></a></div>
+    </div>
+</section>
+
+<!-- ===== FORMAT ===== -->
+<section class="sec">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-extrabold leading-tight">Полностью <span class="grad-t">онлайн</span></h2>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4">
+            <div class="reveal bz-o"><div class="bz-i p-6 text-center"><div class="text-4xl font-extrabold text-accent mb-2">9</div><div class="text-sm text-zinc-400">месяцев программы</div></div></div>
+            <div class="reveal delay-1 bz-o"><div class="bz-i p-6 text-center"><div class="text-4xl font-extrabold text-lime mb-2">24/7</div><div class="text-sm text-zinc-400">доступ к урокам</div></div></div>
+            <div class="reveal delay-2 bz-o"><div class="bz-i p-6 text-center"><div class="text-4xl font-extrabold text-rose-400 mb-2">С нуля</div><div class="text-sm text-zinc-400">начальный опыт</div></div></div>
+        </div>
+        <div class="reveal mt-6 bz-o"><div class="bz-i p-6 md:p-8 flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent"><rect x="3" y="4" width="22" height="16" rx="3"/><path d="M8 24h12M12 20v4M16 20v4"/></svg></div>
+            <div><div class="font-bold text-lg mb-1">Нужен только компьютер и интернет</div><p class="text-sm text-zinc-400">Windows 10+, веб-камера, мышка. Можно с полного нуля — даже если ребёнок впервые сел за компьютер. Удобный личный кабинет, все уроки в одном месте.</p></div>
+        </div></div>
+    </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing" class="sec">
+    <div class="orb-1" style="top:auto;bottom:-200px;right:auto;left:-200px"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-extrabold leading-tight">Обучение на курсе — это инвестиция в <span class="grad-t">будущее ребёнка</span></h2>
+            <p class="reveal delay-1 text-zinc-400 mt-4 text-base max-w-xl mx-auto">Рассрочка на 24 месяца. При оплате картой — дополнительная скидка</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+            <div class="reveal bz-o"><div class="bz-i p-7 md:p-9 flex flex-col h-full">
+                <div class="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 mb-6 self-start"><span class="text-[10px] uppercase tracking-[0.2em] font-medium text-zinc-400">Групповой</span></div>
+                <div class="mb-6">
+                    <div class="flex items-baseline gap-2 mb-1"><span class="text-4xl md:text-5xl font-extrabold text-lime">2 987</span><span class="text-xl text-zinc-400">&#8381;/мес</span></div>
+                    <div class="text-sm text-zinc-500 mt-1">рассрочка на 24 месяца</div>
+                    <div class="text-sm text-zinc-400 mt-3">или <span class="text-white font-semibold">71 700 &#8381;</span> при полной оплате сразу вместо 172 370 &#8381;</div>
+                </div>
+                <ul class="text-sm text-zinc-400 space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>Онлайн-уроки в группах от 3 человек</li>
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>10 месяцев поддержки куратора</li>
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>Возможна заморозка до 1 месяца</li>
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>Группы по возрастам</li>
+                </ul>
+                <a href="#signup" class="btn-p bg-accent hover:bg-accentHover text-white rounded-full px-6 py-3.5 text-sm font-semibold text-center w-full flex items-center justify-center gap-2">Записаться на бесплатный урок <span class="btn-icon w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs">&#8599;</span></a>
+            </div></div>
+            <div class="reveal delay-1 featured bz-o"><div class="bz-i p-7 md:p-9 flex flex-col h-full">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1"><span class="text-[10px] uppercase tracking-[0.2em] font-medium text-accent">Индивидуальный</span></div>
+                    <div class="inline-flex rounded-full bg-lime/10 border border-lime/20 px-2.5 py-0.5"><span class="text-[10px] uppercase tracking-[0.15em] font-bold text-lime">Хит</span></div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex items-baseline gap-2 mb-1"><span class="text-4xl md:text-5xl font-extrabold text-lime">4 154</span><span class="text-xl text-zinc-400">&#8381;/мес</span></div>
+                    <div class="text-sm text-zinc-500 mt-1">рассрочка на 24 месяца</div>
+                    <div class="text-sm text-zinc-400 mt-3">или <span class="text-white font-semibold">99 700 &#8381;</span> при полной оплате сразу вместо 250 000 &#8381;</div>
+                </div>
+                <ul class="text-sm text-zinc-400 space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>Онлайн-уроки 1 на 1 с педагогом</li>
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>10 месяцев поддержки куратора</li>
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>Возможна заморозка до 1 месяца</li>
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>Индивидуальный чат с куратором</li>
+                    <li class="flex items-start gap-3"><span class="w-1 h-1 rounded-full bg-accent mt-2 flex-shrink-0"></span>Удобное время — индивидуально</li>
+                </ul>
+                <a href="#signup" class="btn-p bg-accent hover:bg-accentHover text-white rounded-full px-6 py-3.5 text-sm font-semibold text-center w-full flex items-center justify-center gap-2">Записаться на бесплатный урок <span class="btn-icon w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs">&#8599;</span></a>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BONUSES ===== -->
+<section class="sec">
+    <div class="orb-3"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <p class="reveal text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-6">Мы в Зерокодере стремимся дать всестороннее развитие, поэтому дарим</p>
+            <h2 class="reveal delay-1 text-3xl md:text-5xl font-extrabold leading-tight">Бонусы к <span class="grad-t">программе</span></h2>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4">
+            <div class="reveal bz-o"><div class="bz-i p-6 h-full"><div class="text-sm font-bold text-lime mb-1">Бонус 1</div><h3 class="font-bold text-base mb-2">Курс ИИ для взрослых</h3><p class="text-xs text-zinc-500">Сами разберётесь в нейросетях параллельно с ребёнком</p></div></div>
+            <div class="reveal delay-1 bz-o"><div class="bz-i p-6 h-full"><div class="text-sm font-bold text-accent mb-1">Бонус 2</div><h3 class="font-bold text-base mb-2">Курс мягких навыков</h3><p class="text-xs text-zinc-500">Мнемотехника, эмоциональный интеллект, конфликтология</p></div></div>
+            <div class="reveal delay-2 bz-o"><div class="bz-i p-6 h-full"><div class="text-sm font-bold text-sky-400 mb-1">Бонус 3</div><h3 class="font-bold text-base mb-2">Нейроклуб на год</h3><p class="text-xs text-zinc-500">Доступ к нейроклубу для взрослых и детей + консультация нейропсихолога</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY ZEROCODER ===== -->
+<section class="sec">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-extrabold leading-tight">Почему <span class="grad-t">Зерокодер</span></h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="reveal bz-o"><div class="bz-i p-6 text-center"><div class="text-3xl font-extrabold text-white mb-1">10 000+</div><div class="text-sm text-zinc-500">выпускников</div></div></div>
+            <div class="reveal delay-1 bz-o"><div class="bz-i p-6 text-center"><div class="text-3xl font-extrabold text-white mb-1">300 млн &#8381;</div><div class="text-sm text-zinc-500">через карьерный центр</div></div></div>
+            <div class="reveal delay-2 bz-o"><div class="bz-i p-6 text-center"><div class="text-3xl font-extrabold text-white mb-1">Вузы</div><div class="text-sm text-zinc-500">преподаём в лучших</div></div></div>
+            <div class="reveal delay-3 bz-o"><div class="bz-i p-6 text-center"><div class="text-3xl font-extrabold text-white mb-1">Сколково</div><div class="text-sm text-zinc-500">лицензия и статус</div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="sec">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-extrabold leading-tight">Ответы на <span class="grad-t">ваши вопросы</span></h2>
+        </div>
+        <div class="space-y-3" id="faq-accordion">
+            <div class="reveal acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><span class="font-bold text-base">У ребёнка нет опыта — подойдёт?</span><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Да, можно с полного нуля — даже если ребёнок впервые сел за компьютер. Программа начинается с основ.</p></div></div></div></div>
+            <div class="reveal delay-1 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><span class="font-bold text-base">Ребёнок не будет просто списывать с ИИ?</span><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Нет. Мы учим не списывать, а формулировать вопросы для нейросетей так, чтобы ребёнок понимал материал.</p></div></div></div></div>
+            <div class="reveal delay-2 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><span class="font-bold text-base">Какой формат занятий?</span><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Полностью онлайн. Видеоуроки 24/7 + live-встречи каждую неделю. Групповой — мини-группы от 3 человек. Индивидуальный — 1 на 1 с педагогом в удобное время.</p></div></div></div></div>
+            <div class="reveal delay-3 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><span class="font-bold text-base">Есть ли рассрочка?</span><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Да, на 24 месяца. Групповой — от 2 987 &#8381;/мес, индивидуальный — от 4 154 &#8381;/мес. При оплате картой — дополнительная скидка.</p></div></div></div></div>
+            <div class="reveal delay-4 acc-item bz-o cursor-pointer" onclick="toggleAcc(this)"><div class="bz-i"><div class="flex items-center justify-between p-5 md:p-7"><span class="font-bold text-base">Что нужно для занятий?</span><svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-content"><div class="px-5 md:px-7 pb-6"><p class="text-sm text-zinc-400">Компьютер или ноутбук (Windows 10+), стабильный интернет (не мобильный), веб-камера и мышка. В идеале — своя почта.</p></div></div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section id="signup" class="sec">
+    <div class="orb-3"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+        <div class="reveal bz-o"><div class="bz-i p-10 md:p-16 text-center">
+            <div class="inline-flex rounded-full border border-lime/20 bg-lime/10 px-3 py-1 mb-6"><span class="text-[10px] uppercase tracking-[0.2em] font-bold text-lime">Бесплатный пробный урок</span></div>
+            <h2 class="text-3xl md:text-4xl font-extrabold leading-tight mb-4">Профессии будущего<br>начинаются сегодня</h2>
+            <p class="text-zinc-400 text-base md:text-lg mb-8 max-w-lg mx-auto">Запишите ребёнка на бесплатный урок — он попробует нейросети в деле и поймёт, подходит ли ему обучение</p>
+            <a href="#" class="btn-p bg-accent hover:bg-accentHover text-white rounded-full px-10 py-4 text-base font-semibold inline-flex items-center gap-3">Записаться на бесплатный урок <span class="btn-icon w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm">&#8599;</span></a>
+        </div></div>
+    </div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="sec" style="padding-top:3rem;padding-bottom:3rem">
+    <div class="max-w-5xl mx-auto">
+        <div class="reveal acc-item bz-o cursor-pointer" onclick="toggleAcc(this)">
+            <div class="bz-i">
+                <div class="flex items-center justify-between p-5 md:p-7">
+                    <span class="font-bold text-base md:text-lg">Глоссарий терминов</span>
+                    <svg class="acc-chev w-5 h-5 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="acc-content">
+                    <div class="px-5 md:px-7 pb-6">
+                        <dl class="space-y-3 text-sm">
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Midjourney</dt><dd class="text-zinc-400">— нейросеть для генерации изображений по текстовым описаниям</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">ChatGPT</dt><dd class="text-zinc-400">— текстовая нейросеть для диалога, ответов на вопросы и генерации текстов</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Pixso</dt><dd class="text-zinc-400">— онлайн-редактор для графического дизайна (аналог Figma)</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Тильда (Tilda)</dt><dd class="text-zinc-400">— конструктор сайтов без программирования</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Scratch</dt><dd class="text-zinc-400">— визуальный язык программирования для создания игр и анимаций</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Construct</dt><dd class="text-zinc-400">— платформа для создания 2D-игр без написания кода</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Yonote</dt><dd class="text-zinc-400">— приложение для создания заметок, инструкций и баз знаний</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Промпт</dt><dd class="text-zinc-400">— текстовый запрос, который пользователь отправляет нейросети для получения результата</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Геймдизайн</dt><dd class="text-zinc-400">— проектирование игровых механик, уровней и визуального стиля видеоигр</dd></div>
+                            <div class="flex flex-col sm:flex-row sm:gap-3"><dt class="font-semibold text-white sm:min-w-[160px] flex-shrink-0">Саунд-дизайн</dt><dd class="text-zinc-400">— создание звуковых эффектов и музыкального оформления для медиа-проектов</dd></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-12 px-4">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-lg font-extrabold tracking-tight text-white">ЗЕРОКОДЕР</div>
+        <div class="flex items-center gap-6">
+            <a href="#program" class="text-sm text-zinc-500 hover:text-white transition-colors duration-500">Программа</a>
+            <a href="#pricing" class="text-sm text-zinc-500 hover:text-white transition-colors duration-500">Стоимость</a>
+            <a href="#faq" class="text-sm text-zinc-500 hover:text-white transition-colors duration-500">Вопросы</a>
+        </div>
+        <div class="text-xs text-zinc-600">Образовательная лицензия. Статус Сколково.</div>
+    </div>
+</footer>
+
+<script>
+    const obs = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible') }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    function toggleAcc(item) {
+        const isOpen = item.classList.contains('open');
+        item.parentElement.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    }
+
+    let menuOpen = false;
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        const m = document.getElementById('mobileMenu'), l1 = document.getElementById('line1'), l2 = document.getElementById('line2');
+        if (menuOpen) { m.classList.add('open'); l1.style.transform = 'translateY(3px) rotate(45deg)'; l2.style.transform = 'translateY(-3px) rotate(-45deg)'; }
+        else { m.classList.remove('open'); l1.style.transform = ''; l2.style.transform = ''; }
+    }
+
+    window.addEventListener('scroll', () => {
+        document.querySelector('nav > div').style.background = scrollY > 100 ? 'rgba(5,5,8,.85)' : 'rgba(5,5,8,.6)';
+    }, { passive: true });
+</script>
+</body>
+</html>
