@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Диагностика чтения ребенка 7-11 лет | Матриус</title>
+  <title>Диагностика чтения ребёнка 7-11 лет | Матриус</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -50,8 +50,22 @@
       font-weight: 700;
       letter-spacing: .5px;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .logo span { color: var(--orange); }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #7BB3E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 2px solid rgba(255,255,255,.4);
+    }
+    .logo span { color: var(--white); }
     .header-cta {
       background: var(--orange);
       color: var(--white);
@@ -535,17 +549,28 @@
   <!-- HEADER -->
   <header class="header">
     <div class="container">
-      <a href="#" class="logo">Мат<span>р</span>иус</a>
-      <a href="#signup" class="header-cta">Записаться на урок</a>
+      <a href="#" class="logo">
+        <span class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M7 14c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <ellipse cx="12" cy="15.5" rx="4.5" ry="3.2" stroke="white" stroke-width="1.3" fill="none"/>
+            <path d="M10 15.5c.3-1 1.2-1.6 2-1.6s1.7.6 2 1.6" stroke="white" stroke-width=".8" fill="none"/>
+            <rect x="4.5" y="12.5" width="3" height="4" rx="1.5" fill="#333" stroke="white" stroke-width=".6"/>
+            <rect x="16.5" y="12.5" width="3" height="4" rx="1.5" fill="#333" stroke="white" stroke-width=".6"/>
+          </svg>
+        </span>
+        <span class="logo-text">Мат<span>р</span>иус</span>
+      </a>
+      <a href="#signup" class="header-cta">Записаться на&nbsp;бесплатную диагностику</a>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">Бесплатная диагностика за 20 минут</div>
-      <h1>Узнайте, как на самом деле читает ваш ребенок</h1>
-      <p>Проведите игровую самодиагностику чтения для детей 7-11 лет и получите четкую картину навыков вашего ребенка</p>
+      <div class="hero-badge">Бесплатная диагностика за&nbsp;20 минут</div>
+      <h1>Узнайте, как на&nbsp;самом деле читает ваш ребёнок</h1>
+      <p>Проведите игровую самодиагностику чтения для детей 7–11 лет и&nbsp;получите полную картину навыков вашего ребёнка</p>
       <a href="#quiz" class="hero-btn">Пройти диагностику</a>
     </div>
   </section>
@@ -553,8 +578,8 @@
   <!-- IMPORTANCE -->
   <section class="importance">
     <div class="container">
-      <h2 class="section-title">Почему скорочтение важно?</h2>
-      <p class="section-subtitle">Навык чтения напрямую влияет на успеваемость и уверенность ребенка в школе</p>
+      <h2 class="section-title">Почему важно знать скорость чтения вашего ребёнка?</h2>
+      <p class="section-subtitle">Навык чтения напрямую влияет на&nbsp;успеваемость и&nbsp;уверенность ребёнка в&nbsp;школе</p>
       <div class="importance-grid">
         <div class="importance-card">
           <div class="importance-icon blue">
@@ -562,7 +587,7 @@
           </div>
           <div>
             <h3>Понимание учебных текстов</h3>
-            <p>Дети с развитым навыком чтения понимают школьный материал в 2 раза лучше сверстников</p>
+            <p>Дети с развитым навыком чтения понимают школьный материал в&nbsp;2&nbsp;раза лучше сверстников</p>
           </div>
         </div>
         <div class="importance-card">
@@ -571,7 +596,7 @@
           </div>
           <div>
             <h3>Быстрое выполнение заданий</h3>
-            <p>Быстрое чтение освобождает ресурсы мозга для понимания смысла, а не распознавания слов</p>
+            <p>Быстрое чтение освобождает ресурсы мозга для понимания смысла, а&nbsp;не&nbsp;распознавания слов</p>
           </div>
         </div>
         <div class="importance-card">
@@ -579,8 +604,8 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4a6a98" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <div>
-            <h3>Самостоятельность в учебе</h3>
-            <p>Ребенок легче осваивает новый материал и увереннее чувствует себя на уроках</p>
+            <h3>Самостоятельность в&nbsp;учёбе</h3>
+            <p>Ребёнок легче осваивает новый материал и&nbsp;увереннее чувствует себя на&nbsp;уроках</p>
           </div>
         </div>
         <div class="importance-card">
@@ -589,7 +614,7 @@
           </div>
           <div>
             <h3>Любовь к чтению</h3>
-            <p>Когда чтение дается легко, ребенок начинает читать с удовольствием, а не по принуждению</p>
+            <p>Когда чтение даётся легко, ребёнок начинает читать с удовольствием, а&nbsp;не&nbsp;по&nbsp;принуждению</p>
           </div>
         </div>
       </div>
@@ -599,13 +624,13 @@
   <!-- QUIZ -->
   <section class="quiz" id="quiz">
     <div class="container">
-      <h2 class="section-title">Узнайте за минуту: нужна ли ребенку помощь?</h2>
-      <p class="section-subtitle">Ответьте на 5 коротких вопросов о вашем ребенке</p>
+      <h2 class="section-title">Узнайте за минуту: нужна ли ребёнку помощь?</h2>
+      <p class="section-subtitle">Ответьте на&nbsp;5 коротких вопросов</p>
       <div class="quiz-box">
-        <div class="quiz-counter">Вы отметили <span id="yesCount">0</span> из 5</div>
+        <div class="quiz-counter">Вы ответили на&nbsp;<span id="answeredCount">0</span> из&nbsp;5</div>
 
         <div class="quiz-item" data-index="0">
-          <span class="quiz-item-text">Ребенок долго делает уроки</span>
+          <span class="quiz-item-text">Ребёнок долго делает уроки</span>
           <div class="quiz-toggle">
             <button type="button" data-answer="yes" onclick="selectAnswer(0,'yes',this)">Да</button>
             <button type="button" data-answer="no" onclick="selectAnswer(0,'no',this)">Нет</button>
@@ -613,7 +638,7 @@
         </div>
 
         <div class="quiz-item" data-index="1">
-          <span class="quiz-item-text">Ребенок не любит читать</span>
+          <span class="quiz-item-text">Ребёнок не любит читать</span>
           <div class="quiz-toggle">
             <button type="button" data-answer="yes" onclick="selectAnswer(1,'yes',this)">Да</button>
             <button type="button" data-answer="no" onclick="selectAnswer(1,'no',this)">Нет</button>
@@ -621,7 +646,7 @@
         </div>
 
         <div class="quiz-item" data-index="2">
-          <span class="quiz-item-text">Ребенок читает, но не может пересказать текст</span>
+          <span class="quiz-item-text">Ребёнок читает, но&nbsp;не&nbsp;может пересказать текст</span>
           <div class="quiz-toggle">
             <button type="button" data-answer="yes" onclick="selectAnswer(2,'yes',this)">Да</button>
             <button type="button" data-answer="no" onclick="selectAnswer(2,'no',this)">Нет</button>
@@ -629,7 +654,7 @@
         </div>
 
         <div class="quiz-item" data-index="3">
-          <span class="quiz-item-text">Ребенок быстро устает при чтении</span>
+          <span class="quiz-item-text">Ребёнок неправильно ставит ударения в&nbsp;словах</span>
           <div class="quiz-toggle">
             <button type="button" data-answer="yes" onclick="selectAnswer(3,'yes',this)">Да</button>
             <button type="button" data-answer="no" onclick="selectAnswer(3,'no',this)">Нет</button>
@@ -637,7 +662,7 @@
         </div>
 
         <div class="quiz-item" data-index="4">
-          <span class="quiz-item-text">Ребенок путает или пропускает слова</span>
+          <span class="quiz-item-text">Ребёнок путает буквы или окончания в&nbsp;словах</span>
           <div class="quiz-toggle">
             <button type="button" data-answer="yes" onclick="selectAnswer(4,'yes',this)">Да</button>
             <button type="button" data-answer="no" onclick="selectAnswer(4,'no',this)">Нет</button>
@@ -655,22 +680,22 @@
   <section class="benefits">
     <div class="container">
       <h2 class="section-title">Что даст диагностика?</h2>
-      <p class="section-subtitle">За 20 минут вы узнаете три ключевых показателя, которые влияют на учебу</p>
+      <p class="section-subtitle">За 20 минут вы узнаете три ключевых показателя, которые влияют на&nbsp;учёбу</p>
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-num">1</div>
           <h3>Скорость чтения</h3>
-          <p>Узнаете, сколько слов в минуту читает ваш ребенок, и сравните с возрастной нормой по ФГОС</p>
+          <p>Узнаете, сколько слов в&nbsp;минуту читает ваш ребёнок, и&nbsp;сравните с&nbsp;возрастной нормой по&nbsp;ФГОС</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-num">2</div>
           <h3>Понимание текста</h3>
-          <p>Поймете, читает ли ребенок осознанно или механически, без понимания смысла прочитанного</p>
+          <p>Поймёте, читает ли ребёнок осознанно или механически, без понимания смысла прочитанного</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-num">3</div>
           <h3>Уровень внимания</h3>
-          <p>Увидите, насколько устойчива концентрация ребенка во время чтения и работы с текстом</p>
+          <p>Увидите, насколько устойчива концентрация ребёнка во&nbsp;время чтения и&nbsp;работы с&nbsp;текстом</p>
         </div>
       </div>
     </div>
@@ -681,17 +706,17 @@
     <div class="container">
       <div class="cta-wrapper">
         <div class="cta-text">
-          <h2>Запишитесь на бесплатный демо-урок по скорочтению</h2>
-          <p>Помогите ребенку читать легко и уверенно. На демо-уроке:</p>
+          <h2>Запишитесь на&nbsp;бесплатную диагностику по&nbsp;скорочтению</h2>
+          <p>Помогите ребёнку читать легко и&nbsp;уверенно. На&nbsp;ней:</p>
           <ul class="cta-list">
-            <li>Ребенок попробует специальные упражнения</li>
+            <li>Ребёнок попробует специальные упражнения</li>
             <li>Вы получите персональные рекомендации</li>
-            <li>Поймете, как помочь ребенку учиться легче</li>
+            <li>Поймёте, как помочь ребёнку учиться легче</li>
           </ul>
         </div>
         <div class="form-card">
-          <h3>Записаться на урок</h3>
-          <p class="form-sub">Оставьте заявку, и мы свяжемся с вами</p>
+          <h3>Записаться на&nbsp;диагностику</h3>
+          <p class="form-sub">Оставьте заявку, и&nbsp;мы свяжемся с&nbsp;вами</p>
           <form id="signupForm" onsubmit="handleSubmit(event)">
             <div class="form-group">
               <label for="name">Имя</label>
@@ -707,7 +732,7 @@
             </div>
             <button type="submit" class="form-submit">Записаться бесплатно</button>
           </form>
-          <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с&nbsp;политикой обработки персональных данных</p>
         </div>
       </div>
     </div>
@@ -745,24 +770,27 @@
 
     function updateQuiz() {
       const yesCount = answers.filter(a => a === 'yes').length;
-      document.getElementById('yesCount').textContent = yesCount;
+      const answered = answers.filter(a => a !== null).length;
+      document.getElementById('answeredCount').textContent = answered;
 
       const result = document.getElementById('quizResult');
-      const answered = answers.filter(a => a !== null).length;
 
       if (answered === 0) {
         result.className = 'quiz-result neutral';
-        result.innerHTML = '<p>Отвечайте на вопросы, чтобы получить рекомендацию</p>';
+        result.innerHTML = '<p>Отвечайте на\u00a0вопросы, чтобы получить рекомендацию</p>';
       } else if (yesCount >= 2) {
         result.className = 'quiz-result warning';
         result.innerHTML =
-          '<strong>Навык чтения уже может влиять на учебу</strong>' +
-          '<p>Вы отметили ' + yesCount + ' из 5 признаков. Это сигнал, что ребенку может быть полезна диагностика и развитие навыка чтения.</p>' +
-          '<a href="#signup" class="result-cta">Записаться на бесплатный урок</a>';
-      } else {
+          '<strong>Навык чтения уже может влиять на\u00a0учёбу</strong>' +
+          '<p>Вы\u00a0ответили \u00abДа\u00bb на\u00a0' + yesCount + ' из\u00a05 вопросов. Это сигнал, что ребёнку может быть полезна диагностика и\u00a0развитие навыка чтения.</p>' +
+          '<a href="#signup" class="result-cta">Записаться на\u00a0бесплатную диагностику</a>';
+      } else if (answered === 5) {
         result.className = 'quiz-result neutral';
         result.innerHTML =
-          '<p>Пока серьезных сигналов нет, но диагностика поможет увидеть полную картину навыков чтения вашего ребенка.</p>';
+          '<p>Пока серьёзных сигналов нет, но\u00a0диагностика поможет увидеть полную картину навыков чтения вашего ребёнка.</p>';
+      } else {
+        result.className = 'quiz-result neutral';
+        result.innerHTML = '<p>Продолжайте отвечать на\u00a0вопросы, чтобы получить рекомендацию</p>';
       }
     }
 
