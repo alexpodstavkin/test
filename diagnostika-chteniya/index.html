@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самодиагностика чтения ребёнка 7–11 лет | Матриус</title>
+    <meta name="description" content="Бесплатная игровая диагностика чтения для детей 7–11 лет. Узнайте скорость чтения, уровень понимания и внимания вашего ребёнка за 20 минут.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue-900: #1e2d4a;
+            --blue-800: #2a3f66;
+            --blue-700: #385681;
+            --blue-600: #4a6a98;
+            --blue-500: #5a7db3;
+            --blue-400: #6082b1;
+            --blue-300: #86a8d6;
+            --blue-200: #b4cce8;
+            --blue-100: #e8f0f9;
+            --orange-600: #d4521a;
+            --orange-500: #ef6432;
+            --orange-400: #ff7a4d;
+            --orange-300: #ffa280;
+            --white: #ffffff;
+            --gray-50: #f8f9fb;
+            --gray-100: #f1f3f7;
+            --gray-200: #e2e6ed;
+            --gray-300: #c8cdd8;
+            --gray-400: #9ba3b3;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-sm: 0 1px 3px rgba(30,45,74,.06), 0 1px 2px rgba(30,45,74,.04);
+            --shadow-md: 0 4px 16px rgba(30,45,74,.08);
+            --shadow-lg: 0 8px 32px rgba(30,45,74,.1);
+            --shadow-xl: 0 16px 48px rgba(30,45,74,.14);
+        }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(30,45,74,.92);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            transition: background .3s;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -.3px;
+        }
+
+        .logo-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--orange-500), var(--orange-400));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange-500);
+            color: var(--white);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .25s cubic-bezier(.4,0,.2,1);
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .header-cta:hover {
+            background: var(--orange-400);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(239,100,50,.35);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            padding: 120px 0 80px;
+            background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 40%, var(--blue-600) 70%, var(--blue-500) 100%);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(239,100,50,.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Decorative floating shapes */
+        .hero-decor {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-decor-1 {
+            width: 300px; height: 300px;
+            bottom: -100px; left: -80px;
+            background: rgba(255,255,255,.03);
+        }
+
+        .hero-decor-2 {
+            width: 120px; height: 120px;
+            top: 120px; right: 80px;
+            background: rgba(239,100,50,.08);
+        }
+
+        .hero-decor-3 {
+            width: 60px; height: 60px;
+            bottom: 180px; right: 200px;
+            background: rgba(255,255,255,.06);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .hero-text { max-width: 580px; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,.15);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: .3px;
+        }
+
+        .hero-badge-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse-dot 2s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(74,222,128,.4);
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .6; transform: scale(1.4); }
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            position: relative;
+            color: var(--orange-400);
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            bottom: 2px;
+            height: 4px;
+            background: var(--orange-400);
+            border-radius: 2px;
+            opacity: .4;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            line-height: 1.65;
+            opacity: .85;
+            margin-bottom: 36px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 420px;
+            border-radius: var(--radius-xl);
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+            border: 3px solid rgba(255,255,255,.12);
+        }
+
+        .hero-image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            color: var(--gray-800);
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 24px rgba(0,0,0,.12);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-image-badge .badge-icon {
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--white);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-stat-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(255,255,255,.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .hero-stat-num {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -.3px;
+            line-height: 1.2;
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            opacity: .6;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange-500);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+            box-shadow: 0 4px 24px rgba(239,100,50,.35);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-400);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(239,100,50,.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,.1);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .25s;
+            border: 1px solid rgba(255,255,255,.18);
+        }
+
+        .btn-secondary:hover { background: rgba(255,255,255,.18); }
+
+        /* ===== SECTION COMMON ===== */
+        section { padding: 96px 0; }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--orange-500);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px; height: 2px;
+            background: var(--orange-500);
+            border-radius: 1px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -.4px;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray-500);
+            max-width: 560px;
+            line-height: 1.6;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== WHY READING MATTERS ===== */
+        .why-matters { background: var(--gray-50); }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .why-card-large {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+        }
+
+        .why-card-large:hover {
+            border-color: transparent;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .why-card-large-img {
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .why-card-large .why-card-body {
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .why-card-large .why-card-body h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+
+        .why-card-large .why-card-body p {
+            font-size: 16px;
+            color: var(--gray-500);
+            line-height: 1.65;
+        }
+
+        .why-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--orange-500);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        /* Small info-cards styled like the reference (blue bg, white text, icon) */
+        .why-card-styled {
+            background: var(--blue-700);
+            border-radius: var(--radius-xl);
+            padding: 36px 32px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+        }
+
+        .why-card-styled:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(56,86,129,.3);
+        }
+
+        .why-card-styled::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.06);
+        }
+
+        .why-card-styled .card-highlight {
+            display: inline-block;
+            background: var(--orange-500);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .why-card-styled h3 {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+
+        .why-card-styled p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: .85;
+        }
+
+        .why-card-styled .card-icon {
+            position: absolute;
+            bottom: 24px; right: 28px;
+            font-size: 48px;
+            opacity: .25;
+        }
+
+        /* ===== QUIZ ===== */
+        .quiz { background: var(--white); }
+
+        .quiz-box {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 48px 44px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-200);
+        }
+
+        .quiz-progress {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .quiz-progress-bar {
+            flex: 1; height: 6px;
+            border-radius: 3px;
+            background: var(--gray-100);
+            transition: all .3s;
+        }
+
+        .quiz-progress-bar.filled { background: var(--orange-500); }
+
+        .quiz-counter {
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-400);
+            margin-bottom: 28px;
+            font-weight: 600;
+        }
+
+        .quiz-counter span { color: var(--orange-500); font-weight: 800; }
+
+        .quiz-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 22px;
+            border-radius: var(--radius-md);
+            margin-bottom: 10px;
+            background: var(--gray-50);
+            border: 2px solid transparent;
+            transition: all .25s cubic-bezier(.4,0,.2,1);
+        }
+
+        .quiz-item:hover { background: var(--blue-100); }
+
+        .quiz-item.active {
+            background: rgba(239,100,50,.04);
+            border-color: var(--orange-500);
+        }
+
+        .quiz-item-text { font-size: 15px; font-weight: 600; color: var(--gray-700); flex: 1; }
+
+        .quiz-toggle { display: flex; gap: 6px; flex-shrink: 0; }
+
+        .quiz-toggle button {
+            width: 56px; height: 38px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--gray-200);
+            background: var(--white);
+            font-size: 14px; font-weight: 700;
+            cursor: pointer;
+            transition: all .2s;
+            color: var(--gray-400);
+            font-family: inherit;
+        }
+
+        .quiz-toggle button:hover { border-color: var(--gray-300); color: var(--gray-600); }
+
+        .quiz-toggle button.selected-yes {
+            background: var(--orange-500); color: var(--white); border-color: var(--orange-500);
+            box-shadow: 0 2px 8px rgba(239,100,50,.3);
+        }
+
+        .quiz-toggle button.selected-no {
+            background: var(--blue-600); color: var(--white); border-color: var(--blue-600);
+            box-shadow: 0 2px 8px rgba(56,86,129,.3);
+        }
+
+        .quiz-result {
+            margin-top: 28px; padding: 28px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all .4s ease;
+        }
+
+        .quiz-result.neutral { background: var(--gray-50); border: 1px solid var(--gray-200); }
+
+        .quiz-result.warning {
+            background: linear-gradient(135deg, rgba(239,100,50,.06), rgba(239,100,50,.02));
+            border: 1px solid rgba(239,100,50,.15);
+        }
+
+        .quiz-result p { font-size: 15px; line-height: 1.6; color: var(--gray-600); }
+        .quiz-result strong { font-size: 17px; display: block; margin-bottom: 8px; color: var(--gray-900); }
+
+        .quiz-result .result-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            margin-top: 20px;
+            background: var(--orange-500); color: var(--white);
+            padding: 14px 32px; border-radius: 100px;
+            font-size: 15px; font-weight: 700;
+            text-decoration: none;
+            transition: all .25s;
+            box-shadow: 0 4px 16px rgba(239,100,50,.3);
+        }
+
+        .quiz-result .result-cta:hover { background: var(--orange-400); transform: translateY(-2px); }
+
+        /* ===== BENEFITS (3 keys) — redesigned ===== */
+        .benefits {
+            background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: -150px; right: -150px;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(239,100,50,.1) 0%, transparent 70%);
+        }
+
+        .benefits .section-title { color: var(--white); }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,.08);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,.1);
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255,255,255,.14);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,.15);
+        }
+
+        .benefit-num {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            background: var(--orange-500);
+            color: var(--white);
+            font-size: 22px; font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 16px rgba(239,100,50,.4);
+        }
+
+        .benefit-card h3 {
+            font-size: 20px; font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .benefit-card p {
+            font-size: 15px;
+            color: rgba(255,255,255,.7);
+            line-height: 1.6;
+        }
+
+        /* ===== STEPS ===== */
+        .how-it-works { background: var(--gray-50); }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 60px; right: 60px;
+            height: 2px;
+            background: var(--gray-200);
+        }
+
+        .step { text-align: center; position: relative; }
+
+        .step-circle {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--blue-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+            position: relative; z-index: 2;
+            transition: all .3s;
+        }
+
+        .step:hover .step-circle { border-color: var(--orange-500); transform: scale(1.08); }
+        .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--gray-900); }
+        .step p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+
+        /* ===== SOCIAL PROOF ===== */
+        .social-proof { background: var(--white); }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .proof-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            border: 1px solid var(--gray-100);
+        }
+
+        .proof-stars { display: flex; gap: 2px; margin-bottom: 16px; font-size: 16px; color: #f59e0b; }
+
+        .proof-text {
+            font-size: 15px; line-height: 1.6;
+            color: var(--gray-600); margin-bottom: 20px; font-style: italic;
+        }
+
+        .proof-author { display: flex; align-items: center; gap: 12px; }
+
+        .proof-avatar-circle {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue-300), var(--blue-500));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px; font-weight: 700; color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .proof-name { font-size: 14px; font-weight: 700; color: var(--gray-800); }
+        .proof-detail { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+
+        /* ===== FAQ ===== */
+        .faq { background: var(--gray-50); }
+
+        .faq-list { max-width: 720px; margin: 0 auto; }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+            transition: box-shadow .3s;
+        }
+
+        .faq-item:hover { box-shadow: var(--shadow-sm); }
+
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 22px 28px;
+            cursor: pointer;
+            font-size: 16px; font-weight: 600; color: var(--gray-800);
+            user-select: none; gap: 16px;
+        }
+
+        .faq-chevron {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px;
+            transition: all .3s;
+            color: var(--gray-500);
+        }
+
+        .faq-item.open .faq-chevron { background: var(--blue-100); color: var(--blue-700); transform: rotate(180deg); }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+
+        .faq-answer-inner { padding: 0 28px 24px; font-size: 15px; line-height: 1.65; color: var(--gray-500); }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
+            padding: 96px 0;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(239,100,50,.1) 0%, transparent 70%);
+        }
+
+        .cta-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 72px;
+            align-items: center;
+            position: relative; z-index: 2;
+        }
+
+        .cta-text h2 {
+            font-size: 36px; font-weight: 900;
+            line-height: 1.15; letter-spacing: -.3px;
+            margin-bottom: 20px;
+        }
+
+        .cta-text p { font-size: 17px; opacity: .85; line-height: 1.65; margin-bottom: 28px; }
+
+        .cta-checks { list-style: none; }
+
+        .cta-checks li {
+            display: flex; align-items: center; gap: 14px;
+            font-size: 16px; padding: 10px 0; font-weight: 500; opacity: .92;
+        }
+
+        .cta-check-icon {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: rgba(239,100,50,.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 44px 36px;
+            box-shadow: 0 16px 64px rgba(0,0,0,.2);
+        }
+
+        .form-card h3 { text-align: center; font-size: 22px; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; }
+        .form-card .form-sub { text-align: center; font-size: 14px; color: var(--gray-400); margin-bottom: 32px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; }
+
+        .form-group input {
+            width: 100%; padding: 14px 18px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 15px; transition: all .2s;
+            outline: none; font-family: inherit;
+            color: var(--gray-800); background: var(--gray-50);
+        }
+
+        .form-group input:focus { border-color: var(--blue-500); background: var(--white); box-shadow: 0 0 0 4px rgba(90,125,179,.1); }
+        .form-group input::placeholder { color: var(--gray-300); }
+
+        .form-submit {
+            width: 100%; padding: 16px;
+            background: var(--orange-500); color: var(--white);
+            border: none; border-radius: var(--radius-sm);
+            font-size: 16px; font-weight: 700;
+            cursor: pointer; transition: all .25s;
+            margin-top: 8px;
+            box-shadow: 0 4px 20px rgba(239,100,50,.3);
+            font-family: inherit;
+        }
+
+        .form-submit:hover { background: var(--orange-400); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(239,100,50,.4); }
+
+        .form-note { text-align: center; font-size: 12px; color: var(--gray-400); margin-top: 16px; line-height: 1.5; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--blue-900);
+            color: rgba(255,255,255,.5);
+            text-align: center;
+            padding: 32px 0;
+            font-size: 13px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 36px; }
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+            .hero-image-wrapper { max-width: 480px; margin: 0 auto; }
+            .hero-image { height: 320px; }
+            .section-title { font-size: 32px; }
+            .cta-wrapper { grid-template-columns: 1fr; gap: 48px; }
+            .cta-wrapper .form-card { max-width: 480px; margin: 0 auto; }
+            .why-card-large { grid-template-columns: 1fr; }
+            .why-card-large-img { min-height: 260px; }
+            .steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .steps::before { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 100px 0 70px; }
+            .hero h1 { font-size: 30px; }
+            .hero-sub { font-size: 16px; }
+            .hero-stats { gap: 20px; flex-wrap: wrap; }
+            section { padding: 72px 0; }
+            .section-title { font-size: 26px; }
+            .why-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .proof-grid { grid-template-columns: 1fr; }
+            .cta-text h2 { font-size: 28px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 90px 0 60px; }
+            .hero h1 { font-size: 26px; }
+            .hero-cta-group { flex-direction: column; }
+            .hero-stats { flex-direction: column; gap: 12px; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+            .quiz-box { padding: 28px 20px; }
+            .quiz-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .quiz-toggle { align-self: flex-end; }
+            .form-card { padding: 32px 24px; }
+            .header-cta { display: none; }
+            .header-inner { justify-content: center; }
+            .steps { grid-template-columns: 1fr; }
+            .section-header { margin-bottom: 48px; }
+            .why-card-large .why-card-body { padding: 28px 24px; }
+            .why-card-large .why-card-body h3 { font-size: 20px; }
+            .why-card-styled { padding: 28px 24px; }
+            .why-card-styled h3 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">М</div>
+                    Матриус
+                </a>
+                <a href="#signup" class="header-cta">Записаться на диагностику</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-decor hero-decor-1"></div>
+        <div class="hero-decor hero-decor-2"></div>
+        <div class="hero-decor hero-decor-3"></div>
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <div class="hero-badge-dot"></div>
+                        Бесплатно &middot; 20 минут &middot; Онлайн
+                    </div>
+                    <h1>Расскажем, как научить вашего ребёнка читать <span>в&nbsp;2&nbsp;раза быстрее</span></h1>
+                    <p class="hero-sub">Пройдите бесплатную диагностику и&nbsp;получите полную картину навыков чтения вашего ребёнка и&nbsp;персональные рекомендации от&nbsp;педагога</p>
+                    <div class="hero-cta-group">
+                        <a href="#quiz" class="btn-primary">Пройти экспресс-тест &darr;</a>
+                        <a href="#signup" class="btn-secondary">Записаться на диагностику</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">&#9201;</div>
+                            <div>
+                                <div class="hero-stat-num">20 мин</div>
+                                <div class="hero-stat-label">Длительность</div>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">&#127891;</div>
+                            <div>
+                                <div class="hero-stat-num">7&ndash;11 лет</div>
+                                <div class="hero-stat-label">Возраст детей</div>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">&#9989;</div>
+                            <div>
+                                <div class="hero-stat-num">3 навыка</div>
+                                <div class="hero-stat-label">Проверяем</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <!-- SLOT: hero — фото 1, девочка с книгой -->
+                    <img src="img/hero.jpg" alt="Девочка читает книгу" class="hero-image">
+                    <div class="hero-image-badge">
+                        <div class="badge-icon">&#10003;</div>
+                        Игровой формат &mdash; без стресса
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY READING MATTERS -->
+    <section class="why-matters">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Почему это важно</div>
+                <h2 class="section-title">Чтение&nbsp;&mdash; это фундамент всей учёбы вашего ребёнка</h2>
+                <p class="section-subtitle">Когда ребёнок читает медленно или не&nbsp;понимает текст, это влияет на&nbsp;каждый школьный предмет</p>
+            </div>
+
+            <div class="why-grid">
+                <!-- Large feature card with photo 2 -->
+                <div class="why-card-large">
+                    <!-- SLOT: why-main — фото 2, двое детей -->
+                    <img src="img/why-main.jpg" alt="Дети за учёбой" class="why-card-large-img">
+                    <div class="why-card-body">
+                        <div class="why-tag">Исследования подтверждают</div>
+                        <h3>Дети с&nbsp;развитым навыком чтения понимают учебный материал в&nbsp;2&nbsp;раза лучше</h3>
+                        <p>Когда скорость чтения становится выше, мозг может сосредоточиться на&nbsp;понимании смысла, а&nbsp;не&nbsp;на&nbsp;распознавании слов. Именно поэтому развитие чтения приводит к&nbsp;тому, что ребёнку становится проще учиться в&nbsp;целом.</p>
+                    </div>
+                </div>
+
+                <!-- Two styled info-cards (like reference photo 4) -->
+                <div class="why-card-styled">
+                    <span class="card-highlight">Меньше стресса</span>
+                    <h3>Быстрое чтение = меньше времени на&nbsp;уроки</h3>
+                    <p>Наша задача&nbsp;&mdash; помочь вашему ребёнку справляться с&nbsp;домашними заданиями быстрее и&nbsp;без стресса, оставляя время на&nbsp;отдых и&nbsp;хобби</p>
+                    <div class="card-icon">&#128218;</div>
+                </div>
+
+                <div class="why-card-styled">
+                    <span class="card-highlight">Поддержка</span>
+                    <h3>Уверенность и&nbsp;любовь к&nbsp;чтению</h3>
+                    <p>Наша задача&nbsp;&mdash; поддержать вашего ребёнка и&nbsp;освободить ваше время. Чтобы вы&nbsp;были для него опорой, а&nbsp;не&nbsp;ещё одним учителем</p>
+                    <div class="card-icon">&#128204;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="quiz" id="quiz">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Экспресс-тест</div>
+                <h2 class="section-title">Нужна ли&nbsp;ребёнку помощь с&nbsp;чтением?</h2>
+                <p class="section-subtitle">Ответьте на 5 коротких вопросов</p>
+            </div>
+            <div class="quiz-box">
+                <div class="quiz-progress" id="quizProgress">
+                    <div class="quiz-progress-bar"></div>
+                    <div class="quiz-progress-bar"></div>
+                    <div class="quiz-progress-bar"></div>
+                    <div class="quiz-progress-bar"></div>
+                    <div class="quiz-progress-bar"></div>
+                </div>
+                <div class="quiz-counter">Вы ответили на <span id="answeredCount">0</span> из 5</div>
+
+                <div class="quiz-item" data-index="0">
+                    <div class="quiz-item-text">Ребёнок долго делает уроки</div>
+                    <div class="quiz-toggle">
+                        <button onclick="selectAnswer(0,'yes',this)">Да</button>
+                        <button onclick="selectAnswer(0,'no',this)">Нет</button>
+                    </div>
+                </div>
+                <div class="quiz-item" data-index="1">
+                    <div class="quiz-item-text">Ребёнок не любит читать</div>
+                    <div class="quiz-toggle">
+                        <button onclick="selectAnswer(1,'yes',this)">Да</button>
+                        <button onclick="selectAnswer(1,'no',this)">Нет</button>
+                    </div>
+                </div>
+                <div class="quiz-item" data-index="2">
+                    <div class="quiz-item-text">Ребёнок читает, но не может пересказать текст</div>
+                    <div class="quiz-toggle">
+                        <button onclick="selectAnswer(2,'yes',this)">Да</button>
+                        <button onclick="selectAnswer(2,'no',this)">Нет</button>
+                    </div>
+                </div>
+                <div class="quiz-item" data-index="3">
+                    <div class="quiz-item-text">Ребёнок неправильно ставит ударения в словах</div>
+                    <div class="quiz-toggle">
+                        <button onclick="selectAnswer(3,'yes',this)">Да</button>
+                        <button onclick="selectAnswer(3,'no',this)">Нет</button>
+                    </div>
+                </div>
+                <div class="quiz-item" data-index="4">
+                    <div class="quiz-item-text">Ребёнок путает буквы или окончания в словах</div>
+                    <div class="quiz-toggle">
+                        <button onclick="selectAnswer(4,'yes',this)">Да</button>
+                        <button onclick="selectAnswer(4,'no',this)">Нет</button>
+                    </div>
+                </div>
+
+                <div class="quiz-result neutral" id="quizResult">
+                    <p>Ответьте на вопросы, чтобы получить рекомендацию</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS (3 keys) — redesigned with dark bg -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Вы&nbsp;узнаете три ключевых показателя всего за&nbsp;20&nbsp;минут</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-num">1</div>
+                    <h3>Скорость чтения</h3>
+                    <p>Узнаете, сколько слов в&nbsp;минуту читает ваш ребёнок, и&nbsp;сравните с&nbsp;возрастной нормой по&nbsp;ФГОС</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-num">2</div>
+                    <h3>Понимание текста</h3>
+                    <p>Поймёте, читает ли&nbsp;ребёнок осознанно или механически, без понимания смысла прочитанного</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-num">3</div>
+                    <h3>Уровень внимания</h3>
+                    <p>Увидите, насколько устойчива концентрация ребёнка во&nbsp;время чтения и&nbsp;работы с&nbsp;текстом</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:48px;position:relative;z-index:2;">
+                <a href="#signup" class="btn-primary" style="box-shadow:0 4px 24px rgba(0,0,0,.2);">Записаться на&nbsp;диагностику</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Диагностика проходит в&nbsp;4&nbsp;простых шага</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-circle">&#128221;</div>
+                    <h3>Наблюдение</h3>
+                    <p>Заполните короткий блок наблюдений о&nbsp;привычках чтения ребёнка</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">&#9201;&#65039;</div>
+                    <h3>Скорость чтения</h3>
+                    <p>Ребёнок читает текст вслух 1&nbsp;минуту&nbsp;&mdash; вы&nbsp;считаете слова</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">&#128161;</div>
+                    <h3>Понимание</h3>
+                    <p>Пересказ и&nbsp;вопросы по&nbsp;содержанию&nbsp;&mdash; проверяем осмысленность</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">&#128269;</div>
+                    <h3>Внимание</h3>
+                    <p>Задания на&nbsp;поиск слов и&nbsp;предложений в&nbsp;тексте</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Что говорят родители после диагностики</h2>
+            </div>
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="proof-text">Была уверена, что сын читает нормально. Оказалось, скорость ниже нормы на&nbsp;30%. Записались на&nbsp;курс, через месяц результат заметно улучшился.</p>
+                    <div class="proof-author">
+                        <div class="proof-avatar-circle">А</div>
+                        <div>
+                            <div class="proof-name">Анна К.</div>
+                            <div class="proof-detail">Сын, 8 лет</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="proof-text">Диагностика заняла 20&nbsp;минут, а&nbsp;дочке понравилось&nbsp;&mdash; восприняла как игру. Теперь понимаю, на&nbsp;что обращать внимание при чтении.</p>
+                    <div class="proof-author">
+                        <div class="proof-avatar-circle">М</div>
+                        <div>
+                            <div class="proof-name">Мария С.</div>
+                            <div class="proof-detail">Дочь, 10 лет</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="proof-text">Ребёнок читал быстро, но&nbsp;не&nbsp;понимал текст. Без диагностики мы&nbsp;бы&nbsp;этого не&nbsp;заметили. Спасибо за&nbsp;чёткие рекомендации!</p>
+                    <div class="proof-author">
+                        <div class="proof-avatar-circle">Е</div>
+                        <div>
+                            <div class="proof-name">Елена В.</div>
+                            <div class="proof-detail">Сын, 9 лет</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Частые вопросы</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Что нужно для диагностики?</span>
+                        <div class="faq-chevron">&#9660;</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Компьютер или планшет, таймер на&nbsp;телефоне и&nbsp;20&nbsp;минут свободного времени. Специальных знаний не&nbsp;требуется&nbsp;&mdash; вы&nbsp;просто следуете инструкциям на&nbsp;экране.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Это тест или экзамен?</span>
+                        <div class="faq-chevron">&#9660;</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Нет, это игровая диагностика. Здесь нет оценок и&nbsp;нет &laquo;правильно&raquo; или &laquo;неправильно&raquo;. Задача&nbsp;&mdash; просто увидеть, как ребёнок читает сейчас, без давления.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Для какого возраста подходит?</span>
+                        <div class="faq-chevron">&#9660;</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Диагностика разработана для детей 7&ndash;11&nbsp;лет (1&ndash;5&nbsp;класс). Тексты и&nbsp;задания адаптированы под этот возраст.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Что делать, если результат ниже нормы?</span>
+                        <div class="faq-chevron">&#9660;</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Это не&nbsp;повод для беспокойства, а&nbsp;точка роста. После диагностики вы&nbsp;сможете записаться на&nbsp;бесплатный урок с&nbsp;опытным преподавателем. На&nbsp;уроке педагог разберёт результаты вашего ребёнка, расскажет, что делать дальше, и&nbsp;составит персональный план развития навыка чтения.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Диагностика бесплатная?</span>
+                        <div class="faq-chevron">&#9660;</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Да, самодиагностика полностью бесплатна. Вы&nbsp;также можете записаться на&nbsp;бесплатный пробный урок с&nbsp;педагогом для более детальной оценки.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / FORM -->
+    <section class="cta-section" id="signup">
+        <div class="container">
+            <div class="cta-wrapper">
+                <div class="cta-text">
+                    <h2>Запишите ребёнка на&nbsp;бесплатную диагностику чтения</h2>
+                    <p>За&nbsp;20&nbsp;минут вы&nbsp;получите полную картину навыков чтения вашего ребёнка и&nbsp;персональные рекомендации от&nbsp;педагога.</p>
+                    <ul class="cta-checks">
+                        <li><div class="cta-check-icon">&#10003;</div> Узнаете реальную скорость чтения</li>
+                        <li><div class="cta-check-icon">&#10003;</div> Поймёте уровень понимания текста</li>
+                        <li><div class="cta-check-icon">&#10003;</div> Получите план развития навыка</li>
+                    </ul>
+                </div>
+
+                <div class="form-card">
+                    <h3>Записаться на диагностику</h3>
+                    <p class="form-sub">Оставьте заявку &mdash; мы свяжемся с вами</p>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label>Имя родителя</label>
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Телефон</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Электронная почта</label>
+                            <input type="email" name="email" placeholder="email@example.com" required>
+                        </div>
+                        <button type="submit" class="form-submit">Записаться бесплатно</button>
+                        <p class="form-note">Нажимая кнопку, вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных данных</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Онлайн-школа Матриус. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        var answers = [null, null, null, null, null];
+        function selectAnswer(i, a, btn) {
+            answers[i] = a;
+            var item = btn.closest('.quiz-item');
+            item.querySelectorAll('.quiz-toggle button').forEach(function(b) { b.classList.remove('selected-yes','selected-no'); });
+            if (a === 'yes') { btn.classList.add('selected-yes'); item.classList.add('active'); }
+            else { btn.classList.add('selected-no'); item.classList.remove('active'); }
+            updateQuiz();
+        }
+        function updateQuiz() {
+            var yc = answers.filter(function(a){return a==='yes'}).length;
+            var ac = answers.filter(function(a){return a!==null}).length;
+            document.getElementById('answeredCount').textContent = ac;
+            document.querySelectorAll('.quiz-progress-bar').forEach(function(b,i){b.classList.toggle('filled',answers[i]!==null)});
+            var r = document.getElementById('quizResult');
+            if (!ac) { r.className='quiz-result neutral'; r.innerHTML='<p>Ответьте на вопросы, чтобы получить рекомендацию</p>'; }
+            else if (yc>=2) { r.className='quiz-result warning'; r.innerHTML='<strong>Навык чтения уже может влиять на учёбу</strong><p>Вы ответили \u00abДа\u00bb на '+yc+' из 5 вопросов. Это сигнал, что ребёнку будет полезна диагностика и развитие навыка чтения.</p><a href="#signup" class="result-cta">Записаться на диагностику \u2192</a>'; }
+            else if (ac===5) { r.className='quiz-result neutral'; r.innerHTML='<strong>Серьёзных сигналов пока нет</strong><p>Но диагностика поможет увидеть полную картину навыков чтения и найти точки роста.</p><a href="#signup" class="result-cta">Записаться на диагностику \u2192</a>'; }
+            else { r.className='quiz-result neutral'; r.innerHTML='<p>Продолжайте отвечать, чтобы получить рекомендацию</p>'; }
+        }
+        function handleSubmit(e) {
+            e.preventDefault(); var btn=e.target.querySelector('.form-submit');
+            btn.textContent='Заявка отправлена!'; btn.style.background='#22c55e'; btn.disabled=true;
+            setTimeout(function(){btn.textContent='Записаться бесплатно';btn.style.background='';btn.disabled=false;e.target.reset()},3000);
+        }
+        var ph=document.getElementById('phone');
+        ph.addEventListener('input',function(){var v=this.value.replace(/\D/g,'');if(!v.length){this.value='';return}if(v[0]==='8')v='7'+v.slice(1);if(v[0]!=='7')v='7'+v;var f='+7';if(v.length>1)f+=' ('+v.slice(1,4);if(v.length>4)f+=') '+v.slice(4,7);if(v.length>7)f+='-'+v.slice(7,9);if(v.length>9)f+='-'+v.slice(9,11);this.value=f});
+        function toggleFaq(el){var item=el.parentElement,ans=item.querySelector('.faq-answer'),open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(fi){fi.classList.remove('open');fi.querySelector('.faq-answer').style.maxHeight=null});if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}}
+        window.addEventListener('scroll',function(){document.querySelector('.header').style.background=window.scrollY>50?'rgba(30,45,74,.98)':'rgba(30,45,74,.92)'});
+    </script>
+</body>
+</html>
