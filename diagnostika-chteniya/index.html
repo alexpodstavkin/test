@@ -88,16 +88,10 @@
             letter-spacing: -.3px;
         }
 
-        .logo-icon {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--orange-500), var(--orange-400));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 900;
-            color: var(--white);
+        .logo-img {
+            height: 44px;
+            width: auto;
+            display: block;
         }
 
         .header-cta {
@@ -289,7 +283,7 @@
 
         .hero-stats {
             display: flex;
-            gap: 40px;
+            gap: 32px;
         }
 
         .hero-stat {
@@ -306,6 +300,7 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
+            flex-shrink: 0;
         }
 
         .hero-stat-num {
@@ -955,7 +950,23 @@
             .hero { padding: 100px 0 70px; }
             .hero h1 { font-size: 30px; }
             .hero-sub { font-size: 16px; }
-            .hero-stats { gap: 20px; flex-wrap: wrap; }
+            .hero-stats {
+                gap: 0;
+                background: rgba(255,255,255,.08);
+                border-radius: var(--radius-lg);
+                padding: 4px;
+                border: 1px solid rgba(255,255,255,.1);
+            }
+            .hero-stat {
+                flex: 1;
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+                padding: 16px 8px;
+            }
+            .hero-stat-icon { width: 36px; height: 36px; font-size: 18px; }
+            .hero-stat-num { font-size: 18px; }
+            .hero-stat-label { font-size: 11px; }
             section { padding: 72px 0; }
             .section-title { font-size: 26px; }
             .why-grid { grid-template-columns: 1fr; }
@@ -968,7 +979,8 @@
             .hero { padding: 90px 0 60px; }
             .hero h1 { font-size: 26px; }
             .hero-cta-group { flex-direction: column; }
-            .hero-stats { flex-direction: column; gap: 12px; }
+            .hero-stat-num { font-size: 16px; }
+            .hero-stat { padding: 12px 4px; }
             .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
             .quiz-box { padding: 28px 20px; }
             .quiz-item { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -992,8 +1004,7 @@
         <div class="container">
             <div class="header-inner">
                 <a href="#" class="logo">
-                    <div class="logo-icon">М</div>
-                    Матриус
+                    <img src="img/logo.png" alt="Матриус" class="logo-img">
                 </a>
                 <a href="#signup" class="header-cta">Записаться на диагностику</a>
             </div>
@@ -1010,7 +1021,7 @@
                 <div class="hero-text">
                     <div class="hero-badge">
                         <div class="hero-badge-dot"></div>
-                        Бесплатно &middot; 20 минут &middot; Онлайн
+                        Бесплатно &middot; 20 минут
                     </div>
                     <h1>Расскажем, как научить вашего ребёнка читать <span>в&nbsp;2&nbsp;раза быстрее</span></h1>
                     <p class="hero-sub">Пройдите бесплатную диагностику и&nbsp;получите полную картину навыков чтения вашего ребёнка и&nbsp;персональные рекомендации от&nbsp;педагога</p>
@@ -1085,7 +1096,7 @@
 
                 <div class="why-card-styled">
                     <span class="card-highlight">Поддержка</span>
-                    <h3>Уверенность и&nbsp;любовь к&nbsp;чтению</h3>
+                    <h3>Поддержка интереса и&nbsp;мотивации</h3>
                     <p>Наша задача&nbsp;&mdash; поддержать вашего ребёнка и&nbsp;освободить ваше время. Чтобы вы&nbsp;были для него опорой, а&nbsp;не&nbsp;ещё одним учителем</p>
                     <div class="card-icon">&#128204;</div>
                 </div>
