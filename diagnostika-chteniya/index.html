@@ -778,44 +778,143 @@
             line-height: 1.6;
         }
 
-        /* ===== STEPS ===== */
+        /* ===== DEPTH COMPARE (10 points) ===== */
         .how-it-works { background: var(--gray-50); }
 
-        .steps {
+        .depth-compare {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr 2fr;
             gap: 24px;
+            align-items: stretch;
+        }
+
+        .depth-compare-col {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 36px 32px;
+            border: 1px solid var(--gray-200);
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+        }
+
+        .depth-compare-school {
+            background: var(--gray-100);
+            opacity: .95;
+        }
+
+        .depth-compare-ours {
+            background: var(--white);
+            border: 2px solid var(--orange-500);
+            box-shadow: 0 8px 32px rgba(239,100,50,.08);
             position: relative;
         }
 
-        .steps::before {
-            content: '';
+        .depth-compare-ours::before {
+            content: 'Что получите вы';
             position: absolute;
-            top: 36px;
-            left: 60px; right: 60px;
-            height: 2px;
-            background: var(--gray-200);
+            top: -12px;
+            left: 32px;
+            background: var(--orange-500);
+            color: var(--white);
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
         }
 
-        .step { text-align: center; position: relative; }
+        .depth-compare-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-200);
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-        .step-circle {
-            width: 72px; height: 72px;
+        .depth-compare-label {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--gray-900);
+        }
+
+        .depth-compare-count {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-500);
+        }
+
+        .depth-compare-ours .depth-compare-count {
+            color: var(--orange-500);
+            background: rgba(239,100,50,.08);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        .depth-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .depth-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.45;
+        }
+
+        .depth-compare-school .depth-list li {
+            color: var(--gray-500);
+        }
+
+        .depth-dot {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-            background: var(--white);
-            border: 3px solid var(--blue-200);
+            background: var(--orange-500);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            margin: 0 auto 20px;
-            position: relative; z-index: 2;
-            transition: all .3s;
+            margin-top: 1px;
+            position: relative;
         }
 
-        .step:hover .step-circle { border-color: var(--orange-500); transform: scale(1.08); }
-        .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--gray-900); }
-        .step p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+        .depth-dot::after {
+            content: '';
+            width: 6px;
+            height: 3px;
+            border-left: 2px solid var(--white);
+            border-bottom: 2px solid var(--white);
+            transform: rotate(-45deg) translate(1px, -1px);
+        }
+
+        .depth-dot.muted {
+            background: var(--gray-300);
+        }
+
+        .depth-note {
+            margin-top: 36px;
+            padding: 22px 28px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .depth-note strong {
+            color: var(--gray-900);
+            font-weight: 700;
+        }
 
         /* ===== SOCIAL PROOF ===== */
         .social-proof { background: var(--white); }
@@ -1080,8 +1179,7 @@
             .why-card-large { grid-template-columns: 1fr; }
             .why-card-large-img-wrap { min-height: 240px; }
             .why-card-large-img { min-height: 240px; }
-            .steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-            .steps::before { display: none; }
+            .depth-compare { grid-template-columns: 1fr; gap: 32px; }
             .cta-text h2 { font-size: 34px; }
         }
 
@@ -1112,7 +1210,8 @@
             .cta-form-card { padding: 28px 22px; }
             .header-cta { display: none; }
             .header-inner { justify-content: center; }
-            .steps { grid-template-columns: 1fr; }
+            .depth-compare-col { padding: 28px 22px; }
+            .depth-compare-ours::before { left: 20px; }
             .section-header { margin-bottom: 48px; }
             .why-card-large .why-card-body { padding: 28px 24px; }
             .why-card-large .why-card-body h3 { font-size: 20px; }
@@ -1262,35 +1361,47 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- DEPTH — 10 points -->
     <section class="how-it-works">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Самодиагностика дома</div>
-                <h2 class="section-title">Вы&nbsp;сами проведёте её&nbsp;за&nbsp;4&nbsp;простых шага</h2>
-                <p class="section-subtitle">Никакого специалиста рядом не&nbsp;нужно: вы&nbsp;следуете инструкциям, а&nbsp;ребёнок читает как в&nbsp;игре.</p>
+                <div class="section-label">Глубже, чем в&nbsp;школе</div>
+                <h2 class="section-title">10&nbsp;пунктов, которые не&nbsp;покажут в&nbsp;школе</h2>
+                <p class="section-subtitle">В&nbsp;школе обычно проверяют только скорость чтения. Самодиагностика даёт полную картину&nbsp;&mdash; от&nbsp;скорости и&nbsp;понимания до&nbsp;поведения ребёнка во&nbsp;время чтения.</p>
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-circle">&#128221;</div>
-                    <h3>Вы&nbsp;заполните наблюдения</h3>
-                    <p>Отметите в&nbsp;шаблоне, как ребёнок обычно читает и&nbsp;делает уроки</p>
+
+            <div class="depth-compare">
+                <div class="depth-compare-col depth-compare-school">
+                    <div class="depth-compare-head">
+                        <div class="depth-compare-label">В&nbsp;школе</div>
+                        <div class="depth-compare-count">1 показатель</div>
+                    </div>
+                    <ul class="depth-list">
+                        <li><span class="depth-dot muted"></span> Скорость чтения (слов/мин)</li>
+                    </ul>
                 </div>
-                <div class="step">
-                    <div class="step-circle">&#9201;&#65039;</div>
-                    <h3>Ребёнок прочитает текст</h3>
-                    <p>Вслух 1&nbsp;минуту&nbsp;&mdash; вы&nbsp;зафиксируете скорость и&nbsp;качество чтения</p>
+                <div class="depth-compare-col depth-compare-ours">
+                    <div class="depth-compare-head">
+                        <div class="depth-compare-label">В&nbsp;самодиагностике</div>
+                        <div class="depth-compare-count">10&nbsp;показателей</div>
+                    </div>
+                    <ul class="depth-list">
+                        <li><span class="depth-dot"></span> Скорость чтения с&nbsp;привязкой к&nbsp;норме по&nbsp;ФГОС</li>
+                        <li><span class="depth-dot"></span> Плавность: читает с&nbsp;остановками или ровно</li>
+                        <li><span class="depth-dot"></span> Ошибки и&nbsp;запинки при чтении вслух</li>
+                        <li><span class="depth-dot"></span> Возвраты к&nbsp;уже прочитанным словам</li>
+                        <li><span class="depth-dot"></span> Пропуски и&nbsp;замены слов похожими</li>
+                        <li><span class="depth-dot"></span> Потеря строки в&nbsp;процессе чтения</li>
+                        <li><span class="depth-dot"></span> Умение пересказать текст своими словами</li>
+                        <li><span class="depth-dot"></span> Понимание героев и&nbsp;ключевых деталей</li>
+                        <li><span class="depth-dot"></span> Осмысленность ответов на&nbsp;вопросы</li>
+                        <li><span class="depth-dot"></span> Устойчивость внимания при работе с&nbsp;текстом</li>
+                    </ul>
                 </div>
-                <div class="step">
-                    <div class="step-circle">&#128161;</div>
-                    <h3>Ребёнок перескажет прочитанное</h3>
-                    <p>А&nbsp;вы&nbsp;поймёте, насколько осознанно он&nbsp;понимает текст</p>
-                </div>
-                <div class="step">
-                    <div class="step-circle">&#128269;</div>
-                    <h3>Вы&nbsp;проверите внимание</h3>
-                    <p>Дадите ребёнку простые задания на&nbsp;поиск слов и&nbsp;предложений</p>
-                </div>
+            </div>
+
+            <div class="depth-note">
+                Школа оценивает только одну цифру. Вы&nbsp;увидите <strong>10&nbsp;конкретных наблюдений</strong>&nbsp;&mdash; и&nbsp;поймёте, где именно нужна помощь, а&nbsp;где ребёнок справляется отлично.
             </div>
         </div>
     </section>
