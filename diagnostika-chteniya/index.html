@@ -909,6 +909,57 @@
             background: var(--gray-300);
         }
 
+        .depth-teaser {
+            margin-top: 16px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(90deg, rgba(239,100,50,.08), rgba(239,100,50,.02));
+            border: 1px dashed rgba(239,100,50,.35);
+            border-radius: var(--radius-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .depth-teaser::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(45deg, transparent 0, transparent 10px, rgba(239,100,50,.025) 10px, rgba(239,100,50,.025) 20px);
+            pointer-events: none;
+        }
+
+        .depth-teaser-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--orange-500);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .depth-teaser-text {
+            font-size: 14px;
+            line-height: 1.45;
+            color: var(--gray-700);
+            position: relative;
+            z-index: 2;
+        }
+
+        .depth-teaser-text strong {
+            color: var(--orange-600);
+            font-weight: 800;
+        }
+
         .depth-note {
             margin-top: 36px;
             padding: 32px 36px;
@@ -1425,8 +1476,8 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Глубже школы. Проще, чем с&nbsp;книгой дома</div>
-                <h2 class="section-title">Самодиагностика включает в&nbsp;себя 10&nbsp;пунктов, которые не&nbsp;покажут в&nbsp;школе</h2>
-                <p class="section-subtitle">В&nbsp;школе вы&nbsp;услышите только &laquo;читает N&nbsp;слов в&nbsp;минуту&raquo;. А&nbsp;дома с&nbsp;обычной книгой легко упустить важное&nbsp;&mdash; вы&nbsp;не&nbsp;знаете, на&nbsp;что смотреть. Самодиагностика за&nbsp;20&nbsp;минут даёт полную карту навыка: где ребёнок справляется, а&nbsp;где именно нужна помощь.</p>
+                <h2 class="section-title">Самодиагностика включает в&nbsp;себя 20&nbsp;пунктов, которые не&nbsp;покажут в&nbsp;школе</h2>
+                <p class="section-subtitle">Учитель скажет &laquo;читает N&nbsp;слов в&nbsp;минуту&raquo;. А&nbsp;дома с&nbsp;обычной книгой легко упустить важное&nbsp;&mdash; вы&nbsp;не&nbsp;знаете, на&nbsp;что смотреть.</p>
             </div>
 
             <div class="depth-compare">
@@ -1441,22 +1492,25 @@
                 </div>
                 <div class="depth-compare-col depth-compare-ours">
                     <div class="depth-compare-head">
-                        <div class="depth-compare-label">В&nbsp;самодиагностике</div>
-                        <div class="depth-compare-count">10&nbsp;точек роста</div>
+                        <div class="depth-compare-label">Самодиагностика Matrius</div>
+                        <div class="depth-compare-count">20&nbsp;пунктов</div>
                     </div>
                     <ul class="depth-list">
-                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Реальную скорость</strong> чтения с&nbsp;привязкой к&nbsp;норме по&nbsp;ФГОС</span></li>
-                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Сильные и&nbsp;слабые стороны</strong> ребёнка&nbsp;&mdash; где справляется, где буксует</span></li>
-                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Конкретные наблюдения</strong> вместо догадок и&nbsp;ощущений</span></li>
-                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Понимание, нужна&nbsp;ли помощь педагога</strong>&nbsp;&mdash; или ребёнок справляется сам</span></li>
-                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Готовые рекомендации</strong> методистов к&nbsp;каждому блоку самодиагностики</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Измерит скорость</strong> чтения с&nbsp;привязкой к&nbsp;норме по&nbsp;ФГОС</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Выявит ошибки</strong> и&nbsp;запинки при чтении вслух</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Заметит, теряет&nbsp;ли</strong> ребёнок строку в&nbsp;тексте</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Покажет глубину</strong> понимания прочитанного</span></li>
                     </ul>
+                    <div class="depth-teaser">
+                        <div class="depth-teaser-icon">+</div>
+                        <div class="depth-teaser-text">и&nbsp;ещё <strong>16&nbsp;пунктов</strong> про качество чтения, внимание и&nbsp;осмысленность</div>
+                    </div>
                 </div>
             </div>
 
             <div class="depth-note">
-                <p>Школьная проверка даёт одну цифру в&nbsp;дневнике. Чтение по&nbsp;книге дома&nbsp;&mdash; только процесс, без выводов. <strong>Самодиагностика&nbsp;&mdash; это полный разбор навыка за&nbsp;один вечер.</strong> Без оценок, стресса и&nbsp;походов к&nbsp;репетитору.</p>
-                <a href="#signup" class="depth-note-cta">Скачать сценарий бесплатно &rarr;</a>
+                <p><strong>Самодиагностика за&nbsp;20&nbsp;минут даёт полную карту навыка: где ребёнок справляется, а&nbsp;где именно нужна помощь.</strong></p>
+                <a href="#signup" class="depth-note-cta">Получить материалы &rarr;</a>
             </div>
         </div>
     </section>
