@@ -7,7 +7,7 @@
     <meta name="description" content="Бесплатная игровая диагностика чтения для детей 7–11 лет. Узнайте скорость чтения, уровень понимания и внимания вашего ребёнка за 20 минут.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -136,7 +136,6 @@
             pointer-events: none;
         }
 
-        /* Decorative floating shapes */
         .hero-decor {
             position: absolute;
             border-radius: 50%;
@@ -236,7 +235,6 @@
             align-items: center;
             gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 48px;
         }
 
         .hero-image-wrapper {
@@ -250,69 +248,7 @@
             object-fit: cover;
             box-shadow: 0 20px 60px rgba(0,0,0,.25);
             border: 3px solid rgba(255,255,255,.12);
-        }
-
-        .hero-image-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 16px;
-            background: rgba(255,255,255,.12);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,.15);
-            color: var(--white);
-            padding: 12px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .hero-image-badge .badge-icon {
-            width: 24px; height: 24px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4ade80, #22c55e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: var(--white);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 32px;
-        }
-
-        .hero-stat {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .hero-stat-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            background: rgba(255,255,255,.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .hero-stat-num {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -.3px;
-            line-height: 1.2;
-        }
-
-        .hero-stat-label {
-            font-size: 12px;
-            opacity: .6;
-            font-weight: 500;
+            display: block;
         }
 
         .btn-primary {
@@ -352,6 +288,8 @@
             text-decoration: none;
             transition: all .25s;
             border: 1px solid rgba(255,255,255,.18);
+            cursor: pointer;
+            font-family: inherit;
         }
 
         .btn-secondary:hover { background: rgba(255,255,255,.18); }
@@ -390,7 +328,7 @@
         .section-subtitle {
             font-size: 18px;
             color: var(--gray-500);
-            max-width: 560px;
+            max-width: 600px;
             line-height: 1.6;
         }
 
@@ -417,7 +355,6 @@
             grid-column: 1 / -1;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0;
             background: var(--white);
             border-radius: var(--radius-xl);
             overflow: hidden;
@@ -431,11 +368,19 @@
             transform: translateY(-4px);
         }
 
+        .why-card-large-img-wrap {
+            width: 100%;
+            min-height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
         .why-card-large-img {
+            width: 100%;
             height: 100%;
             min-height: 320px;
             object-fit: cover;
-            width: 100%;
+            display: block;
         }
 
         .why-card-large .why-card-body {
@@ -471,7 +416,6 @@
             letter-spacing: .5px;
         }
 
-        /* Small info-cards styled like the reference (blue bg, white text, icon) */
         .why-card-styled {
             background: var(--blue-700);
             border-radius: var(--radius-xl);
@@ -528,123 +472,203 @@
             opacity: .25;
         }
 
-        /* ===== QUIZ ===== */
+        /* ===== QUIZ (progressive) ===== */
         .quiz { background: var(--white); }
 
         .quiz-box {
-            max-width: 680px;
+            max-width: 640px;
             margin: 0 auto;
             background: var(--white);
             border-radius: var(--radius-xl);
             padding: 48px 44px;
             box-shadow: var(--shadow-xl);
             border: 1px solid var(--gray-200);
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
         }
 
         .quiz-progress {
             display: flex;
             gap: 8px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .quiz-progress-bar {
-            flex: 1; height: 6px;
+            flex: 1;
+            height: 6px;
             border-radius: 3px;
             background: var(--gray-100);
             transition: all .3s;
         }
 
         .quiz-progress-bar.filled { background: var(--orange-500); }
+        .quiz-progress-bar.current { background: var(--orange-300); }
 
         .quiz-counter {
             text-align: center;
             font-size: 14px;
             color: var(--gray-400);
-            margin-bottom: 28px;
+            margin-bottom: 36px;
             font-weight: 600;
         }
 
         .quiz-counter span { color: var(--orange-500); font-weight: 800; }
 
-        .quiz-item {
+        .quiz-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+        .quiz-question {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--gray-900);
+            margin-bottom: 40px;
+            text-align: center;
+            min-height: 80px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 18px 22px;
+            justify-content: center;
+            transition: opacity .3s;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            transition: opacity .3s;
+        }
+
+        .quiz-btn {
+            flex: 1;
+            max-width: 180px;
+            padding: 16px 28px;
             border-radius: var(--radius-md);
-            margin-bottom: 10px;
-            background: var(--gray-50);
-            border: 2px solid transparent;
-            transition: all .25s cubic-bezier(.4,0,.2,1);
-        }
-
-        .quiz-item:hover { background: var(--blue-100); }
-
-        .quiz-item.active {
-            background: rgba(239,100,50,.04);
-            border-color: var(--orange-500);
-        }
-
-        .quiz-item-text { font-size: 15px; font-weight: 600; color: var(--gray-700); flex: 1; }
-
-        .quiz-toggle { display: flex; gap: 6px; flex-shrink: 0; }
-
-        .quiz-toggle button {
-            width: 56px; height: 38px;
-            border-radius: var(--radius-sm);
             border: 2px solid var(--gray-200);
             background: var(--white);
-            font-size: 14px; font-weight: 700;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
             transition: all .2s;
-            color: var(--gray-400);
+            color: var(--gray-700);
             font-family: inherit;
         }
 
-        .quiz-toggle button:hover { border-color: var(--gray-300); color: var(--gray-600); }
-
-        .quiz-toggle button.selected-yes {
-            background: var(--orange-500); color: var(--white); border-color: var(--orange-500);
-            box-shadow: 0 2px 8px rgba(239,100,50,.3);
+        .quiz-btn:hover {
+            border-color: var(--orange-500);
+            color: var(--orange-500);
+            transform: translateY(-2px);
         }
 
-        .quiz-toggle button.selected-no {
-            background: var(--blue-600); color: var(--white); border-color: var(--blue-600);
-            box-shadow: 0 2px 8px rgba(56,86,129,.3);
+        .quiz-btn.yes:hover {
+            background: var(--orange-500);
+            color: var(--white);
+            border-color: var(--orange-500);
+        }
+
+        .quiz-btn.no:hover {
+            background: var(--blue-600);
+            color: var(--white);
+            border-color: var(--blue-600);
+        }
+
+        .quiz-fade {
+            opacity: 0;
         }
 
         .quiz-result {
-            margin-top: 28px; padding: 28px;
-            border-radius: var(--radius-md);
             text-align: center;
-            transition: all .4s ease;
+            padding: 12px 0;
         }
 
-        .quiz-result.neutral { background: var(--gray-50); border: 1px solid var(--gray-200); }
-
-        .quiz-result.warning {
-            background: linear-gradient(135deg, rgba(239,100,50,.06), rgba(239,100,50,.02));
-            border: 1px solid rgba(239,100,50,.15);
+        .quiz-result-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 20px;
         }
 
-        .quiz-result p { font-size: 15px; line-height: 1.6; color: var(--gray-600); }
-        .quiz-result strong { font-size: 17px; display: block; margin-bottom: 8px; color: var(--gray-900); }
+        .quiz-result.warning .quiz-result-icon {
+            background: rgba(239,100,50,.12);
+            color: var(--orange-500);
+        }
 
-        .quiz-result .result-cta {
-            display: inline-flex; align-items: center; gap: 8px;
-            margin-top: 20px;
-            background: var(--orange-500); color: var(--white);
-            padding: 14px 32px; border-radius: 100px;
-            font-size: 15px; font-weight: 700;
+        .quiz-result.neutral .quiz-result-icon {
+            background: var(--blue-100);
+            color: var(--blue-700);
+        }
+
+        .quiz-result h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .quiz-result p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-600);
+            margin-bottom: 28px;
+        }
+
+        .quiz-result-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quiz-result-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange-500);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 700;
             text-decoration: none;
             transition: all .25s;
             box-shadow: 0 4px 16px rgba(239,100,50,.3);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
         }
 
-        .quiz-result .result-cta:hover { background: var(--orange-400); transform: translateY(-2px); }
+        .quiz-result-cta:hover {
+            background: var(--orange-400);
+            transform: translateY(-2px);
+        }
 
-        /* ===== BENEFITS (3 keys) — redesigned ===== */
+        .quiz-restart {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--gray-600);
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .25s;
+            border: 2px solid var(--gray-200);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .quiz-restart:hover {
+            border-color: var(--gray-400);
+            color: var(--gray-800);
+        }
+
+        /* ===== BENEFITS (3 keys) ===== */
         .benefits {
             background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
             color: var(--white);
@@ -662,6 +686,7 @@
         }
 
         .benefits .section-title { color: var(--white); }
+        .benefits .section-subtitle { color: rgba(255,255,255,.75); }
 
         .benefits-grid {
             display: grid;
@@ -832,94 +857,193 @@
 
         .faq-answer-inner { padding: 0 28px 24px; font-size: 15px; line-height: 1.65; color: var(--gray-500); }
 
-        /* ===== CTA SECTION ===== */
+        /* ===== CTA SECTION — new minimal style ===== */
         .cta-section {
-            background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
+            background: var(--white);
             padding: 96px 0;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            bottom: -100px; left: -100px;
-            width: 400px; height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(239,100,50,.1) 0%, transparent 70%);
+            border-top: 1px solid var(--gray-200);
         }
 
         .cta-wrapper {
             display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 72px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .cta-text .cta-label {
+            display: inline-flex;
             align-items: center;
-            position: relative; z-index: 2;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--gray-500);
+            margin-bottom: 28px;
+            text-transform: uppercase;
+        }
+
+        .cta-text .cta-label-num {
+            font-weight: 700;
+            color: var(--gray-400);
         }
 
         .cta-text h2 {
-            font-size: 36px; font-weight: 900;
-            line-height: 1.15; letter-spacing: -.3px;
-            margin-bottom: 20px;
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -.5px;
+            color: var(--gray-900);
+            margin-bottom: 24px;
         }
 
-        .cta-text p { font-size: 17px; opacity: .85; line-height: 1.65; margin-bottom: 28px; }
-
-        .cta-checks { list-style: none; }
-
-        .cta-checks li {
-            display: flex; align-items: center; gap: 14px;
-            font-size: 16px; padding: 10px 0; font-weight: 500; opacity: .92;
+        .cta-text h2 .italic {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--gray-700);
         }
 
-        .cta-check-icon {
+        .cta-text > p {
+            font-size: 16px;
+            color: var(--gray-500);
+            line-height: 1.6;
+            margin-bottom: 36px;
+            max-width: 460px;
+        }
+
+        .cta-list {
+            list-style: none;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .cta-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .cta-list li strong {
+            color: var(--gray-900);
+            font-weight: 700;
+        }
+
+        .cta-list-icon {
             flex-shrink: 0;
-            width: 28px; height: 28px;
-            border-radius: 50%;
-            background: rgba(239,100,50,.2);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--gray-600);
+            margin-top: 2px;
         }
 
-        .form-card {
+        .cta-form-card {
             background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 44px 36px;
-            box-shadow: 0 16px 64px rgba(0,0,0,.2);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-md);
         }
 
-        .form-card h3 { text-align: center; font-size: 22px; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; }
-        .form-card .form-sub { text-align: center; font-size: 14px; color: var(--gray-400); margin-bottom: 32px; }
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; }
+        .cta-form-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .cta-form-card .form-sub {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        .form-group { margin-bottom: 18px; }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
         .form-group input {
-            width: 100%; padding: 14px 18px;
-            border: 2px solid var(--gray-200);
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--gray-200);
             border-radius: var(--radius-sm);
-            font-size: 15px; transition: all .2s;
-            outline: none; font-family: inherit;
-            color: var(--gray-800); background: var(--gray-50);
+            font-size: 15px;
+            transition: all .2s;
+            outline: none;
+            font-family: inherit;
+            color: var(--gray-800);
+            background: var(--white);
         }
 
-        .form-group input:focus { border-color: var(--blue-500); background: var(--white); box-shadow: 0 0 0 4px rgba(90,125,179,.1); }
+        .form-group input:focus {
+            border-color: var(--gray-800);
+            box-shadow: 0 0 0 3px rgba(31,41,55,.06);
+        }
+
         .form-group input::placeholder { color: var(--gray-300); }
 
         .form-submit {
-            width: 100%; padding: 16px;
-            background: var(--orange-500); color: var(--white);
-            border: none; border-radius: var(--radius-sm);
-            font-size: 16px; font-weight: 700;
-            cursor: pointer; transition: all .25s;
+            width: 100%;
+            padding: 16px;
+            background: var(--gray-900);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .25s;
             margin-top: 8px;
-            box-shadow: 0 4px 20px rgba(239,100,50,.3);
             font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .form-submit:hover { background: var(--orange-400); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(239,100,50,.4); }
+        .form-submit:hover {
+            background: var(--gray-700);
+            transform: translateY(-1px);
+        }
 
-        .form-note { text-align: center; font-size: 12px; color: var(--gray-400); margin-top: 16px; line-height: 1.5; }
+        .form-note {
+            font-size: 12px;
+            color: var(--gray-400);
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+
+        .form-stub-banner {
+            margin-top: 20px;
+            padding: 14px 18px;
+            background: #fef3c7;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            color: #92400e;
+            font-weight: 600;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            text-align: center;
+        }
 
         /* ===== FOOTER ===== */
         .footer {
@@ -938,53 +1062,39 @@
             .hero-image { height: 320px; }
             .section-title { font-size: 32px; }
             .cta-wrapper { grid-template-columns: 1fr; gap: 48px; }
-            .cta-wrapper .form-card { max-width: 480px; margin: 0 auto; }
             .why-card-large { grid-template-columns: 1fr; }
-            .why-card-large-img { min-height: 260px; }
+            .why-card-large-img-wrap { min-height: 240px; }
+            .why-card-large-img { min-height: 240px; }
             .steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
             .steps::before { display: none; }
+            .cta-text h2 { font-size: 34px; }
         }
 
         @media (max-width: 768px) {
             .hero { padding: 100px 0 70px; }
             .hero h1 { font-size: 30px; }
             .hero-sub { font-size: 16px; }
-            .hero-stats {
-                gap: 0;
-                background: rgba(255,255,255,.08);
-                border-radius: var(--radius-lg);
-                padding: 4px;
-                border: 1px solid rgba(255,255,255,.1);
-            }
-            .hero-stat {
-                flex: 1;
-                flex-direction: column;
-                text-align: center;
-                gap: 8px;
-                padding: 16px 8px;
-            }
-            .hero-stat-icon { width: 36px; height: 36px; font-size: 18px; }
-            .hero-stat-num { font-size: 18px; }
-            .hero-stat-label { font-size: 11px; }
             section { padding: 72px 0; }
             .section-title { font-size: 26px; }
             .why-grid { grid-template-columns: 1fr; }
             .benefits-grid { grid-template-columns: 1fr; }
             .proof-grid { grid-template-columns: 1fr; }
             .cta-text h2 { font-size: 28px; }
+            .quiz-question { font-size: 22px; }
         }
 
         @media (max-width: 600px) {
             .hero { padding: 90px 0 60px; }
             .hero h1 { font-size: 26px; }
-            .hero-cta-group { flex-direction: column; }
-            .hero-stat-num { font-size: 16px; }
-            .hero-stat { padding: 12px 4px; }
+            .hero-cta-group { flex-direction: column; align-items: stretch; }
             .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-            .quiz-box { padding: 28px 20px; }
-            .quiz-item { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .quiz-toggle { align-self: flex-end; }
-            .form-card { padding: 32px 24px; }
+            .quiz-box { padding: 32px 24px; min-height: 360px; }
+            .quiz-question { font-size: 19px; min-height: 60px; }
+            .quiz-buttons { flex-direction: column; gap: 10px; }
+            .quiz-btn { max-width: none; width: 100%; }
+            .quiz-result-actions { flex-direction: column; }
+            .quiz-result-cta, .quiz-restart { width: 100%; justify-content: center; }
+            .cta-form-card { padding: 28px 22px; }
             .header-cta { display: none; }
             .header-inner { justify-content: center; }
             .steps { grid-template-columns: 1fr; }
@@ -993,6 +1103,7 @@
             .why-card-large .why-card-body h3 { font-size: 20px; }
             .why-card-styled { padding: 28px 24px; }
             .why-card-styled h3 { font-size: 18px; }
+            .cta-text h2 { font-size: 26px; }
         }
     </style>
 </head>
@@ -1005,7 +1116,7 @@
                 <a href="#" class="logo">
                     <img src="img/logo.png" alt="Матриус" class="logo-img">
                 </a>
-                <a href="#signup" class="header-cta">Записаться на диагностику</a>
+                <a href="#signup" class="header-cta">Получить материалы</a>
             </div>
         </div>
     </header>
@@ -1022,43 +1133,15 @@
                         <div class="hero-badge-dot"></div>
                         Бесплатно &middot; 20 минут
                     </div>
-                    <h1>Расскажем, как научить вашего ребёнка читать <span>в&nbsp;2&nbsp;раза быстрее</span></h1>
-                    <p class="hero-sub">Пройдите бесплатную диагностику и&nbsp;получите полную картину навыков чтения вашего ребёнка и&nbsp;персональные рекомендации от&nbsp;педагога</p>
+                    <h1>Узнайте качество чтения <span>вашего ребёнка</span></h1>
+                    <p class="hero-sub">Короткая домашняя диагностика для родителей. За&nbsp;20&nbsp;минут в&nbsp;формате игры вы&nbsp;увидите скорость чтения, уровень понимания текста и&nbsp;концентрацию ребёнка&nbsp;&mdash; и&nbsp;поймёте, где именно стоит помочь</p>
                     <div class="hero-cta-group">
                         <a href="#quiz" class="btn-primary">Пройти экспресс-тест &darr;</a>
-                        <a href="#signup" class="btn-secondary">Записаться на диагностику</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <div class="hero-stat-icon">&#9201;</div>
-                            <div>
-                                <div class="hero-stat-num">20 мин</div>
-                                <div class="hero-stat-label">Длительность</div>
-                            </div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-icon">&#127891;</div>
-                            <div>
-                                <div class="hero-stat-num">7&ndash;11 лет</div>
-                                <div class="hero-stat-label">Возраст детей</div>
-                            </div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-icon">&#9989;</div>
-                            <div>
-                                <div class="hero-stat-num">3 навыка</div>
-                                <div class="hero-stat-label">Проверяем</div>
-                            </div>
-                        </div>
+                        <a href="#signup" class="btn-secondary">Получить материалы</a>
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
-                    <!-- SLOT: hero — фото 1, девочка с книгой -->
                     <img src="img/hero.jpg" alt="Девочка читает книгу" class="hero-image">
-                    <div class="hero-image-badge">
-                        <div class="badge-icon">&#10003;</div>
-                        Игровой формат &mdash; без стресса
-                    </div>
                 </div>
             </div>
         </div>
@@ -1068,16 +1151,16 @@
     <section class="why-matters">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Почему это важно</div>
+                <div class="section-label">Почему важно знать скорость чтения</div>
                 <h2 class="section-title">Чтение&nbsp;&mdash; это фундамент всей учёбы вашего ребёнка</h2>
                 <p class="section-subtitle">Когда ребёнок читает медленно или не&nbsp;понимает текст, это влияет на&nbsp;каждый школьный предмет</p>
             </div>
 
             <div class="why-grid">
-                <!-- Large feature card with photo 2 -->
                 <div class="why-card-large">
-                    <!-- SLOT: why-main — фото 2, двое детей -->
-                    <img src="img/why-main.jpg" alt="Дети за учёбой" class="why-card-large-img">
+                    <div class="why-card-large-img-wrap">
+                        <img src="img/why-main.jpg" alt="Дети за учёбой" class="why-card-large-img">
+                    </div>
                     <div class="why-card-body">
                         <div class="why-tag">Исследования подтверждают</div>
                         <h3>Дети с&nbsp;развитым навыком чтения понимают учебный материал в&nbsp;2&nbsp;раза лучше</h3>
@@ -1085,7 +1168,6 @@
                     </div>
                 </div>
 
-                <!-- Two styled info-cards (like reference photo 4) -->
                 <div class="why-card-styled">
                     <span class="card-highlight">Меньше стресса</span>
                     <h3>Быстрое чтение = меньше времени на&nbsp;уроки</h3>
@@ -1103,72 +1185,41 @@
         </div>
     </section>
 
-    <!-- QUIZ -->
+    <!-- QUIZ (progressive) -->
     <section class="quiz" id="quiz">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Экспресс-тест</div>
-                <h2 class="section-title">Нужна ли&nbsp;ребёнку помощь с&nbsp;чтением?</h2>
-                <p class="section-subtitle">Ответьте на 5 коротких вопросов</p>
+                <h2 class="section-title">Пять признаков, которые замечают родители</h2>
+                <p class="section-subtitle">Отметьте, что подходит к&nbsp;вашему ребёнку. В&nbsp;конце подскажем, стоит ли&nbsp;делать полную самодиагностику.</p>
             </div>
-            <div class="quiz-box">
+            <div class="quiz-box" id="quizBox">
                 <div class="quiz-progress" id="quizProgress">
-                    <div class="quiz-progress-bar"></div>
+                    <div class="quiz-progress-bar current"></div>
                     <div class="quiz-progress-bar"></div>
                     <div class="quiz-progress-bar"></div>
                     <div class="quiz-progress-bar"></div>
                     <div class="quiz-progress-bar"></div>
                 </div>
-                <div class="quiz-counter">Вы ответили на <span id="answeredCount">0</span> из 5</div>
+                <div class="quiz-counter">Вопрос <span id="currentQ">1</span> из 5</div>
 
-                <div class="quiz-item" data-index="0">
-                    <div class="quiz-item-text">Ребёнок долго делает уроки</div>
-                    <div class="quiz-toggle">
-                        <button onclick="selectAnswer(0,'yes',this)">Да</button>
-                        <button onclick="selectAnswer(0,'no',this)">Нет</button>
+                <div class="quiz-stage" id="quizStage">
+                    <div class="quiz-question" id="quizQuestion">Ребёнок долго делает уроки</div>
+                    <div class="quiz-buttons" id="quizButtons">
+                        <button class="quiz-btn yes" onclick="answer('yes')">Да</button>
+                        <button class="quiz-btn no" onclick="answer('no')">Нет</button>
                     </div>
-                </div>
-                <div class="quiz-item" data-index="1">
-                    <div class="quiz-item-text">Ребёнок не любит читать</div>
-                    <div class="quiz-toggle">
-                        <button onclick="selectAnswer(1,'yes',this)">Да</button>
-                        <button onclick="selectAnswer(1,'no',this)">Нет</button>
-                    </div>
-                </div>
-                <div class="quiz-item" data-index="2">
-                    <div class="quiz-item-text">Ребёнок читает, но не может пересказать текст</div>
-                    <div class="quiz-toggle">
-                        <button onclick="selectAnswer(2,'yes',this)">Да</button>
-                        <button onclick="selectAnswer(2,'no',this)">Нет</button>
-                    </div>
-                </div>
-                <div class="quiz-item" data-index="3">
-                    <div class="quiz-item-text">Ребёнок неправильно ставит ударения в словах</div>
-                    <div class="quiz-toggle">
-                        <button onclick="selectAnswer(3,'yes',this)">Да</button>
-                        <button onclick="selectAnswer(3,'no',this)">Нет</button>
-                    </div>
-                </div>
-                <div class="quiz-item" data-index="4">
-                    <div class="quiz-item-text">Ребёнок путает буквы или окончания в словах</div>
-                    <div class="quiz-toggle">
-                        <button onclick="selectAnswer(4,'yes',this)">Да</button>
-                        <button onclick="selectAnswer(4,'no',this)">Нет</button>
-                    </div>
-                </div>
-
-                <div class="quiz-result neutral" id="quizResult">
-                    <p>Ответьте на вопросы, чтобы получить рекомендацию</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BENEFITS (3 keys) — redesigned with dark bg -->
+    <!-- BENEFITS (3 keys) — redesigned -->
     <section class="benefits">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Вы&nbsp;узнаете три ключевых показателя всего за&nbsp;20&nbsp;минут</h2>
+                <h2 class="section-title">Три показателя, которые расскажут всё</h2>
+                <p class="section-subtitle">После прохождения сценария у&nbsp;вас на&nbsp;руках будет понятная картина навыка чтения&nbsp;&mdash; никаких оценок, только конкретные цифры и&nbsp;наблюдения.</p>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-card">
@@ -1188,7 +1239,7 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:48px;position:relative;z-index:2;">
-                <a href="#signup" class="btn-primary" style="box-shadow:0 4px 24px rgba(0,0,0,.2);">Записаться на&nbsp;диагностику</a>
+                <a href="#signup" class="btn-primary" style="box-shadow:0 4px 24px rgba(0,0,0,.2);">Получить материалы</a>
             </div>
         </div>
     </section>
@@ -1324,38 +1375,53 @@
         </div>
     </section>
 
-    <!-- CTA / FORM -->
+    <!-- CTA / FORM — new minimal style -->
     <section class="cta-section" id="signup">
         <div class="container">
             <div class="cta-wrapper">
                 <div class="cta-text">
-                    <h2>Запишите ребёнка на&nbsp;бесплатную диагностику чтения</h2>
-                    <p>За&nbsp;20&nbsp;минут вы&nbsp;получите полную картину навыков чтения вашего ребёнка и&nbsp;персональные рекомендации от&nbsp;педагога.</p>
-                    <ul class="cta-checks">
-                        <li><div class="cta-check-icon">&#10003;</div> Узнаете реальную скорость чтения</li>
-                        <li><div class="cta-check-icon">&#10003;</div> Поймёте уровень понимания текста</li>
-                        <li><div class="cta-check-icon">&#10003;</div> Получите план развития навыка</li>
+                    <div class="cta-label">
+                        <span class="cta-label-num">04</span>
+                        <span>&mdash;</span>
+                        <span>Получить материалы</span>
+                    </div>
+                    <h2>Сценарий и&nbsp;шаблон диагностики&nbsp;<span class="italic">&mdash; бесплатно</span></h2>
+                    <p>Оставьте контакты&nbsp;&mdash; пришлём подробную презентацию урока и&nbsp;Excel-шаблон, чтобы вы&nbsp;могли провести диагностику дома за&nbsp;один вечер.</p>
+                    <ul class="cta-list">
+                        <li>
+                            <div class="cta-list-icon">&#128196;</div>
+                            <div><strong>PDF-презентация</strong> из&nbsp;27&nbsp;слайдов&nbsp;&mdash; с&nbsp;текстом для чтения, инструкциями и&nbsp;пояснениями для родителя.</div>
+                        </li>
+                        <li>
+                            <div class="cta-list-icon">&#128202;</div>
+                            <div><strong>Excel-шаблон</strong> с&nbsp;четырьмя блоками самодиагностики и&nbsp;выпадающими списками для быстрой фиксации результатов.</div>
+                        </li>
+                        <li>
+                            <div class="cta-list-icon">&#9989;</div>
+                            <div><strong>Нормы ФГОС</strong> по&nbsp;возрастам и&nbsp;мягкие рекомендации от&nbsp;методистов онлайн-школы Матриус.</div>
+                        </li>
                     </ul>
                 </div>
 
-                <div class="form-card">
-                    <h3>Записаться на диагностику</h3>
-                    <p class="form-sub">Оставьте заявку &mdash; мы свяжемся с вами</p>
+                <div class="cta-form-card">
+                    <h3>Получить материалы</h3>
+                    <p class="form-sub">Отправим ссылку для скачивания в&nbsp;течение нескольких минут.</p>
                     <form onsubmit="handleSubmit(event)">
                         <div class="form-group">
-                            <label>Имя родителя</label>
-                            <input type="text" name="name" placeholder="Ваше имя" required>
+                            <label>Ваше имя</label>
+                            <input type="text" name="name" placeholder="Анна" required>
                         </div>
                         <div class="form-group">
                             <label>Телефон</label>
                             <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
                         </div>
                         <div class="form-group">
-                            <label>Электронная почта</label>
-                            <input type="email" name="email" placeholder="email@example.com" required>
+                            <label>E-mail</label>
+                            <input type="email" name="email" placeholder="anna@example.com" required>
                         </div>
-                        <button type="submit" class="form-submit">Записаться бесплатно</button>
-                        <p class="form-note">Нажимая кнопку, вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных данных</p>
+                        <button type="submit" class="form-submit">Получить материалы &rarr;</button>
+                        <p class="form-note">Нажимая кнопку, вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных данных. Мы&nbsp;не&nbsp;передаём контакты третьим лицам.</p>
+                        <div class="form-stub-banner">&#9888; Форма-заглушка &middot; подключим вашу CRM на&nbsp;проде</div>
                     </form>
                 </div>
             </div>
@@ -1370,35 +1436,148 @@
     </footer>
 
     <script>
-        var answers = [null, null, null, null, null];
-        function selectAnswer(i, a, btn) {
-            answers[i] = a;
-            var item = btn.closest('.quiz-item');
-            item.querySelectorAll('.quiz-toggle button').forEach(function(b) { b.classList.remove('selected-yes','selected-no'); });
-            if (a === 'yes') { btn.classList.add('selected-yes'); item.classList.add('active'); }
-            else { btn.classList.add('selected-no'); item.classList.remove('active'); }
-            updateQuiz();
+        // ===== PROGRESSIVE QUIZ =====
+        var questions = [
+            'Ребёнок долго делает уроки',
+            'Ребёнок не&nbsp;любит читать',
+            'Ребёнок читает, но&nbsp;не&nbsp;может пересказать текст',
+            'Ребёнок неправильно ставит ударения в&nbsp;словах',
+            'Ребёнок путает буквы или окончания в&nbsp;словах'
+        ];
+        var answers = [];
+        var currentQuestion = 0;
+
+        function answer(ans) {
+            answers.push(ans);
+            var stage = document.getElementById('quizStage');
+            stage.classList.add('quiz-fade');
+            setTimeout(function() {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    renderQuestion();
+                } else {
+                    renderResult();
+                }
+            }, 250);
         }
-        function updateQuiz() {
-            var yc = answers.filter(function(a){return a==='yes'}).length;
-            var ac = answers.filter(function(a){return a!==null}).length;
-            document.getElementById('answeredCount').textContent = ac;
-            document.querySelectorAll('.quiz-progress-bar').forEach(function(b,i){b.classList.toggle('filled',answers[i]!==null)});
-            var r = document.getElementById('quizResult');
-            if (!ac) { r.className='quiz-result neutral'; r.innerHTML='<p>Ответьте на вопросы, чтобы получить рекомендацию</p>'; }
-            else if (yc>=2) { r.className='quiz-result warning'; r.innerHTML='<strong>Навык чтения уже может влиять на учёбу</strong><p>Вы ответили \u00abДа\u00bb на '+yc+' из 5 вопросов. Это сигнал, что ребёнку будет полезна диагностика и развитие навыка чтения.</p><a href="#signup" class="result-cta">Записаться на диагностику \u2192</a>'; }
-            else if (ac===5) { r.className='quiz-result neutral'; r.innerHTML='<strong>Серьёзных сигналов пока нет</strong><p>Но диагностика поможет увидеть полную картину навыков чтения и найти точки роста.</p><a href="#signup" class="result-cta">Записаться на диагностику \u2192</a>'; }
-            else { r.className='quiz-result neutral'; r.innerHTML='<p>Продолжайте отвечать, чтобы получить рекомендацию</p>'; }
+
+        function renderQuestion() {
+            document.getElementById('currentQ').textContent = currentQuestion + 1;
+            document.getElementById('quizQuestion').innerHTML = questions[currentQuestion];
+            // update progress
+            var bars = document.querySelectorAll('.quiz-progress-bar');
+            bars.forEach(function(b, i) {
+                b.classList.remove('filled', 'current');
+                if (i < currentQuestion) b.classList.add('filled');
+                else if (i === currentQuestion) b.classList.add('current');
+            });
+            var stage = document.getElementById('quizStage');
+            stage.innerHTML =
+                '<div class="quiz-question" id="quizQuestion">' + questions[currentQuestion] + '</div>' +
+                '<div class="quiz-buttons" id="quizButtons">' +
+                    '<button class="quiz-btn yes" onclick="answer(\'yes\')">Да</button>' +
+                    '<button class="quiz-btn no" onclick="answer(\'no\')">Нет</button>' +
+                '</div>';
+            stage.classList.add('quiz-fade');
+            setTimeout(function() { stage.classList.remove('quiz-fade'); }, 30);
         }
+
+        function renderResult() {
+            var yesCount = answers.filter(function(a) { return a === 'yes'; }).length;
+            document.getElementById('currentQ').textContent = 5;
+            var bars = document.querySelectorAll('.quiz-progress-bar');
+            bars.forEach(function(b) { b.classList.remove('current'); b.classList.add('filled'); });
+            document.querySelector('.quiz-counter').style.display = 'none';
+
+            var stage = document.getElementById('quizStage');
+            var html;
+            if (yesCount >= 2) {
+                html =
+                    '<div class="quiz-result warning">' +
+                        '<div class="quiz-result-icon">&#9888;</div>' +
+                        '<h3>Стоит пройти полную самодиагностику</h3>' +
+                        '<p>Вы&nbsp;отметили ' + yesCount + ' из&nbsp;5&nbsp;признаков. Это сигнал, что навык чтения может влиять на&nbsp;учёбу. Скачайте сценарий и&nbsp;шаблон&nbsp;&mdash; за&nbsp;20&nbsp;минут увидите реальную картину.</p>' +
+                        '<div class="quiz-result-actions">' +
+                            '<a href="#signup" class="quiz-result-cta">Получить сценарий самодиагностики &rarr;</a>' +
+                            '<button class="quiz-restart" onclick="restartQuiz()">Пройти заново</button>' +
+                        '</div>' +
+                    '</div>';
+            } else {
+                html =
+                    '<div class="quiz-result neutral">' +
+                        '<div class="quiz-result-icon">&#10003;</div>' +
+                        '<h3>Серьёзных сигналов пока нет</h3>' +
+                        '<p>Но&nbsp;полная самодиагностика поможет увидеть точную скорость чтения, уровень понимания и&nbsp;концентрации&nbsp;&mdash; и&nbsp;найти точки роста.</p>' +
+                        '<div class="quiz-result-actions">' +
+                            '<a href="#signup" class="quiz-result-cta">Получить сценарий самодиагностики &rarr;</a>' +
+                            '<button class="quiz-restart" onclick="restartQuiz()">Пройти заново</button>' +
+                        '</div>' +
+                    '</div>';
+            }
+            stage.classList.add('quiz-fade');
+            setTimeout(function() {
+                stage.innerHTML = html;
+                stage.classList.remove('quiz-fade');
+            }, 250);
+        }
+
+        function restartQuiz() {
+            answers = [];
+            currentQuestion = 0;
+            document.querySelector('.quiz-counter').style.display = '';
+            renderQuestion();
+        }
+
+        // ===== FORM =====
         function handleSubmit(e) {
-            e.preventDefault(); var btn=e.target.querySelector('.form-submit');
-            btn.textContent='Заявка отправлена!'; btn.style.background='#22c55e'; btn.disabled=true;
-            setTimeout(function(){btn.textContent='Записаться бесплатно';btn.style.background='';btn.disabled=false;e.target.reset()},3000);
+            e.preventDefault();
+            var btn = e.target.querySelector('.form-submit');
+            btn.innerHTML = 'Материалы отправлены &#10003;';
+            btn.style.background = '#22c55e';
+            btn.disabled = true;
+            setTimeout(function() {
+                btn.innerHTML = 'Получить материалы &rarr;';
+                btn.style.background = '';
+                btn.disabled = false;
+                e.target.reset();
+            }, 3000);
         }
-        var ph=document.getElementById('phone');
-        ph.addEventListener('input',function(){var v=this.value.replace(/\D/g,'');if(!v.length){this.value='';return}if(v[0]==='8')v='7'+v.slice(1);if(v[0]!=='7')v='7'+v;var f='+7';if(v.length>1)f+=' ('+v.slice(1,4);if(v.length>4)f+=') '+v.slice(4,7);if(v.length>7)f+='-'+v.slice(7,9);if(v.length>9)f+='-'+v.slice(9,11);this.value=f});
-        function toggleFaq(el){var item=el.parentElement,ans=item.querySelector('.faq-answer'),open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(fi){fi.classList.remove('open');fi.querySelector('.faq-answer').style.maxHeight=null});if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}}
-        window.addEventListener('scroll',function(){document.querySelector('.header').style.background=window.scrollY>50?'rgba(30,45,74,.98)':'rgba(30,45,74,.92)'});
+
+        // ===== PHONE MASK =====
+        var phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function() {
+            var v = this.value.replace(/\D/g, '');
+            if (!v.length) { this.value = ''; return; }
+            if (v[0] === '8') v = '7' + v.slice(1);
+            if (v[0] !== '7') v = '7' + v;
+            var f = '+7';
+            if (v.length > 1) f += ' (' + v.slice(1, 4);
+            if (v.length > 4) f += ') ' + v.slice(4, 7);
+            if (v.length > 7) f += '-' + v.slice(7, 9);
+            if (v.length > 9) f += '-' + v.slice(9, 11);
+            this.value = f;
+        });
+
+        // ===== FAQ =====
+        function toggleFaq(el) {
+            var item = el.parentElement;
+            var answer = item.querySelector('.faq-answer');
+            var open = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function(fi) {
+                fi.classList.remove('open');
+                fi.querySelector('.faq-answer').style.maxHeight = null;
+            });
+            if (!open) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
+        // ===== HEADER =====
+        window.addEventListener('scroll', function() {
+            document.querySelector('.header').style.background =
+                window.scrollY > 50 ? 'rgba(30,45,74,.98)' : 'rgba(30,45,74,.92)';
+        });
     </script>
 </body>
 </html>
