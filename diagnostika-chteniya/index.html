@@ -869,6 +869,16 @@
             line-height: 1.45;
         }
 
+        .depth-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .depth-text strong {
+            color: var(--gray-900);
+            font-weight: 700;
+        }
+
         .depth-compare-school .depth-list li {
             color: var(--gray-500);
         }
@@ -901,19 +911,66 @@
 
         .depth-note {
             margin-top: 36px;
-            padding: 22px 28px;
-            background: var(--white);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--gray-200);
-            font-size: 15px;
-            color: var(--gray-600);
+            padding: 32px 36px;
+            background: var(--blue-900);
+            color: var(--white);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .depth-note::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(239,100,50,.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .depth-note p {
+            font-size: 16px;
             line-height: 1.6;
-            text-align: center;
+            opacity: .9;
+            flex: 1;
+            position: relative;
+            z-index: 2;
         }
 
         .depth-note strong {
-            color: var(--gray-900);
+            color: var(--white);
             font-weight: 700;
+            opacity: 1;
+        }
+
+        .depth-note-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            background: var(--orange-500);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .25s;
+            box-shadow: 0 4px 20px rgba(239,100,50,.35);
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .depth-note-cta:hover {
+            background: var(--orange-400);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(239,100,50,.4);
         }
 
         /* ===== SOCIAL PROOF ===== */
@@ -1212,6 +1269,8 @@
             .header-inner { justify-content: center; }
             .depth-compare-col { padding: 28px 22px; }
             .depth-compare-ours::before { left: 20px; }
+            .depth-note { flex-direction: column; text-align: center; padding: 28px 24px; gap: 20px; }
+            .depth-note-cta { width: 100%; justify-content: center; }
             .section-header { margin-bottom: 48px; }
             .why-card-large .why-card-body { padding: 28px 24px; }
             .why-card-large .why-card-body h3 { font-size: 20px; }
@@ -1365,9 +1424,9 @@
     <section class="how-it-works">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Глубже, чем в&nbsp;школе</div>
-                <h2 class="section-title">10&nbsp;пунктов, которые не&nbsp;покажут в&nbsp;школе</h2>
-                <p class="section-subtitle">В&nbsp;школе обычно проверяют только скорость чтения. Самодиагностика даёт полную картину&nbsp;&mdash; от&nbsp;скорости и&nbsp;понимания до&nbsp;поведения ребёнка во&nbsp;время чтения.</p>
+                <div class="section-label">Глубже школы. Проще, чем с&nbsp;книгой дома</div>
+                <h2 class="section-title">Самодиагностика включает в&nbsp;себя 10&nbsp;пунктов, которые не&nbsp;покажут в&nbsp;школе</h2>
+                <p class="section-subtitle">В&nbsp;школе вы&nbsp;услышите только &laquo;читает N&nbsp;слов в&nbsp;минуту&raquo;. А&nbsp;дома с&nbsp;обычной книгой легко упустить важное&nbsp;&mdash; вы&nbsp;не&nbsp;знаете, на&nbsp;что смотреть. Самодиагностика за&nbsp;20&nbsp;минут даёт полную карту навыка: где ребёнок справляется, а&nbsp;где именно нужна помощь.</p>
             </div>
 
             <div class="depth-compare">
@@ -1377,31 +1436,27 @@
                         <div class="depth-compare-count">1 показатель</div>
                     </div>
                     <ul class="depth-list">
-                        <li><span class="depth-dot muted"></span> Скорость чтения (слов/мин)</li>
+                        <li><span class="depth-dot muted"></span><span class="depth-text">Скорость чтения (слов/мин)</span></li>
                     </ul>
                 </div>
                 <div class="depth-compare-col depth-compare-ours">
                     <div class="depth-compare-head">
                         <div class="depth-compare-label">В&nbsp;самодиагностике</div>
-                        <div class="depth-compare-count">10&nbsp;показателей</div>
+                        <div class="depth-compare-count">10&nbsp;точек роста</div>
                     </div>
                     <ul class="depth-list">
-                        <li><span class="depth-dot"></span> Скорость чтения с&nbsp;привязкой к&nbsp;норме по&nbsp;ФГОС</li>
-                        <li><span class="depth-dot"></span> Плавность: читает с&nbsp;остановками или ровно</li>
-                        <li><span class="depth-dot"></span> Ошибки и&nbsp;запинки при чтении вслух</li>
-                        <li><span class="depth-dot"></span> Возвраты к&nbsp;уже прочитанным словам</li>
-                        <li><span class="depth-dot"></span> Пропуски и&nbsp;замены слов похожими</li>
-                        <li><span class="depth-dot"></span> Потеря строки в&nbsp;процессе чтения</li>
-                        <li><span class="depth-dot"></span> Умение пересказать текст своими словами</li>
-                        <li><span class="depth-dot"></span> Понимание героев и&nbsp;ключевых деталей</li>
-                        <li><span class="depth-dot"></span> Осмысленность ответов на&nbsp;вопросы</li>
-                        <li><span class="depth-dot"></span> Устойчивость внимания при работе с&nbsp;текстом</li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Реальную скорость</strong> чтения с&nbsp;привязкой к&nbsp;норме по&nbsp;ФГОС</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Сильные и&nbsp;слабые стороны</strong> ребёнка&nbsp;&mdash; где справляется, где буксует</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Конкретные наблюдения</strong> вместо догадок и&nbsp;ощущений</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Понимание, нужна&nbsp;ли помощь педагога</strong>&nbsp;&mdash; или ребёнок справляется сам</span></li>
+                        <li><span class="depth-dot"></span><span class="depth-text"><strong>Готовые рекомендации</strong> методистов к&nbsp;каждому блоку самодиагностики</span></li>
                     </ul>
                 </div>
             </div>
 
             <div class="depth-note">
-                Школа оценивает только одну цифру. Вы&nbsp;увидите <strong>10&nbsp;конкретных наблюдений</strong>&nbsp;&mdash; и&nbsp;поймёте, где именно нужна помощь, а&nbsp;где ребёнок справляется отлично.
+                <p>Школьная проверка даёт одну цифру в&nbsp;дневнике. Чтение по&nbsp;книге дома&nbsp;&mdash; только процесс, без выводов. <strong>Самодиагностика&nbsp;&mdash; это полный разбор навыка за&nbsp;один вечер.</strong> Без оценок, стресса и&nbsp;походов к&nbsp;репетитору.</p>
+                <a href="#signup" class="depth-note-cta">Скачать сценарий бесплатно &rarr;</a>
             </div>
         </div>
     </section>
