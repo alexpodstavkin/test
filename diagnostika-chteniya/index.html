@@ -237,6 +237,43 @@
             flex-wrap: wrap;
         }
 
+        .hero-social-trigger {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .hero-social-avatars {
+            display: flex;
+        }
+
+        .hero-social-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,.25), rgba(255,255,255,.1));
+            border: 2px solid var(--blue-700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-left: -8px;
+        }
+
+        .hero-social-avatar:first-child { margin-left: 0; }
+
+        .hero-social-text {
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: .85;
+        }
+
+        .hero-social-text strong {
+            font-weight: 700;
+            opacity: 1;
+        }
+
         .hero-image-wrapper {
             position: relative;
         }
@@ -402,6 +439,15 @@
             font-size: 16px;
             color: var(--gray-500);
             line-height: 1.65;
+        }
+
+        .why-card-large .why-card-body p.why-source {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--gray-200);
+            font-size: 13px;
+            color: var(--gray-400);
+            font-style: italic;
         }
 
         .why-tag {
@@ -1108,11 +1154,18 @@
                         <div class="hero-badge-dot"></div>
                         Бесплатно &middot; 20 минут
                     </div>
-                    <h1>Узнайте качество чтения <span>вашего ребёнка</span></h1>
+                    <h1>Узнайте качество чтения <span>своего ребёнка</span></h1>
                     <p class="hero-sub">Короткая домашняя самодиагностика для родителей. За&nbsp;20&nbsp;минут в&nbsp;формате игры вы&nbsp;увидите скорость чтения, уровень понимания текста и&nbsp;концентрацию ребёнка&nbsp;&mdash; и&nbsp;поймёте, где именно стоит помочь</p>
                     <div class="hero-cta-group">
                         <a href="#quiz" class="btn-primary">Пройти экспресс-тест &darr;</a>
-                        <a href="#signup" class="btn-secondary">Получить материалы</a>
+                    </div>
+                    <div class="hero-social-trigger">
+                        <div class="hero-social-avatars">
+                            <div class="hero-social-avatar">&#129489;&#8205;&#128105;</div>
+                            <div class="hero-social-avatar">&#128105;&#8205;&#128102;</div>
+                            <div class="hero-social-avatar">&#128104;&#8205;&#128103;</div>
+                        </div>
+                        <div class="hero-social-text">Уже скачали <strong>1&nbsp;000+ родителей</strong></div>
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
@@ -1137,9 +1190,10 @@
                         <img src="img/why-main.jpg" alt="Дети за учёбой" class="why-card-large-img">
                     </div>
                     <div class="why-card-body">
-                        <div class="why-tag">Исследования подтверждают</div>
-                        <h3>Дети с&nbsp;развитым навыком чтения понимают учебный материал в&nbsp;2&nbsp;раза лучше</h3>
-                        <p>Когда скорость чтения становится выше, мозг может сосредоточиться на&nbsp;понимании смысла, а&nbsp;не&nbsp;на&nbsp;распознавании слов. Именно поэтому развитие чтения приводит к&nbsp;тому, что ребёнку становится проще учиться в&nbsp;целом.</p>
+                        <div class="why-tag">Исследования педагогов</div>
+                        <h3>Среди быстро читающих детей успешно учатся более 50%. Среди медленно&nbsp;&mdash; только 4%</h3>
+                        <p>По&nbsp;данным педагогических исследований В.Н.&nbsp;Зайцева (генерального директора Российской национальной библиотеки), скорость чтения напрямую влияет на&nbsp;успеваемость. Когда ребёнок читает быстро, мозг может сосредоточиться на&nbsp;понимании смысла, а&nbsp;не&nbsp;на&nbsp;распознавании слов.</p>
+                        <p class="why-source">Источник: Зайцев В.Н., &laquo;Резервы обучения чтению&raquo;</p>
                     </div>
                 </div>
 
@@ -1261,7 +1315,7 @@
             <div class="proof-grid">
                 <div class="proof-card">
                     <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="proof-text">Была уверена, что сын читает нормально. Оказалось, скорость ниже нормы на&nbsp;30%. Записались на&nbsp;курс, через месяц результат заметно улучшился.</p>
+                    <p class="proof-text">Скачали шаблон вечером, за&nbsp;25&nbsp;минут провели все четыре блока. Оказалось, сын читает 45&nbsp;слов в&nbsp;минуту при норме&nbsp;60&nbsp;&mdash; теперь понимаю, куда двигаться.</p>
                     <div class="proof-author">
                         <div class="proof-avatar-circle">А</div>
                         <div>
@@ -1272,7 +1326,7 @@
                 </div>
                 <div class="proof-card">
                     <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="proof-text">Самодиагностика заняла 20&nbsp;минут, а&nbsp;дочке понравилось&nbsp;&mdash; восприняла как игру. Теперь понимаю, на&nbsp;что обращать внимание при чтении.</p>
+                    <p class="proof-text">PDF с&nbsp;текстом очень удобный&nbsp;&mdash; ничего искать не&nbsp;пришлось. Дочка восприняла как игру, сама попросила пройти второй текст. Excel-таблица всё считает за&nbsp;вас.</p>
                     <div class="proof-author">
                         <div class="proof-avatar-circle">М</div>
                         <div>
@@ -1283,7 +1337,7 @@
                 </div>
                 <div class="proof-card">
                     <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="proof-text">Ребёнок читал быстро, но&nbsp;не&nbsp;понимал текст. Без самодиагностики мы&nbsp;бы&nbsp;этого не&nbsp;заметили. Спасибо за&nbsp;чёткие рекомендации!</p>
+                    <p class="proof-text">Думала, сын читает отлично&nbsp;&mdash; быстро ведь. Самодиагностика показала: скорость хорошая, а&nbsp;пересказать не&nbsp;может. Без этой проверки я&nbsp;бы&nbsp;не&nbsp;увидела проблему.</p>
                     <div class="proof-author">
                         <div class="proof-avatar-circle">Е</div>
                         <div>
@@ -1305,11 +1359,20 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Что нужно для самодиагностики?</span>
+                        <span>Что я&nbsp;получу после заявки?</span>
                         <div class="faq-chevron">&#9660;</div>
                     </div>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Компьютер или планшет, таймер на&nbsp;телефоне и&nbsp;20&nbsp;минут свободного времени. Специальных знаний не&nbsp;требуется&nbsp;&mdash; вы&nbsp;просто следуете инструкциям на&nbsp;экране.</div>
+                        <div class="faq-answer-inner">На&nbsp;e-mail придёт ссылка на&nbsp;два файла: PDF-презентацию из&nbsp;27&nbsp;слайдов с&nbsp;текстом для чтения и&nbsp;Excel-шаблон с&nbsp;четырьмя блоками самодиагностики. Всё скачивается мгновенно, без регистраций и&nbsp;оплат.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Сколько времени займёт прохождение?</span>
+                        <div class="faq-chevron">&#9660;</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">В&nbsp;среднем 20&ndash;25&nbsp;минут за&nbsp;один вечер. Ребёнок читает 1&nbsp;минуту, потом вы&nbsp;вместе обсуждаете текст и&nbsp;заполняете три блока в&nbsp;таблице. Никакой подготовки заранее не&nbsp;нужно.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1318,7 +1381,7 @@
                         <div class="faq-chevron">&#9660;</div>
                     </div>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Нет, это игровая самодиагностика. Здесь нет оценок и&nbsp;нет &laquo;правильно&raquo; или &laquo;неправильно&raquo;. Задача&nbsp;&mdash; просто увидеть, как ребёнок читает сейчас, без давления.</div>
+                        <div class="faq-answer-inner">Нет, это игровая самодиагностика. Здесь нет оценок и&nbsp;нет &laquo;правильно&raquo; или &laquo;неправильно&raquo;. Задача&nbsp;&mdash; просто увидеть, как ребёнок читает сейчас, без давления. В&nbsp;сценарии есть фраза, которую стоит сказать ребёнку: &laquo;Давай поиграем в&nbsp;игру с&nbsp;текстом&raquo;.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1327,7 +1390,7 @@
                         <div class="faq-chevron">&#9660;</div>
                     </div>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Самодиагностика разработана для детей 7&ndash;11&nbsp;лет (1&ndash;5&nbsp;класс). Тексты и&nbsp;задания адаптированы под этот возраст.</div>
+                        <div class="faq-answer-inner">Самодиагностика разработана для детей 7&ndash;11&nbsp;лет (1&ndash;5&nbsp;класс). Тексты и&nbsp;задания адаптированы под этот возраст, а&nbsp;нормы скорости чтения&nbsp;&mdash; по&nbsp;ФГОС.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1336,16 +1399,16 @@
                         <div class="faq-chevron">&#9660;</div>
                     </div>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Это не&nbsp;повод для беспокойства, а&nbsp;точка роста. После самодиагностики вы&nbsp;сможете записаться на&nbsp;бесплатный урок с&nbsp;опытным преподавателем. На&nbsp;уроке педагог разберёт результаты вашего ребёнка, расскажет, что делать дальше, и&nbsp;составит персональный план развития навыка чтения.</div>
+                        <div class="faq-answer-inner">Это не&nbsp;повод для беспокойства, а&nbsp;точка роста. В&nbsp;шаблоне есть мягкие рекомендации от&nbsp;методистов по&nbsp;каждому блоку. При желании потом можно записаться на&nbsp;бесплатный урок с&nbsp;педагогом&nbsp;&mdash; он&nbsp;разберёт результаты и&nbsp;составит план развития. Но&nbsp;сначала пройдите самодиагностику дома&nbsp;&mdash; этого уже достаточно, чтобы увидеть картину.</div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Самодиагностика бесплатная?</span>
+                        <span>Это правда бесплатно? В&nbsp;чём подвох?</span>
                         <div class="faq-chevron">&#9660;</div>
                     </div>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Да, самодиагностика полностью бесплатна. Вы&nbsp;также можете записаться на&nbsp;бесплатный пробный урок с&nbsp;педагогом для более детальной оценки.</div>
+                        <div class="faq-answer-inner">Подвоха нет. Материалы полностью бесплатны&nbsp;&mdash; это способ онлайн-школы Матриус познакомить родителей с&nbsp;методикой. Вы&nbsp;не&nbsp;обязаны покупать курс после самодиагностики. Скачайте, проведите дома и&nbsp;решайте сами, нужна ли&nbsp;дальнейшая работа с&nbsp;педагогом.</div>
                     </div>
                 </div>
             </div>
