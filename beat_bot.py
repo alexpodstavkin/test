@@ -26,9 +26,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import ssl
 import sys
 import time
 import urllib.request
+
+_SSL_CTX: ssl.SSLContext | None = None
 
 N = 15
 BASE_URL = "https://xo.sigma-school.ru/play"
@@ -43,7 +46,7 @@ def post(path: str, data: dict) -> dict:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=60) as resp:
+    with urllib.request.urlopen(req, timeout=60, context=_SSL_CTX) as resp:
         return json.loads(resp.read())
 
 
@@ -403,7 +406,12 @@ def main():
     ap.add_argument("--depth", type=int, default=4, help="our search depth")
     ap.add_argument("--o-depth", type=int, default=4, help="bot's o_depth")
     ap.add_argument("--sleep", type=float, default=0.0, help="sleep between turns")
+    ap.add_argument("--insecure", action="store_true",
+                    help="skip TLS certificate verification (fix for macOS Python without CA certs)")
     args = ap.parse_args()
+    if args.insecure:
+        global _SSL_CTX
+        _SSL_CTX = ssl._create_unverified_context()
     ok = play(args.bot, args.depth, args.o_depth, sleep=args.sleep)
     sys.exit(0 if ok else 1)
 
