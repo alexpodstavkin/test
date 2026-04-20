@@ -1,0 +1,50 @@
+We play X, bot plays O. Our depth=4, bot o_depth=4.
+[1] we (X) -> (7,7)   [think 0.00s]
+[2] bot (O) -> (6,6)  kind=book  [server 0ms / rt 0.46s]
+[3] we (X) -> (8,7)   [think 1.60s]
+[4] bot (O) -> (5,7)  kind=defend  [server 1ms / rt 0.44s]
+[5] we (X) -> (9,7)   [think 2.17s]
+[6] bot (O) -> (10,7)  kind=defend  [server 0ms / rt 0.60s]
+[7] we (X) -> (8,6)   [think 2.08s]
+[8] bot (O) -> (8,5)  kind=defend  [server 5ms / rt 0.46s]
+[9] we (X) -> (7,5)   [think 2.04s]
+[10] bot (O) -> (10,8)  kind=defend  [server 1ms / rt 0.61s]
+[11] we (X) -> (7,4)   [think 3.53s]
+[12] bot (O) -> (7,6)  kind=defend  [server 1ms / rt 0.61s]
+[13] we (X) -> (6,4)   [think 2.57s]
+[14] bot (O) -> (5,3)  kind=defend  [server 0ms / rt 0.44s]
+[15] we (X) -> (6,8)   [think 3.62s]
+[16] bot (O) -> (5,9)  kind=defend  [server 2ms / rt 0.62s]
+[17] we (X) -> (5,8)   [think 4.47s]
+[18] bot (O) -> (9,4)  kind=defend  [server 11ms / rt 0.46s]
+[19] we (X) -> (10,3)   [think 3.28s]
+[20] bot (O) -> (11,6)  kind=defend  [server 16ms / rt 0.75s]
+[21] we (X) -> (10,4)   [think 3.40s]
+[22] bot (O) -> (9,5)  kind=defend  [server 1ms / rt 0.74s]
+[23] we (X) -> (10,5)   [think 4.78s]
+[24] bot (O) -> (10,6)  kind=defend  [server 3ms / rt 0.46s]
+[25] we (X) -> (7,8)   [think 3.42s]
+[26] bot (O) -> (10,9)  kind=forced  [server 3ms / rt 0.46s]
+[27] we (X) -> (10,10)   [think 0.00s]
+[28] bot (O) -> (6,7)  kind=forced  [server 4ms / rt 0.46s]
+[29] we (X) -> (9,6)   [think 2.07s]
+[30] bot (O) -> (6,9)  kind=forced  [server 0ms / rt 0.47s]
+[31] we (X) -> (11,4)   [think 0.00s]
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14
+ 0:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+ 1:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+ 2:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+ 3:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+ 4:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+ 5:  .  .  .  O  .  .  .  O  X  O  .  .  .  .  .
+ 6:  .  .  .  .  X  .  O  O  X  O  .  .  .  .  .
+ 7:  .  .  .  .  X  X  O  X  X  .  .  .  .  .  .
+ 8:  .  .  .  .  .  O  X  X  .  .  .  .  .  .  .
+ 9:  .  .  .  .  O  O  X  X  .  .  .  .  .  .  .
+10:  .  .  .  X  X  X  O  O  O  O  X  .  .  .  .
+11:  .  .  .  .  X  .  O  .  .  .  .  .  .  .  .
+12:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+13:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+14:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+
+*** WE WIN as X in 31 moves! ***
