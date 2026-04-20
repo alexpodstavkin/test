@@ -177,33 +177,78 @@
   let stop = false;
   window.__autoStop = function () { stop = true; };
 
+  // Read the board from the DOM (the page's `history` is script-scoped and
+  // not on window; `window.history` is the browser's History API).
+  function readBoard() {
+    const g = Array.from({ length: N }, () => new Int8Array(N));
+    let x = 0, o = 0;
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        const td = document.getElementById(`c${r}_${c}`);
+        if (!td) continue;
+        if (td.classList.contains("x")) { g[r][c] = 1; x++; }
+        else if (td.classList.contains("o")) { g[r][c] = 2; o++; }
+      }
+    }
+    // X moves first and sides alternate, so xCount == oCount -> X to move.
+    const toMove = x === o ? 1 : 2;
+    return { g, toMove, moveCount: x + o };
+  }
+
+  // Fake a history array with the right length/parity (engine only uses
+  // history for parity + undo). The exact order of same-player moves
+  // doesn't affect move choice.
+  function fakeHistory(g) {
+    const xs = [], os = [];
+    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+      if (g[r][c] === 1) xs.push([r, c]);
+      else if (g[r][c] === 2) os.push([r, c]);
+    }
+    const h = [];
+    const m = Math.max(xs.length, os.length);
+    for (let i = 0; i < m; i++) {
+      if (i < xs.length) h.push(xs[i]);
+      if (i < os.length) h.push(os[i]);
+    }
+    return h;
+  }
+
+  function gameOverOnBoard(g) {
+    for (const who of [1, 2]) {
+      for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+        if (g[r][c] === who && checkWinAt(g, r, c, who)) return true;
+      }
+    }
+    const s = document.getElementById("status");
+    if (s && (s.classList.contains("win-x") || s.classList.contains("win-o"))) return true;
+    return false;
+  }
+
   window.__autoPlay = async function (depth) {
     depth = depth || 4;
     stop = false;
-    // Read which side the page says we play.
     const botRole = document.querySelector("input[name=botRole]:checked").value;
     const humanIsO = botRole === "X";
-    const me = humanIsO ? 2 : 1;  // 1 = X, 2 = O
+    const me = humanIsO ? 2 : 1;
     console.log(`autoplay: we are ${humanIsO ? "O" : "X"}, depth=${depth}`);
 
-    // Safety cap.
     for (let step = 0; step < 250 && !stop; step++) {
-      if (window.gameOver) { console.log("game over"); return; }
-      const hist = window.history;
-      if (!hist) { console.log("no history on window"); return; }
-      const turn = hist.length % 2 === 0 ? 1 : 2;
-      if (turn === me) {
-        // Clone history into plain arrays in case it contains something exotic.
-        const histCopy = hist.map(x => [x[0], x[1]]);
-        const [r, c] = chooseMove(histCopy, me, depth);
+      const { g, toMove, moveCount } = readBoard();
+      if (gameOverOnBoard(g)) { console.log("game over"); return; }
+      if (toMove === me) {
+        const hist = fakeHistory(g);
+        const [r, c] = chooseMove(hist, me, depth);
         console.log(`auto -> (${r},${c})`);
         const cell = document.getElementById(`c${r}_${c}`);
         if (!cell) { console.log("cell not found"); return; }
+        const before = moveCount;
         cell.click();
-        // Give the page a beat to update history and kick the bot.
-        await new Promise(res => setTimeout(res, 200));
+        // Wait until our stone lands on the DOM.
+        for (let w = 0; w < 30; w++) {
+          await new Promise(res => setTimeout(res, 100));
+          if (readBoard().moveCount > before) break;
+        }
       } else {
-        // Wait for the bot's move to land.
         await new Promise(res => setTimeout(res, 300));
       }
     }
