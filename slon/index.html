@@ -3,1261 +3,1443 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Слоны в Индии — Там, где слон это бог</title>
-<meta name="description" content="Туристический путеводитель по Индии глазами слона: Ганеша, фестиваль Тришшур Пурам, заповедники и секреты великих гигантов.">
+<title>INDIA / ELEPHANTS · DOSSIER REV 2.6</title>
+<meta name="description" content="Слоны в Индии — полевое досье: мифология, фестивали, заповедники, когнитивные данные.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ivory: #F5F1EA;
-    --ivory-warm: #EFE8DC;
-    --coal: #1A1614;
-    --coal-soft: #2A2420;
-    --ochre: #C27444;
-    --ochre-deep: #A85A30;
-    --gold: #A68A5B;
-    --gold-soft: #D4B888;
-    --text: #201C18;
-    --text-muted: #6B6057;
-    --line: rgba(32, 28, 24, 0.12);
-    --line-soft: rgba(32, 28, 24, 0.06);
-    --shadow-soft: 0 1px 3px rgba(32, 28, 24, 0.04), 0 12px 40px rgba(32, 28, 24, 0.06);
-    --shadow-hover: 0 2px 6px rgba(32, 28, 24, 0.06), 0 24px 60px rgba(32, 28, 24, 0.10);
+    --paper: #F4F4F0;
+    --paper-deep: #EAE8E3;
+    --ink: #050505;
+    --ink-soft: #1A1A1A;
+    --red: #E61919;
+    --muted: #6B6B6B;
+    --line: #050505;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--ivory);
-    color: var(--text);
-    font-size: 17px;
-    line-height: 1.7;
-    font-weight: 400;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 
-  ::selection { background: var(--ochre); color: var(--ivory); }
+  ::selection { background: var(--ink); color: var(--paper); }
+  .red ::selection { background: var(--red); color: var(--paper); }
 
-  h1, h2, h3, h4 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    color: var(--coal);
-  }
-
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 clamp(24px, 5vw, 64px);
-  }
-
-  /* ============ NAV ============ */
-  header.nav {
+  /* Noise grain — global physical texture */
+  body::before {
+    content: '';
     position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 24px 0;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(245, 241, 234, 0.7);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.4s ease, background 0.4s ease;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    opacity: 0.6;
   }
-  header.nav.scrolled { border-bottom-color: var(--line); }
 
-  .nav-row {
+  /* ============ TYPOGRAPHY ============ */
+  .mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .mono-sm { font-size: 10px; }
+  .mono-md { font-size: 12px; }
+
+  .macro {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.2rem, 9.2vw, 11rem);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    font-stretch: 100%;
+  }
+
+  .semi-macro {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 5.6vw, 5.6rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .big-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  h2, h3 { font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
+
+  .red { color: var(--red); }
+  .muted { color: var(--muted); }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ============ HEADER BAR ============ */
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+  }
+  .bar-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    padding: 14px 24px;
+    align-items: center;
+  }
+  .bar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .bar-brand .sq {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: var(--red);
+  }
+  .bar-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bar-nav {
+    display: flex;
+    gap: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .bar-nav a { padding: 2px 0; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .bar-nav a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+  @media (max-width: 820px) {
+    .bar-meta { display: none; }
+    .bar-nav { gap: 10px; font-size: 9px; }
+  }
+  @media (max-width: 560px) {
+    .bar-nav a:nth-child(n+4) { display: none; }
+  }
+
+  /* ============ SECTION SHELL ============ */
+  section { border-bottom: 2px solid var(--ink); position: relative; }
+  .pad { padding: clamp(28px, 4vw, 56px); }
+  .pad-lg { padding: clamp(40px, 6vw, 96px); }
+
+  /* Dossier label */
+  .dossier-label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 32px;
-  }
-
-  .brand {
-    font-family: 'Fraunces', serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    gap: 16px;
+    padding: 10px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--coal);
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-weight: 500;
   }
-  .brand .dot {
+  .dossier-label.red-band { background: var(--red); }
+  .dossier-label .dot {
+    display: inline-block;
     width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--ochre);
+    background: var(--paper);
+    margin-right: 8px;
+    vertical-align: middle;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
+  /* Grid with razor-thin dividers */
+  .grid-div {
+    display: grid;
+    gap: 1px;
+    background: var(--ink);
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
   }
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 0.01em;
-    transition: color 0.3s ease;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0; height: 1px;
-    background: var(--ochre);
-    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .nav-links a:hover { color: var(--coal); }
-  .nav-links a:hover::after { width: 100%; }
-
-  @media (max-width: 720px) {
-    .nav-links { display: none; }
+  .grid-div > .cell {
+    background: var(--paper);
+    padding: clamp(24px, 3vw, 40px);
   }
 
   /* ============ HERO ============ */
   .hero {
-    min-height: 100vh;
-    padding: 180px 0 120px;
+    border-bottom: 2px solid var(--ink);
     position: relative;
-    overflow: hidden;
-    background:
-      radial-gradient(ellipse at 80% 10%, rgba(194, 116, 68, 0.08), transparent 50%),
-      radial-gradient(ellipse at 10% 90%, rgba(166, 138, 91, 0.10), transparent 55%),
-      var(--ivory);
   }
 
-  .hero-grid {
+  .hero-top {
     display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 80px;
-    align-items: center;
-    min-height: calc(100vh - 300px);
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--ink);
+    border-bottom: 2px solid var(--ink);
   }
-  @media (max-width: 960px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-top > div {
+    background: var(--paper);
+    padding: 14px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-top > div:nth-child(2) { text-align: center; }
+  .hero-top > div:nth-child(3) { text-align: right; color: var(--ink); font-weight: 700; }
+  @media (max-width: 720px) {
+    .hero-top { grid-template-columns: 1fr 1fr; }
+    .hero-top > div:nth-child(3) { display: none; }
   }
 
-  .hero-meta {
+  .hero-body {
+    padding: clamp(48px, 8vw, 120px) clamp(24px, 4vw, 56px) clamp(32px, 5vw, 56px);
+    position: relative;
+  }
+
+  .hero-title-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: clamp(32px, 5vw, 64px);
+  }
+  @media (max-width: 720px) {
+    .hero-title-row { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  .hero-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.8rem, 11.5vw, 14rem);
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+  .hero-title .reg {
+    font-size: 0.35em;
+    vertical-align: top;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+  .hero-title .dash {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.14em;
+    background: var(--red);
+    vertical-align: 0.22em;
+    margin: 0 0.12em;
+  }
+
+  .hero-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    padding-top: 8px;
+  }
+  .hero-aside .block {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1.5px solid var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .hero-aside .block.red { color: var(--red); border-color: var(--red); }
+  @media (max-width: 720px) {
+    .hero-aside { flex-direction: row; align-items: flex-start; flex-wrap: wrap; }
+  }
+
+  .hero-strapline {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ink);
+  }
+  @media (max-width: 720px) { .hero-strapline { grid-template-columns: 1fr; gap: 24px; } }
+
+  .hero-strapline .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .hero-strapline .tag::before {
+    content: '>>>';
+    color: var(--red);
+    font-weight: 700;
+  }
+  .hero-strapline p {
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.45;
+    font-weight: 500;
+    max-width: 780px;
+  }
+  .hero-strapline p strong { background: var(--ink); color: var(--paper); padding: 2px 6px; font-weight: 700; }
+
+  .hero-cta-row {
+    margin-top: clamp(40px, 5vw, 72px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .btn-brutal {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    font-size: 12px;
-    letter-spacing: 0.22em;
+    gap: 20px;
+    padding: 22px 32px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 32px;
+    font-weight: 700;
+    border: 2px solid var(--ink);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    cursor: pointer;
   }
-  .hero-meta .line {
-    width: 40px; height: 1px;
-    background: var(--gold);
-  }
-
-  .hero h1 {
-    font-size: clamp(48px, 8.4vw, 128px);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    margin-bottom: 28px;
-    color: var(--coal);
-  }
-  .hero h1 em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--ochre);
+  .btn-brutal .arrow { font-weight: 400; }
+  .btn-brutal:hover {
+    background: var(--red);
+    border-color: var(--red);
   }
 
-  .hero p.lead {
-    font-size: clamp(17px, 1.4vw, 20px);
-    line-height: 1.65;
-    color: var(--text-muted);
-    max-width: 540px;
-    margin-bottom: 48px;
-    font-weight: 300;
+  .btn-brutal.ghost {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--ink);
   }
-
-  .hero-cta {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    margin-bottom: 56px;
-    flex-wrap: wrap;
-  }
-  .btn-text {
-    font-size: 14px;
-    letter-spacing: 0.06em;
-    color: var(--coal);
-    text-decoration: none;
-    padding: 6px 2px;
-    border-bottom: 1px solid var(--line);
-    transition: color 0.35s ease, border-color 0.35s ease;
-  }
-  .btn-text:hover {
-    color: var(--ochre);
-    border-bottom-color: var(--ochre);
+  .btn-brutal.ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
   }
 
   .hero-stats {
-    display: flex;
-    gap: 48px;
-    padding-top: 32px;
-    border-top: 1px solid var(--line);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--ink);
+    border-top: 2px solid var(--ink);
   }
-  .hero-stat .num {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 400;
-    color: var(--coal);
-    display: block;
-    letter-spacing: -0.02em;
+  @media (max-width: 720px) { .hero-stats { grid-template-columns: 1fr 1fr; } }
+  .hero-stats > div {
+    background: var(--paper);
+    padding: 24px;
   }
-  .hero-stat .label {
-    font-size: 12px;
-    letter-spacing: 0.15em;
+  .hero-stats .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 4px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .hero-stats .v {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3.4vw, 3.2rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+  }
+  .hero-stats .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
   }
 
-  /* Hero illustration side */
-  .hero-art {
-    position: relative;
-    aspect-ratio: 1 / 1.1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* ============ DOSSIER COMMON ============ */
+  .dossier-head {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    border-bottom: 2px solid var(--ink);
   }
-  .hero-art .mandala {
-    position: absolute;
-    inset: 0;
-    opacity: 0.28;
-    animation: slowSpin 120s linear infinite;
-  }
-  @keyframes slowSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  .hero-art .elephant-svg {
-    position: relative;
-    width: 85%;
-    height: auto;
-    z-index: 2;
-    filter: drop-shadow(0 40px 60px rgba(168, 90, 48, 0.18));
+  @media (max-width: 720px) { .dossier-head { grid-template-columns: 1fr; } }
+  .dossier-head > * { padding: clamp(32px, 4vw, 56px); }
+  .dossier-head > *:first-child { border-right: 2px solid var(--ink); }
+  @media (max-width: 720px) {
+    .dossier-head > *:first-child { border-right: none; border-bottom: 2px solid var(--ink); }
   }
 
-  .scroll-cue {
-    position: absolute;
-    bottom: 48px; left: 50%;
-    transform: translateX(-50%);
+  .dossier-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 6.5vw, 6.5rem);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  .dossier-title em {
+    font-style: normal;
+    color: var(--red);
+    display: inline-block;
+  }
+  .dossier-title .strike {
+    text-decoration: line-through;
+    text-decoration-color: var(--red);
+    text-decoration-thickness: 4px;
+  }
+
+  .dossier-kicker {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 12px;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--muted);
+    font-weight: 500;
   }
-  .scroll-cue .track {
-    width: 1px;
-    height: 48px;
-    background: var(--line);
-    position: relative;
-    overflow: hidden;
-  }
-  .scroll-cue .track::after {
-    content: '';
-    position: absolute;
-    top: -100%; left: 0;
-    width: 100%; height: 100%;
-    background: var(--ochre);
-    animation: scrollDot 2.4s cubic-bezier(0.7, 0, 0.3, 1) infinite;
-  }
-  @keyframes scrollDot {
-    0% { top: -100%; }
-    100% { top: 100%; }
+  .dossier-kicker::before {
+    content: '+';
+    color: var(--red);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
   }
 
-  /* ============ SECTION BASE ============ */
-  section.story {
-    padding: clamp(100px, 14vw, 180px) 0;
-    position: relative;
-  }
-
-  .section-index {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 14px;
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 32px;
-  }
-  .section-index .num {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    color: var(--ochre);
-    letter-spacing: 0;
-  }
-
-  .section-title {
-    font-size: clamp(40px, 5.6vw, 88px);
-    font-weight: 300;
-    letter-spacing: -0.025em;
-    line-height: 1.02;
-    margin-bottom: 32px;
-    max-width: 20ch;
-  }
-  .section-title em {
-    font-style: italic;
-    color: var(--ochre);
-  }
-
-  /* ============ GANESHA ============ */
-  .ganesha-grid {
+  /* ============ DOSSIER 01 — GANESHA ============ */
+  .ganesha-body {
     display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 96px;
-    align-items: center;
+    grid-template-columns: 7fr 5fr;
+    gap: 0;
+  }
+  @media (max-width: 960px) { .ganesha-body { grid-template-columns: 1fr; } }
+
+  .ganesha-prose {
+    padding: clamp(32px, 4vw, 56px);
+    border-right: 2px solid var(--ink);
   }
   @media (max-width: 960px) {
-    .ganesha-grid { grid-template-columns: 1fr; gap: 56px; }
+    .ganesha-prose { border-right: none; border-bottom: 2px solid var(--ink); }
+  }
+
+  .ganesha-prose p {
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    max-width: 680px;
+  }
+  .ganesha-prose p:last-child { margin-bottom: 0; }
+  .ganesha-prose p strong { background: var(--ink); color: var(--paper); padding: 1px 6px; font-weight: 700; }
+
+  .ganesha-pull {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    padding: 20px 0 32px;
+    margin-bottom: 32px;
+    border-top: 2px solid var(--red);
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+  }
+  .ganesha-pull::before {
+    content: '[ QUOTE ]';
+    position: absolute;
+    top: -10px; left: 0;
+    background: var(--paper);
+    padding: 0 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  .ganesha-side {
+    padding: clamp(32px, 4vw, 56px);
+    background: var(--paper-deep);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ganesha-data {
+    display: grid;
+    gap: 1px;
+    background: var(--ink);
+    border: 2px solid var(--ink);
+    margin-bottom: 32px;
+  }
+  .ganesha-data > div {
+    background: var(--paper-deep);
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .ganesha-data .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ganesha-data .v {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
   }
 
   .ganesha-art {
-    aspect-ratio: 1 / 1.2;
+    margin-top: auto;
+    aspect-ratio: 1 / 1.1;
+    border: 2px solid var(--ink);
+    background: var(--paper);
     position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background:
-      radial-gradient(ellipse at center, rgba(194, 116, 68, 0.08), transparent 70%);
-    border-radius: 2px;
+  }
+  .ganesha-art::before {
+    content: '[ IMG-01 ]';
+    position: absolute;
+    top: 10px; left: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    z-index: 2;
+  }
+  .ganesha-art::after {
+    content: 'GANESHA / HE-01';
+    position: absolute;
+    bottom: 10px; right: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
   .ganesha-art svg {
-    width: 78%;
+    width: 82%;
     height: auto;
-    filter: drop-shadow(0 20px 30px rgba(168, 90, 48, 0.15));
   }
 
-  .ganesha-text .pull {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: clamp(22px, 2.4vw, 32px);
-    font-weight: 300;
-    line-height: 1.35;
-    color: var(--coal);
-    padding-left: 24px;
-    border-left: 2px solid var(--ochre);
-    margin: 40px 0 32px;
-  }
-
-  .ganesha-text p {
-    margin-bottom: 20px;
-    color: var(--text);
-  }
-  .ganesha-text p.muted {
-    color: var(--text-muted);
-    font-size: 15px;
-  }
-
-  .fact-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 32px;
-  }
-  .fact-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: var(--ivory-warm);
-    border: 1px solid var(--line);
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    color: var(--text);
-    border-radius: 999px;
-  }
-  .fact-chip .dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--ochre);
-  }
-
-  /* ============ FESTIVAL ============ */
-  .festival {
-    background: var(--coal);
-    color: var(--ivory);
-    overflow: hidden;
-    position: relative;
-  }
-  .festival::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-  }
-  .festival .section-index { color: rgba(245, 241, 234, 0.5); }
-  .festival .section-title { color: var(--ivory); }
-  .festival .section-title em { color: var(--gold-soft); }
-
-  .festival-intro {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 80px;
-    align-items: end;
-    margin-bottom: 96px;
-  }
-  @media (max-width: 960px) { .festival-intro { grid-template-columns: 1fr; gap: 32px; } }
-
-  .festival-intro p {
-    color: rgba(245, 241, 234, 0.72);
-    font-size: 17px;
-    line-height: 1.75;
-    max-width: 520px;
-    font-weight: 300;
-  }
-
-  .stat-grid {
+  /* ============ DOSSIER 02 — FESTIVAL ============ */
+  .fest-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid rgba(245, 241, 234, 0.12);
-    border-bottom: 1px solid rgba(245, 241, 234, 0.12);
+    gap: 1px;
+    background: var(--ink);
+    border-bottom: 2px solid var(--ink);
   }
-  @media (max-width: 960px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
-
-  .stat-cell {
-    padding: 48px 32px;
-    border-right: 1px solid rgba(245, 241, 234, 0.12);
+  @media (max-width: 720px) { .fest-stats { grid-template-columns: 1fr 1fr; } }
+  .fest-stats > div {
+    background: var(--paper);
+    padding: clamp(24px, 3vw, 40px) 24px;
     position: relative;
   }
-  .stat-cell:last-child { border-right: none; }
-  @media (max-width: 960px) {
-    .stat-cell:nth-child(2) { border-right: none; }
-    .stat-cell:nth-child(1), .stat-cell:nth-child(2) { border-bottom: 1px solid rgba(245, 241, 234, 0.12); }
+  .fest-stats .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 14px;
   }
-  .stat-cell .big {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(48px, 6vw, 84px);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    color: var(--ivory);
-    line-height: 1;
-    display: block;
-    margin-bottom: 16px;
+  .fest-stats .big {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
   }
-  .stat-cell .desc {
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    line-height: 1.5;
-    color: rgba(245, 241, 234, 0.6);
-  }
-
-  .ritual-list {
-    margin-top: 96px;
-    display: grid;
-    grid-template-columns: 4fr 8fr;
-    gap: 64px;
-  }
-  @media (max-width: 960px) { .ritual-list { grid-template-columns: 1fr; gap: 32px; } }
-
-  .ritual-list h3 {
-    font-size: clamp(24px, 2.4vw, 32px);
-    color: var(--ivory);
-    font-weight: 400;
+  .fest-stats .desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 12px;
+    line-height: 1.4;
   }
 
-  .ritual-items { display: flex; flex-direction: column; }
-  .ritual-item {
-    padding: 28px 0;
-    border-top: 1px solid rgba(245, 241, 234, 0.12);
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 32px;
-    align-items: baseline;
+  .fest-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
   }
-  .ritual-item:last-child { border-bottom: 1px solid rgba(245, 241, 234, 0.12); }
-  .ritual-item .name {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    color: var(--gold-soft);
-    font-style: italic;
+  .fest-table th, .fest-table td {
+    padding: 20px 24px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--ink);
   }
-  .ritual-item .desc {
-    color: rgba(245, 241, 234, 0.75);
-    font-size: 15px;
-    line-height: 1.6;
+  .fest-table thead th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 24px;
+  }
+  .fest-table tbody tr:hover { background: var(--paper-deep); }
+  .fest-table td.idx {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    width: 60px;
+  }
+  .fest-table td.name {
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    width: 220px;
+  }
+  .fest-table td.desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 720px;
+  }
+  .fest-table td.dur {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    width: 140px;
+    text-align: right;
   }
   @media (max-width: 720px) {
-    .ritual-item { grid-template-columns: 1fr; gap: 8px; }
+    .fest-table thead { display: none; }
+    .fest-table tr { display: grid; grid-template-columns: 1fr; padding: 20px 24px; border-bottom: 1px solid var(--ink); }
+    .fest-table td { display: block; padding: 4px 0; border: none; }
+    .fest-table td.name { width: auto; }
+    .fest-table td.desc { max-width: none; }
+    .fest-table td.dur { text-align: left; }
   }
 
-  /* ============ RESERVES ============ */
-  .reserves-head {
+  /* ============ DOSSIER 03 — RESERVES ============ */
+  .reserves-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+  }
+  .reserves-table thead th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 20px;
+    text-align: left;
+    border-right: 1px solid var(--muted);
+  }
+  .reserves-table thead th:last-child { border-right: none; }
+  .reserves-table td {
+    padding: 24px 20px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--ink);
+    border-right: 1px solid var(--ink);
+  }
+  .reserves-table td:last-child { border-right: none; }
+  .reserves-table tr:last-child td { border-bottom: none; }
+  .reserves-table .rnum {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+  .reserves-table .rname {
+    font-weight: 900;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .reserves-table .rregion {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .reserves-table .rcoord {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .reserves-table .rdesc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .reserves-table .rtime {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 10px;
+    display: inline-block;
+    font-weight: 700;
+  }
+  @media (max-width: 960px) {
+    .reserves-table, .reserves-table thead, .reserves-table tbody, .reserves-table tr, .reserves-table td { display: block; }
+    .reserves-table thead { display: none; }
+    .reserves-table tr { padding: 24px; border-bottom: 2px solid var(--ink); }
+    .reserves-table td { border: none; padding: 4px 0; }
+  }
+
+  .reserves-footnote {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: clamp(24px, 3vw, 40px);
+    border-top: 2px solid var(--ink);
+    background: var(--paper-deep);
+  }
+  @media (max-width: 720px) { .reserves-footnote { grid-template-columns: 1fr; gap: 12px; } }
+  .reserves-footnote .warn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--red);
+    padding: 8px 14px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .reserves-footnote p { font-size: 14px; line-height: 1.55; max-width: 720px; }
+  .reserves-footnote strong { background: var(--ink); color: var(--paper); padding: 1px 6px; font-weight: 700; }
+
+  /* ============ DOSSIER 04 — COGNITION ============ */
+  .cog-intro {
+    padding: clamp(40px, 5vw, 72px) clamp(24px, 4vw, 56px);
     display: grid;
     grid-template-columns: 5fr 7fr;
-    gap: 80px;
+    gap: 48px;
     align-items: end;
-    margin-bottom: 80px;
+    border-bottom: 2px solid var(--ink);
   }
-  @media (max-width: 960px) { .reserves-head { grid-template-columns: 1fr; gap: 32px; } }
+  @media (max-width: 720px) { .cog-intro { grid-template-columns: 1fr; gap: 24px; } }
 
-  .reserves-head p {
-    color: var(--text-muted);
-    font-size: 17px;
-    max-width: 480px;
+  .cog-intro .title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 6vw, 6rem);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
   }
-  .reserves-head strong { color: var(--coal); font-weight: 500; }
+  .cog-intro p {
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 640px;
+  }
 
-  .reserves-grid {
+  .cog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: 1px;
+    background: var(--ink);
   }
-  @media (max-width: 960px) { .reserves-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .cog-grid { grid-template-columns: 1fr; } }
 
-  .reserve-card {
-    background: var(--ivory-warm);
-    padding: 40px 36px 36px;
-    border: 1px solid var(--line-soft);
-    border-radius: 2px;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+  .cog-cell {
+    background: var(--paper);
+    padding: clamp(28px, 3.5vw, 48px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 340px;
     position: relative;
-    overflow: hidden;
   }
-  .reserve-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--ochre);
+  .cog-cell .idx {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
   }
-  .reserve-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 0; height: 2px;
-    background: var(--ochre);
-    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  .cog-cell .metric {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
   }
-  .reserve-card:hover::before { width: 100%; }
-
-  .reserve-icon {
-    width: 56px; height: 56px;
-    margin-bottom: 28px;
-    color: var(--ochre);
+  .cog-cell .metric sub {
+    font-size: 0.4em;
+    vertical-align: 0.3em;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0;
   }
-  .reserve-card h3 {
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 8px;
+  .cog-cell h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
     letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 1.1;
+    border-top: 1px solid var(--ink);
+    padding-top: 16px;
   }
-  .reserve-card .region {
-    font-size: 12px;
+  .cog-cell p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+  .cog-cell .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 12px;
+    border-top: 1px dashed var(--ink);
+  }
+
+  /* ============ DOSSIER 05 — FINAL ============ */
+  .final-band {
+    background: var(--red);
+    color: var(--paper);
+    padding: 14px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    display: block;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
   }
-  .reserve-card p {
-    color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1.65;
-    margin-bottom: 24px;
+  .final-band .stripes {
+    display: flex;
+    gap: 4px;
   }
-  .reserve-card .best-time {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    color: var(--coal);
-    padding: 6px 14px;
-    background: var(--ivory);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-  }
+  .final-band .stripes span { width: 12px; height: 12px; background: var(--paper); }
+  .final-band .stripes span:nth-child(2) { background: var(--ink); }
+  .final-band .stripes span:nth-child(3) { background: var(--paper); }
+  .final-band .stripes span:nth-child(4) { background: var(--ink); }
 
-  .reserves-note {
-    margin-top: 80px;
-    padding: 32px 0 0;
-    border-top: 1px solid var(--line);
+  .final-body {
+    padding: clamp(48px, 8vw, 120px) clamp(24px, 4vw, 56px);
+    background: var(--paper);
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr;
     gap: 48px;
-    align-items: start;
   }
-  @media (max-width: 720px) { .reserves-note { grid-template-columns: 1fr; gap: 16px; } }
-  .reserves-note .label {
-    font-size: 12px;
-    letter-spacing: 0.22em;
+
+  .final-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.2rem, 10vw, 12rem);
+    line-height: 0.84;
+    letter-spacing: -0.05em;
     text-transform: uppercase;
-    color: var(--ochre);
+    max-width: 14ch;
   }
-  .reserves-note p {
-    color: var(--text-muted);
-    font-size: 15px;
-  }
+  .final-title em { font-style: normal; color: var(--red); }
 
-  /* ============ MIND ============ */
-  .mind {
-    background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-warm) 100%);
-  }
-
-  .mind-head {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 96px;
-  }
-  .mind-head .section-index { justify-content: center; }
-
-  .mind-head p {
-    color: var(--text-muted);
-    font-size: 18px;
-    margin-top: 24px;
-    font-weight: 300;
-  }
-
-  .facts-grid {
+  .final-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    grid-template-columns: 5fr 7fr;
+    gap: 1px;
+    background: var(--ink);
+    border: 2px solid var(--ink);
   }
-  @media (max-width: 960px) { .facts-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .final-grid { grid-template-columns: 1fr; } }
+  .final-grid > div { background: var(--paper); padding: clamp(24px, 3vw, 40px); }
 
-  .fact {
-    padding: 64px 40px;
-    border-right: 1px solid var(--line);
-    position: relative;
+  .final-window {
+    display: grid;
+    gap: 14px;
   }
-  .fact:last-child { border-right: none; }
-  @media (max-width: 960px) {
-    .fact {
-      border-right: none;
-      border-bottom: 1px solid var(--line);
-    }
-    .fact:last-child { border-bottom: none; }
-  }
-
-  .fact .fact-num {
-    font-family: 'Fraunces', serif;
-    font-size: 14px;
-    color: var(--ochre);
+  .final-window .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
     letter-spacing: 0.08em;
-    display: block;
-    margin-bottom: 24px;
-  }
-  .fact h3 {
-    font-size: clamp(28px, 3vw, 40px);
-    font-weight: 300;
-    line-height: 1.15;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-  }
-  .fact p {
-    color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .mind-quote {
-    margin-top: 96px;
-    text-align: center;
-    max-width: 840px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .mind-quote blockquote {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: clamp(22px, 2.4vw, 32px);
-    font-weight: 300;
-    line-height: 1.4;
-    color: var(--coal);
-  }
-  .mind-quote .cite {
-    margin-top: 24px;
-    font-size: 13px;
-    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--ink);
   }
+  .final-window .row:last-child { border-bottom: none; }
+  .final-window .row .k { color: var(--muted); }
+  .final-window .row .v { font-weight: 700; color: var(--ink); }
+  .final-window .row .v.red { color: var(--red); }
 
-  /* ============ FINAL CTA ============ */
-  .final {
-    background: var(--coal);
-    color: var(--ivory);
-    padding: clamp(120px, 18vw, 200px) 0;
-    position: relative;
-    overflow: hidden;
+  .final-prose p {
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    max-width: 640px;
   }
-  .final::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(194, 116, 68, 0.12), transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(166, 138, 91, 0.08), transparent 45%);
-    opacity: 0.9;
-  }
+  .final-prose p strong { background: var(--ink); color: var(--paper); padding: 1px 6px; font-weight: 700; }
+  .final-prose p strong.red { background: var(--red); }
 
-  .final-inner {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  .final .section-index { color: rgba(245, 241, 234, 0.5); justify-content: center; }
-  .final h2 {
-    color: var(--ivory);
-    font-size: clamp(48px, 6.8vw, 112px);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 1.0;
-    margin-bottom: 32px;
-  }
-  .final h2 em { color: var(--gold-soft); font-style: italic; }
-  .final p.lead {
-    color: rgba(245, 241, 234, 0.7);
-    font-size: 18px;
-    font-weight: 300;
-    max-width: 620px;
-    margin: 0 auto 56px;
-    line-height: 1.7;
-  }
-
-  .cta-row {
-    display: inline-flex;
+  .final-cta {
+    display: flex;
     gap: 16px;
     flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 16px;
   }
 
-  .btn {
-    padding: 18px 36px;
-    font-size: 14px;
-    letter-spacing: 0.12em;
+  .final-warn {
+    margin-top: 24px;
+    padding: 20px 24px;
+    border: 2px solid var(--red);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    border: 1px solid;
-    background: transparent;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: inherit;
+    line-height: 1.5;
     font-weight: 500;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
   }
-  .btn-primary {
-    background: var(--ochre);
-    color: var(--ivory);
-    border-color: var(--ochre);
+  .final-warn::before {
+    content: '[ ! WARN ]';
+    display: block;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.18em;
   }
-  .btn-primary:hover {
-    background: var(--ochre-deep);
-    border-color: var(--ochre-deep);
-    transform: translateY(-2px);
-  }
-  .btn-ghost {
-    color: var(--ivory);
-    border-color: rgba(245, 241, 234, 0.28);
-  }
-  .btn-ghost:hover {
-    border-color: var(--gold-soft);
-    color: var(--gold-soft);
-    transform: translateY(-2px);
-  }
-
-  .final-threat {
-    margin-top: 72px;
-    padding-top: 48px;
-    border-top: 1px solid rgba(245, 241, 234, 0.12);
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    color: rgba(245, 241, 234, 0.5);
-    max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
-  }
-  .final-threat strong { color: rgba(245, 241, 234, 0.8); font-weight: 500; }
 
   /* ============ FOOTER ============ */
   footer {
-    background: var(--coal-soft);
-    padding: 48px 0;
-    border-top: 1px solid rgba(245, 241, 234, 0.06);
-    color: rgba(245, 241, 234, 0.4);
-    font-size: 13px;
+    border-top: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
   }
-  footer .row {
+  .footer-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--muted);
+  }
+  .footer-bar > div {
+    background: var(--ink);
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--paper);
+    line-height: 1.4;
+  }
+  .footer-bar .k { color: #8a8a8a; display: block; margin-bottom: 4px; font-weight: 500; }
+  .footer-bar .v { font-weight: 700; }
+  @media (max-width: 720px) { .footer-bar { grid-template-columns: 1fr 1fr; } }
+
+  .footer-closing {
+    padding: 40px 24px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 5rem);
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    border-top: 1px solid var(--muted);
+  }
+  .footer-closing em { font-style: normal; color: var(--red); }
+
+  .footer-meta {
+    padding: 16px 24px;
+    border-top: 1px solid var(--muted);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
     gap: 20px;
-  }
-  footer .brand-small {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    color: var(--gold-soft);
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a8a8a;
   }
 
-  /* ============ ANIMATIONS ============ */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  /* ============ BARCODE ACCENT ============ */
+  .barcode {
+    display: inline-flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 24px;
   }
-  .reveal.in {
-    opacity: 1;
-    transform: translateY(0);
+  .barcode span {
+    display: block;
+    width: 2px;
+    background: var(--ink);
   }
-  .reveal-delay-1 { transition-delay: 0.08s; }
-  .reveal-delay-2 { transition-delay: 0.16s; }
-  .reveal-delay-3 { transition-delay: 0.24s; }
-  .reveal-delay-4 { transition-delay: 0.32s; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal, .reveal.in { opacity: 1; transform: none; transition: none; }
-    .hero-art .mandala { animation: none; }
-    .scroll-cue .track::after { animation: none; }
-  }
+  .barcode span:nth-child(1) { height: 100%; width: 3px; }
+  .barcode span:nth-child(2) { height: 65%; }
+  .barcode span:nth-child(3) { height: 100%; }
+  .barcode span:nth-child(4) { height: 80%; width: 1px; }
+  .barcode span:nth-child(5) { height: 100%; width: 4px; }
+  .barcode span:nth-child(6) { height: 55%; }
+  .barcode span:nth-child(7) { height: 100%; }
+  .barcode span:nth-child(8) { height: 85%; width: 3px; }
+  .barcode span:nth-child(9) { height: 100%; }
+  .barcode span:nth-child(10) { height: 60%; width: 2px; }
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="container nav-row">
-    <div class="brand"><span class="dot"></span>ИНДИЯ · СЛОНЫ</div>
-    <ul class="nav-links">
-      <li><a href="#ganesha">Бог</a></li>
-      <li><a href="#festival">Фестиваль</a></li>
-      <li><a href="#reserves">Заповедники</a></li>
-      <li><a href="#mind">Разум</a></li>
-      <li><a href="#final">Маршрут</a></li>
-    </ul>
+<!-- ============ TOP BAR ============ -->
+<header class="bar">
+  <div class="bar-inner">
+    <div class="bar-brand"><span class="sq"></span>INDIA//ELEPHANTS</div>
+    <div class="bar-meta">DOSSIER REV 2.6 · UPD 23.04.2026 · CLASS / HERITAGE · UNIT No. IN-EL-01</div>
+    <nav class="bar-nav">
+      <a href="#d01">01/МИФ</a>
+      <a href="#d02">02/ФЕСТ</a>
+      <a href="#d03">03/АРЕА</a>
+      <a href="#d04">04/INTEL</a>
+      <a href="#d05">05/ACCESS</a>
+    </nav>
   </div>
 </header>
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-meta reveal"><span class="line"></span> 5 ГЛАВ · 12 МИНУТ · МАРШРУТ ВНУТРИ</div>
-        <h1 class="reveal reveal-delay-1">Там, где<br>слон — <em>это&nbsp;бог</em></h1>
-        <p class="lead reveal reveal-delay-2">Путешествие в страну, где гиганта ведут через храмовые ворота, как царя; где его хоронят вместе с именем; где он старше империй и моложе богов.</p>
-        <div class="hero-cta reveal reveal-delay-3">
-          <a href="#final" class="btn btn-primary">Записаться на экскурсию →</a>
-          <a href="#reserves" class="btn-text">Посмотреть заповедники</a>
-        </div>
-        <div class="hero-stats reveal reveal-delay-4">
-          <div class="hero-stat">
-            <span class="num">27 312</span>
-            <span class="label">диких слонов</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">¾</span>
-            <span class="label">мировой популяции</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">4500</span>
-            <span class="label">лет в культуре</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-art reveal reveal-delay-2" aria-hidden="true">
-        <!-- Mandala decoration -->
-        <svg class="mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#C27444" stroke-width="0.6" fill="none" opacity="0.6">
-            <circle cx="200" cy="200" r="195"/>
-            <circle cx="200" cy="200" r="170"/>
-            <circle cx="200" cy="200" r="145"/>
-            <circle cx="200" cy="200" r="120"/>
-          </g>
-          <g stroke="#A68A5B" stroke-width="0.4" fill="none">
-            <!-- Petals -->
-            <g opacity="0.8">
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(30 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(60 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(90 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(120 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(150 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(180 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(210 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(240 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(270 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(300 200 200)"/>
-              <path d="M200 30 Q 225 90, 200 150 Q 175 90, 200 30" transform="rotate(330 200 200)"/>
-            </g>
-          </g>
-          <circle cx="200" cy="200" r="8" fill="#C27444" opacity="0.5"/>
-        </svg>
+  <div class="hero-top">
+    <div>FILE &gt; INDIA / ELEPHANTS / 2026</div>
+    <div>— ACTIVE · PUBLIC ACCESS —</div>
+    <div>PAGE 01 / 05</div>
+  </div>
 
-        <!-- Elephant silhouette -->
-        <svg class="elephant-svg" viewBox="0 0 400 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M78 198 C 62 190, 55 170, 60 152 C 65 132, 85 120, 108 122 C 112 108, 120 96, 135 90 C 128 78, 130 62, 144 55 C 158 48, 175 55, 180 70 C 195 62, 215 60, 232 68 C 250 60, 272 62, 288 74 C 308 72, 328 82, 338 100 C 348 116, 348 138, 338 154 C 344 170, 342 190, 332 206 C 334 222, 328 240, 314 250 C 315 265, 308 280, 292 284 C 282 300, 262 304, 250 292 C 248 286, 248 278, 252 272 C 240 268, 232 256, 234 244 C 226 244, 218 240, 214 232 L 188 232 C 184 244, 178 256, 170 264 C 168 278, 160 290, 144 292 C 128 298, 110 290, 106 274 C 102 274, 98 270, 96 266 C 88 266, 80 260, 78 252 C 70 248, 64 240, 64 230 C 58 222, 58 210, 64 204 C 66 200, 70 198, 78 198 Z M 144 55 C 132 50, 122 42, 122 30 M 180 70 C 182 60, 188 52, 198 48 M 108 122 C 96 130, 88 142, 88 156"
-                stroke="#1A1614" stroke-width="1.8" fill="#1A1614" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Trunk curl detail -->
-          <path d="M 106 274 C 102 284, 96 292, 88 296 C 82 300, 74 300, 70 294" stroke="#1A1614" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <!-- Tusk -->
-          <path d="M 150 232 C 144 240, 138 246, 128 250 L 122 244 C 130 240, 140 234, 146 228 Z" fill="#EFE8DC" stroke="#1A1614" stroke-width="0.8"/>
-          <!-- Eye -->
-          <circle cx="188" cy="132" r="2.5" fill="#F5F1EA"/>
-          <!-- Decorative harness -->
-          <path d="M 230 120 C 250 116, 270 120, 286 128" stroke="#C27444" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <circle cx="258" cy="122" r="3" fill="#C27444"/>
-          <circle cx="238" cy="120" r="2" fill="#A68A5B"/>
-          <circle cx="278" cy="126" r="2" fill="#A68A5B"/>
-        </svg>
-      </div>
+  <div class="hero-body">
+    <div class="hero-title-row">
+      <h1 class="hero-title">
+        СЛОНЫ<span class="reg">®</span><br>
+        <span class="dash"></span>ИНДИИ
+      </h1>
+      <aside class="hero-aside">
+        <span class="block">INDEX No.01</span>
+        <span class="block red">[ RESTRICTED ]</span>
+        <span class="block">HE—ELEPHAS/MAX</span>
+      </aside>
+    </div>
+
+    <div class="hero-strapline">
+      <div class="tag">SUMMARY / FIELD REPORT</div>
+      <p>Полевое досье по единице <strong>ELEPHAS MAXIMUS INDICUS</strong> — индийскому слону. Страна, где гиганта ведут через храмовые ворота как царя, где его хоронят вместе с именем, где он старше империй и моложе богов. Пять глав — от мифологии до когнитивных метрик.</p>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="#d05" class="btn-brutal">ЗАПИСАТЬСЯ НА ЭКСКУРСИЮ <span class="arrow">&gt;&gt;&gt;</span></a>
+      <a href="#d03" class="btn-brutal ghost">СМ. ЗАПОВЕДНИКИ / 03</a>
     </div>
   </div>
-  <div class="scroll-cue">
-    <span>Листать</span>
-    <div class="track"></div>
+
+  <div class="hero-stats">
+    <div>
+      <span class="label">POP // WILD</span>
+      <div class="v">27 312</div>
+      <div class="sub">особей · перепись 2017</div>
+    </div>
+    <div>
+      <span class="label">SHARE / GLOBAL</span>
+      <div class="v">≈ 75%</div>
+      <div class="sub">мировой популяции</div>
+    </div>
+    <div>
+      <span class="label">CULT / ERA</span>
+      <div class="v">4500<span style="font-size:0.5em; color:var(--muted);">ЛЕТ</span></div>
+      <div class="sub">с печатей Хараппы</div>
+    </div>
+    <div>
+      <span class="label">IUCN / STATUS</span>
+      <div class="v" style="color: var(--red);">EN<span style="font-size:0.55em; color: var(--ink);">//ENDGD</span></div>
+      <div class="sub">endangered · Красная книга</div>
+    </div>
   </div>
 </section>
 
-<!-- ============ GANESHA ============ -->
-<section class="story" id="ganesha">
-  <div class="container">
-    <div class="ganesha-grid">
-      <div class="ganesha-art reveal" aria-hidden="true">
-        <svg viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Aura -->
-          <circle cx="150" cy="130" r="110" stroke="#C27444" stroke-width="0.6" fill="none" opacity="0.4"/>
-          <circle cx="150" cy="130" r="125" stroke="#A68A5B" stroke-width="0.4" fill="none" opacity="0.3"/>
+<!-- ============ DOSSIER 01 ============ -->
+<section id="d01">
+  <div class="dossier-label">
+    <span><span class="dot"></span>DOSSIER / 01 · МИФОЛОГИЯ &amp; КУЛЬТ</span>
+    <span>REF · GAN—5TH CENT · ORIGIN / IN</span>
+  </div>
 
-          <!-- Decorative rays -->
-          <g stroke="#A68A5B" stroke-width="0.5" opacity="0.5">
-            <line x1="150" y1="10" x2="150" y2="25"/>
-            <line x1="220" y1="40" x2="212" y2="50"/>
-            <line x1="260" y1="130" x2="245" y2="130"/>
-            <line x1="80" y1="40" x2="88" y2="50"/>
-            <line x1="40" y1="130" x2="55" y2="130"/>
-            <line x1="220" y1="220" x2="212" y2="210"/>
-            <line x1="80" y1="220" x2="88" y2="210"/>
-          </g>
+  <div class="dossier-head">
+    <div>
+      <div class="dossier-kicker">ORIGIN / 2500 B.C. · INDUS VALLEY</div>
+      <h2 class="dossier-title">БОГ<br>С <em>ГОЛОВОЙ</em><br>СЛОНА</h2>
+    </div>
+    <div>
+      <div class="dossier-kicker">DESCRIPTION &gt;&gt;&gt;</div>
+      <p style="font-size:16px; line-height:1.55;">Ганеша — устранитель препятствий и бог мудрости. Первородный сын Шивы и Парвати. Изображается полным человеком с головой слона и одним бивнем, восседает на крысе. Первые иконы датированы V веком; культ ганапатьи оформился в VI.</p>
+    </div>
+  </div>
 
-          <!-- Head (stylized elephant/Ganesha) -->
-          <!-- Crown -->
-          <path d="M 110 60 L 118 40 L 128 55 L 138 35 L 150 52 L 162 35 L 172 55 L 182 40 L 190 60"
-                stroke="#C27444" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
-          <circle cx="150" cy="44" r="3" fill="#C27444"/>
+  <div class="ganesha-body">
+    <div class="ganesha-prose">
+      <div class="ganesha-pull">«Ганеша — тот, кого призывают в начале любого пути. Без него не откроется ни книга, ни храм, ни дорога.»</div>
 
-          <!-- Head outline -->
-          <path d="M 100 80 C 90 90, 85 110, 88 130 C 85 145, 90 160, 100 170
-                   C 95 185, 100 200, 115 208
-                   C 130 215, 150 215, 170 212
-                   L 175 220 C 180 228, 188 230, 195 225 L 200 218
-                   C 215 215, 230 205, 235 190
-                   C 245 180, 245 160, 240 145
-                   C 243 125, 238 105, 225 95
-                   C 215 80, 195 72, 175 75
-                   C 160 68, 140 68, 125 75
-                   C 115 72, 105 76, 100 80 Z"
-                stroke="#1A1614" stroke-width="1.6" fill="#1A1614"/>
+      <p>Канонический миф: Шива в гневе лишил сына головы, забросив её так далеко, что никто не смог найти. Чтобы вернуть жену Парвати, он приставил мальчику голову первого встреченного слонёнка. Так возникла иконография, которая за полторы тысячи лет стала символом всей цивилизации.</p>
+      <p>Сами слоны присутствуют в искусстве субконтинента с <strong>2500 года до н. э.</strong> — изображения найдены на печатях Хараппской цивилизации. В ведической традиции белый слон Айравата служит ваханой бога Индры, владыки молнии и дождя.</p>
+      <p>Слон как символ силы, плодородия, царства. В военной доктрине индийских империй — от Магадхи (VI в. до н. э.) до Палов (VIII в. н. э.) — боевые слоны стояли в авангарде армии вместе с колесницами, конницей и пехотой.</p>
+    </div>
 
-          <!-- Large ears -->
-          <path d="M 88 100 C 65 105, 50 125, 55 150 C 55 170, 70 180, 85 175 C 92 170, 95 160, 95 148"
-                stroke="#1A1614" stroke-width="1.6" fill="#1A1614"/>
-          <path d="M 235 100 C 255 105, 268 125, 265 150 C 265 170, 250 180, 235 175 C 228 170, 225 160, 225 148"
-                stroke="#1A1614" stroke-width="1.6" fill="#1A1614"/>
-
-          <!-- Ear inner decoration -->
-          <path d="M 78 135 C 75 145, 78 155, 83 160" stroke="#C27444" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M 242 135 C 245 145, 242 155, 237 160" stroke="#C27444" stroke-width="1" fill="none" opacity="0.6"/>
-
-          <!-- Tilak on forehead -->
-          <path d="M 145 90 L 150 80 L 155 90" stroke="#C27444" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <circle cx="150" cy="95" r="2.5" fill="#C27444"/>
-
-          <!-- Eyes -->
-          <ellipse cx="128" cy="125" rx="3" ry="2" fill="#F5F1EA"/>
-          <ellipse cx="172" cy="125" rx="3" ry="2" fill="#F5F1EA"/>
-
-          <!-- Trunk - curled -->
-          <path d="M 150 160 C 152 180, 158 200, 170 215
-                   C 185 228, 200 230, 208 220
-                   C 214 210, 210 198, 200 195
-                   C 192 194, 188 200, 190 208"
-                stroke="#1A1614" stroke-width="1.8" fill="#1A1614"/>
-
-          <!-- Tusks -->
-          <path d="M 128 195 L 118 215 L 124 218 L 132 200 Z" fill="#EFE8DC" stroke="#1A1614" stroke-width="0.8"/>
-          <path d="M 172 195 L 182 215 L 176 218 L 168 200 Z" fill="#EFE8DC" stroke="#1A1614" stroke-width="0.8"/>
-
-          <!-- Body suggestion -->
-          <path d="M 100 212 C 95 240, 100 280, 120 300 L 180 300 C 200 280, 205 240, 200 212"
-                stroke="#1A1614" stroke-width="1.6" fill="#1A1614"/>
-
-          <!-- Necklace -->
-          <path d="M 115 215 C 130 225, 170 225, 185 215" stroke="#C27444" stroke-width="1.2" fill="none"/>
-          <circle cx="150" cy="228" r="4" fill="#C27444"/>
-          <circle cx="135" cy="222" r="2" fill="#A68A5B"/>
-          <circle cx="165" cy="222" r="2" fill="#A68A5B"/>
-
-          <!-- Lotus base hint -->
-          <path d="M 110 305 C 120 320, 140 325, 150 325 C 160 325, 180 320, 190 305"
-                stroke="#C27444" stroke-width="1" fill="none" opacity="0.7"/>
-          <path d="M 120 315 L 130 325 M 150 320 L 150 330 M 180 315 L 170 325"
-                stroke="#A68A5B" stroke-width="0.8" opacity="0.6"/>
-        </svg>
+    <div class="ganesha-side">
+      <div class="ganesha-data">
+        <div><span class="k">PARENT / FATHER</span><span class="v">ШИВА</span></div>
+        <div><span class="k">PARENT / MOTHER</span><span class="v">ПАРВАТИ</span></div>
+        <div><span class="k">VEHICLE / VAHANA</span><span class="v">КРЫСА</span></div>
+        <div><span class="k">ATTRIBUTES</span><span class="v">1 БИВЕНЬ · 4 РУКИ</span></div>
+        <div><span class="k">FIRST ICON</span><span class="v">V В. Н. Э.</span></div>
+        <div><span class="k">CULT / START</span><span class="v">VI В. Н. Э.</span></div>
       </div>
 
-      <div class="ganesha-text reveal reveal-delay-1">
-        <div class="section-index"><span class="num">I</span>ГЛАВА ПЕРВАЯ</div>
-        <h2 class="section-title">Прежде чем<br>начать — <em>поклонись</em></h2>
-
-        <div class="pull">«Ганеша — тот, кого призывают в начале любого пути. Без него не откроется ни книга, ни храм, ни дорога.»</div>
-
-        <p>Его изображают полным человеком с головой слона и одним бивнем. Первенец Шивы и Парвати, бог мудрости и устранитель препятствий — он восседает на крысе и встречает паломника у всех ворот.</p>
-
-        <p>По канону, Шива в гневе лишил сына головы, забросив её так далеко, что никто не смог найти. Чтобы вернуть жену, он приставил мальчику голову первого встреченного слонёнка. Так родилась иконография, которая за полторы тысячи лет стала символом всей индийской цивилизации.</p>
-
-        <p class="muted">Первые изображения божества с головой слона датируются V веком. Культ ганапатьи оформился в VI веке. Сами же слоны на печатях Хараппской цивилизации — с <strong>2500 года до н. э.</strong></p>
-
-        <div class="fact-chips">
-          <span class="fact-chip"><span class="dot"></span>Айравата — белый слон Индры</span>
-          <span class="fact-chip"><span class="dot"></span>Четыре стороны света</span>
-          <span class="fact-chip"><span class="dot"></span>Национальное достояние Индии</span>
-        </div>
+      <div class="ganesha-art" aria-hidden="true">
+        <svg viewBox="0 0 300 360" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 110 60 L 118 40 L 128 55 L 138 35 L 150 52 L 162 35 L 172 55 L 182 40 L 190 60" stroke="#050505" stroke-width="3" fill="none" stroke-linejoin="round"/>
+          <rect x="146" y="38" width="8" height="8" fill="#E61919"/>
+          <path d="M 100 80 C 90 90, 85 110, 88 130 C 85 145, 90 160, 100 170 C 95 185, 100 200, 115 208 C 130 215, 150 215, 170 212 L 175 220 C 180 228, 188 230, 195 225 L 200 218 C 215 215, 230 205, 235 190 C 245 180, 245 160, 240 145 C 243 125, 238 105, 225 95 C 215 80, 195 72, 175 75 C 160 68, 140 68, 125 75 C 115 72, 105 76, 100 80 Z" fill="#050505"/>
+          <path d="M 88 100 C 65 105, 50 125, 55 150 C 55 170, 70 180, 85 175 C 92 170, 95 160, 95 148" fill="#050505"/>
+          <path d="M 235 100 C 255 105, 268 125, 265 150 C 265 170, 250 180, 235 175 C 228 170, 225 160, 225 148" fill="#050505"/>
+          <rect x="146" y="80" width="8" height="8" fill="#E61919"/>
+          <circle cx="150" cy="95" r="3" fill="#E61919"/>
+          <rect x="124" y="122" width="8" height="4" fill="#F4F4F0"/>
+          <rect x="168" y="122" width="8" height="4" fill="#F4F4F0"/>
+          <path d="M 150 160 C 152 180, 158 200, 170 215 C 185 228, 200 230, 208 220 C 214 210, 210 198, 200 195 C 192 194, 188 200, 190 208" fill="#050505"/>
+          <path d="M 128 195 L 118 215 L 124 218 L 132 200 Z" fill="#F4F4F0" stroke="#050505" stroke-width="1"/>
+          <path d="M 172 195 L 182 215 L 176 218 L 168 200 Z" fill="#F4F4F0" stroke="#050505" stroke-width="1"/>
+          <path d="M 100 212 C 95 240, 100 280, 120 300 L 180 300 C 200 280, 205 240, 200 212" fill="#050505"/>
+          <rect x="115" y="218" width="70" height="3" fill="#E61919"/>
+          <rect x="146" y="225" width="8" height="8" fill="#E61919"/>
+        </svg>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FESTIVAL ============ -->
-<section class="story festival" id="festival">
-  <div class="container">
-    <div class="festival-intro">
+<!-- ============ DOSSIER 02 ============ -->
+<section id="d02">
+  <div class="dossier-label">
+    <span><span class="dot"></span>DOSSIER / 02 · RITUAL · ФЕСТИВАЛЬ</span>
+    <span>REF · THRISSUR POORAM / KL—TH01</span>
+  </div>
+
+  <div class="dossier-head">
+    <div>
+      <div class="dossier-kicker">EVENT / APR—MAY · KERALA</div>
+      <h2 class="dossier-title">ПАРАД<br><em>30</em><br>СЛОНОВ</h2>
+    </div>
+    <div>
+      <div class="dossier-kicker">LOCUS · VADAKKUNNATHAN</div>
+      <p style="font-size:16px; line-height:1.55;">Тришшур Пурам — крупнейший храмовый фестиваль Индии. Придуман махараджей Кочина Сактан Тампураном в конце XVIII века. Ежегодно превращает керальский город в эпицентр ритуала, музыки и огня.</p>
+    </div>
+  </div>
+
+  <div class="fest-stats">
+    <div>
+      <div class="lbl">UNIT / 01</div>
+      <div class="big">30</div>
+      <div class="desc">слонов в золотых попонах (Неттипаттам)</div>
+    </div>
+    <div>
+      <div class="lbl">UNIT / 02</div>
+      <div class="big">02</div>
+      <div class="desc">храма-соперника: Парамеккаву ×<br>Тирувамбади</div>
+    </div>
+    <div>
+      <div class="lbl">UNIT / 03</div>
+      <div class="big">1M<span style="font-size:0.5em; color:var(--red);">+</span></div>
+      <div class="desc">зрителей · 3 континента</div>
+    </div>
+    <div>
+      <div class="lbl">UNIT / 04</div>
+      <div class="big">36<span style="font-size:0.5em; color:var(--muted);">ч</span></div>
+      <div class="desc">без перерыва: музыка, ритуал, фейерверк</div>
+    </div>
+  </div>
+
+  <table class="fest-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">No.</th>
+        <th style="width:220px;">RITUAL / НАЗВАНИЕ</th>
+        <th>DESCRIPTION / ОПИСАНИЕ</th>
+        <th style="width:140px; text-align:right;">DUR / ВРЕМЯ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="idx">&gt; 01</td>
+        <td class="name">ПООРА<br>ВИЛАМПАРАМ</td>
+        <td class="desc">В полдень слон толкает хоботом южные ворота храма Вадаккуннатхан. С этого жеста начинается фестиваль. На спине — икона Нейтилаккавиламмы.</td>
+        <td class="dur">12:00 / OPEN</td>
+      </tr>
+      <tr>
+        <td class="idx">&gt; 02</td>
+        <td class="name">КУДАМАТТАМ</td>
+        <td class="desc">Два ряда по 15 слонов лицом к лицу. Носильщики меняют расшитые шёлком зонты в рифме — кто красивее. Толпа выбирает победителя.</td>
+        <td class="dur">2–3 ч</td>
+      </tr>
+      <tr>
+        <td class="idx">&gt; 03</td>
+        <td class="name">НЕТТИПАТТАМ</td>
+        <td class="desc">Золотая попона, закрывающая лоб и уши. Украшена позолоченными кругами. Ремесленник делает её годами. Вес — до 20 кг.</td>
+        <td class="dur">ALL-DAY</td>
+      </tr>
+      <tr>
+        <td class="idx">&gt; 04</td>
+        <td class="name">ЧАМАЯМ</td>
+        <td class="desc">Полный убор: колокольчики, опахало из павлиньих перьев (Алаваттом), веер Венчамарам, нагрудники. Всё шьётся к фестивалю заново.</td>
+        <td class="dur">ALL-DAY</td>
+      </tr>
+      <tr>
+        <td class="idx">&gt; 05</td>
+        <td class="name">ВЕДДИКЕТТУ</td>
+        <td class="desc">Ночной фейерверк на поле Теккинкаду. Длится часы. Одна из самых ожидаемых традиций Азии.</td>
+        <td class="dur">03:00 / NIGHT</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ DOSSIER 03 ============ -->
+<section id="d03">
+  <div class="dossier-label">
+    <span><span class="dot"></span>DOSSIER / 03 · ПОЛЕВЫЕ ТОЧКИ · ЗАПОВЕДНИКИ</span>
+    <span>REF · 03 LOCATIONS · COORDINATES / WGS84</span>
+  </div>
+
+  <div class="dossier-head">
+    <div>
+      <div class="dossier-kicker">SURVEY / 2017 · INDIA-WIDE</div>
+      <h2 class="dossier-title">МАРШРУТ<br>К <em>ДИКИМ</em></h2>
+    </div>
+    <div>
+      <div class="dossier-kicker">DATA &gt;&gt;&gt;</div>
+      <p style="font-size:16px; line-height:1.55;">Индийский слон — национальное достояние страны. По переписи 2017 — <strong style="background:var(--ink); color:var(--paper); padding:1px 6px;">27 312</strong> диких особей (~75% мировой популяции азиатского слона). Три полевые точки рекомендованы для наблюдения.</p>
+    </div>
+  </div>
+
+  <table class="reserves-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">No.</th>
+        <th style="width:24%;">LOCUS / ЗАПОВЕДНИК</th>
+        <th style="width:18%;">COORDINATES</th>
+        <th>DESCRIPTION</th>
+        <th style="width:140px;">WINDOW</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="rnum">P—01</span></td>
+        <td>
+          <div class="rname">ПЕРИЯР</div>
+          <div class="rregion">KERALA / JUNGLE</div>
+        </td>
+        <td><span class="rcoord">09°33′N<br>77°10′E</span></td>
+        <td class="rdesc">Тигриный заповедник вокруг искусственного озера. Слонов встречают с лодок на рассвете, когда стада выходят к воде. В охраняемой зоне — около 1000 особей.</td>
+        <td><span class="rtime">ОКТ — ФЕВ</span></td>
+      </tr>
+      <tr>
+        <td><span class="rnum">P—02</span></td>
+        <td>
+          <div class="rname">КАЗИРАНГА</div>
+          <div class="rregion">ASSAM / SAVANNAH</div>
+        </td>
+        <td><span class="rcoord">26°34′N<br>93°10′E</span></td>
+        <td class="rdesc">Объект Всемирного наследия ЮНЕСКО. Саванны, болота, густая трава. Слоны соседствуют с индийским носорогом и бенгальским тигром. Сафари на джипах.</td>
+        <td><span class="rtime">НОЯ — АПР</span></td>
+      </tr>
+      <tr>
+        <td><span class="rnum">P—03</span></td>
+        <td>
+          <div class="rname">БАНДИПУР</div>
+          <div class="rregion">KARNATAKA / DRY FOREST</div>
+        </td>
+        <td><span class="rcoord">11°40′N<br>76°38′E</span></td>
+        <td class="rdesc">Часть биосферы Нилгири. Сухой листопадный лес. Стада здесь особенно крупные — до 50 особей вместе. Классическое индийское сафари.</td>
+        <td><span class="rtime">МАР — МАЙ</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="reserves-footnote">
+    <span class="warn">[ ! ] STATUS / ENDGD</span>
+    <p>Вид внесён в <strong>Красную книгу МСОП</strong> как endangered. Программа <strong>«Project Elephant»</strong> (1992) ведёт охрану коридоров миграции и противодействие браконьерству. Численность снижается на <strong>2–3%</strong> в год.</p>
+  </div>
+</section>
+
+<!-- ============ DOSSIER 04 ============ -->
+<section id="d04">
+  <div class="dossier-label">
+    <span><span class="dot"></span>DOSSIER / 04 · INTEL · КОГНИТИВНЫЕ ПОКАЗАТЕЛИ</span>
+    <span>REF · RESEARCH LOG · 3 METRICS / VERIFIED</span>
+  </div>
+
+  <div class="cog-intro">
+    <h2 class="dossier-title" style="margin:0;">НЕ ПРОСТО<br><em>БОЛЬШОЕ</em><br>ЖИВОТНОЕ</h2>
+    <p>Слоны узнают себя в зеркале. Помнят лица через годы. Различают языки. Плачут. Хоронят своих. Ниже — три метрики, верифицированные экспериментально. Наука последних 20 лет медленно догоняет то, что жители Кералы знали веками.</p>
+  </div>
+
+  <div class="cog-grid">
+    <div class="cog-cell">
+      <span class="idx">METRIC / 01 · ARITHMETIC</span>
+      <div class="metric">90<sub>%</sub></div>
+      <h3>Считают точнее,<br>чем люди</h3>
+      <p>В тесте «в каком ведре больше яблок» индийская слониха Ашиа показала точность 90%. Контрольная группа взрослых людей — только 67%. Слоны оценивают количество не пересчётом, а напрямую.</p>
+      <div class="tag">SOURCE · J.PLOTNIK · CORNELL · DELTA +23%</div>
+    </div>
+    <div class="cog-cell">
+      <span class="idx">METRIC / 02 · MEMORY</span>
+      <div class="metric">12<sub>МЕС</sub></div>
+      <h3>Помнят лица<br>и голоса годами</h3>
+      <p>В экспериментах индийские слоны через год безошибочно узнавали визуальные и звуковые пары. Матриархи помнят маршруты к водопоям, пройденные десятилетия назад.</p>
+      <div class="tag">SOURCE · NATURE · MATRIARCH DATA · VERIFIED</div>
+    </div>
+    <div class="cog-cell">
+      <span class="idx">METRIC / 03 · RITUAL</span>
+      <div class="metric">SOLE<sub>1 OF 1</sub></div>
+      <h3>Единственные<br>с похоронным<br>ритуалом</h3>
+      <p>Стадо подолгу стоит над умершим сородичем, прикрывает тело ветками и листьями, возвращается к этому месту годами. Подобное описано только у людей. Зоологи фиксируют ритуал десятилетиями.</p>
+      <div class="tag">SOURCE · DOUGLAS-HAMILTON · SAMBURU · OBS 40Y</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOSSIER 05 / FINAL ============ -->
+<section id="d05">
+  <div class="dossier-label red-band">
+    <span><span class="dot"></span>DOSSIER / 05 · ACCESS · ЗАПРОС НА ДОПУСК</span>
+    <span>PRIORITY / HIGH · WINDOW LIMITED</span>
+  </div>
+
+  <div class="final-body">
+    <h2 class="final-title">ПОЕЗЖАЙТЕ,<br>ПОКА ОНИ <em>ЕСТЬ</em></h2>
+
+    <div class="final-grid">
       <div>
-        <div class="section-index reveal"><span class="num">II</span>ГЛАВА ВТОРАЯ</div>
-        <h2 class="section-title reveal reveal-delay-1">Парад <em>тридцати</em><br>слонов</h2>
-      </div>
-      <p class="reveal reveal-delay-2">Тришшур Пурам — крупнейший храмовый фестиваль Индии. Придуман махараджей Кочина Сактан Тампураном в конце XVIII века. Каждую весну он превращает небольшой керальский город в эпицентр ритуала, музыки и огня.</p>
-    </div>
-
-    <div class="stat-grid reveal">
-      <div class="stat-cell">
-        <span class="big">30</span>
-        <div class="desc">СЛОНОВ В&nbsp;ЗОЛОТЫХ ПОПОНАХ</div>
-      </div>
-      <div class="stat-cell">
-        <span class="big">2</span>
-        <div class="desc">ХРАМА-СОПЕРНИКА:<br>ПАРАМЕККАВУ И&nbsp;ТИРУВАМБАДИ</div>
-      </div>
-      <div class="stat-cell">
-        <span class="big">1M+</span>
-        <div class="desc">ЗРИТЕЛЕЙ КАЖДУЮ ВЕСНУ</div>
-      </div>
-      <div class="stat-cell">
-        <span class="big">36ч</span>
-        <div class="desc">БЕЗ ПЕРЕРЫВА:<br>МУЗЫКА, РИТУАЛ, ФЕЙЕРВЕРК</div>
-      </div>
-    </div>
-
-    <div class="ritual-list">
-      <h3 class="reveal">Ритуалы, из которых состоит ночь Пурам</h3>
-      <div class="ritual-items">
-        <div class="ritual-item reveal">
-          <div class="name">Поора Вилампарам</div>
-          <div class="desc">Ровно в полдень слон толкает хоботом южные ворота храма Вадаккуннатхан. С этого жеста начинается фестиваль. На его спине — икона Нейтилаккавиламмы.</div>
-        </div>
-        <div class="ritual-item reveal">
-          <div class="name">Кудаматтам</div>
-          <div class="desc">Два ряда по пятнадцать слонов стоят лицом к лицу. На каждом — носильщики зонтов. Зонты сменяются в рифме — расшитые шёлком, шитьём и бусами. Один конкурирует с другим. Толпа выбирает победителя.</div>
-        </div>
-        <div class="ritual-item reveal">
-          <div class="name">Неттипаттам</div>
-          <div class="desc">Золотая попона, закрывающая лоб и уши слона. Украшена позолоченными кругами — каждый ремесленник делает её годами. Имеет вес до двадцати килограммов.</div>
-        </div>
-        <div class="ritual-item reveal">
-          <div class="name">Чамаям</div>
-          <div class="desc">Полный церемониальный убор: колокольчики, опахало из павлиньих перьев (Алаваттом), королевский веер (Венчамарам), нагрудники, браслеты. Каждый элемент шьётся к фестивалю заново.</div>
-        </div>
-        <div class="ritual-item reveal">
-          <div class="name">Веддикетту</div>
-          <div class="desc">Ночной фейерверк на поле Теккинкаду. Длится часы. Традиция — одна из самых ожидаемых в Азии; приезжают посмотреть из трёх континентов.</div>
+        <div class="dossier-kicker" style="margin-bottom:16px;">WINDOW / ОКНА ДОСТУПА</div>
+        <div class="final-window">
+          <div class="row"><span class="k">THRISSUR POORAM</span><span class="v red">27.04 — 05.05</span></div>
+          <div class="row"><span class="k">ПЕРИЯР / P-01</span><span class="v">ОКТ — ФЕВ</span></div>
+          <div class="row"><span class="k">КАЗИРАНГА / P-02</span><span class="v">НОЯ — АПР</span></div>
+          <div class="row"><span class="k">БАНДИПУР / P-03</span><span class="v">МАР — МАЙ</span></div>
+          <div class="row"><span class="k">IUCN STATUS</span><span class="v red">ENDANGERED</span></div>
+          <div class="row"><span class="k">DECLINE / YEAR</span><span class="v red">–2 ÷ –3 %</span></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ RESERVES ============ -->
-<section class="story" id="reserves">
-  <div class="container">
-    <div class="reserves-head">
       <div>
-        <div class="section-index reveal"><span class="num">III</span>ГЛАВА ТРЕТЬЯ</div>
-        <h2 class="section-title reveal reveal-delay-1">Маршрут<br>к <em>диким</em></h2>
+        <div class="dossier-kicker" style="margin-bottom:16px;">BRIEFING</div>
+        <div class="final-prose">
+          <p>Тришшур Пурам проходит с конца апреля по начало мая. Сафари в Перияре — октябрь и декабрь. Казиранга открыта до Холи. Если вы читаете это — лучшее время уже складывается.</p>
+          <div class="final-cta">
+            <a href="#" class="btn-brutal">ЗАПИСАТЬСЯ НА ЭКСКУРСИЮ <span class="arrow">&gt;&gt;&gt;</span></a>
+            <a href="#" class="btn-brutal ghost">ПРАВИЛА / ETH-TOUR</a>
+          </div>
+          <div class="final-warn">
+            Численность индийских слонов снижается на 2–3% ежегодно. В 2023–2024 в столкновениях с людьми в Индии погибли 629 человек — и сотни слонов в ответ. Этика путешествия: не кататься, не поддерживать шоу с прикованными животными, выбирать заповедники с программой реабилитации.
+          </div>
+        </div>
       </div>
-      <p class="reveal reveal-delay-2">Индийский слон (<em>Elephas maximus indicus</em>) — национальное достояние страны. По переписи 2017 года в дикой природе насчитали <strong>27 312</strong> особей — это приблизительно три четверти всей мировой популяции азиатского слона. Увидеть их можно только в трёх-четырёх заповедниках: каждый открывает своё лицо Индии.</p>
-    </div>
-
-    <div class="reserves-grid">
-      <div class="reserve-card reveal">
-        <svg class="reserve-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 40 C 14 38, 20 42, 28 42 C 36 42, 42 38, 48 40 L 48 46 L 8 46 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <path d="M14 40 C 14 30, 20 24, 28 24 C 36 24, 42 30, 42 40" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <circle cx="28" cy="18" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <path d="M22 12 C 24 8, 32 8, 34 12" stroke="currentColor" stroke-width="1.2" fill="none"/>
-        </svg>
-        <h3>Перияр</h3>
-        <span class="region">Керала · Южная Индия</span>
-        <p>Тигриный заповедник с искусственным озером в центре. Слонов встречают с лодок на рассвете, когда стада выходят к воде. В охраняемой зоне — около тысячи особей.</p>
-        <span class="best-time">Лучшее время · окт — февраль</span>
-      </div>
-
-      <div class="reserve-card reveal reveal-delay-1">
-        <svg class="reserve-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 44 L 18 32 L 26 40 L 38 26 L 52 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
-          <path d="M4 44 L 52 44" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="40" cy="14" r="4" stroke="currentColor" stroke-width="1.2" fill="none"/>
-          <path d="M36 14 L 44 14 M 40 10 L 40 18" stroke="currentColor" stroke-width="1" opacity="0.6"/>
-        </svg>
-        <h3>Казиранга</h3>
-        <span class="region">Ассам · Северо-Восток</span>
-        <p>Объект Всемирного наследия ЮНЕСКО. Саванны, болота, густая трава. Здесь слоны живут рядом с индийским носорогом и редким бенгальским тигром. Сафари — на джипах и на спинах слонов.</p>
-        <span class="best-time">Лучшее время · ноя — апрель</span>
-      </div>
-
-      <div class="reserve-card reveal reveal-delay-2">
-        <svg class="reserve-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 46 C 14 42, 20 44, 28 40 C 36 36, 42 38, 48 34" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <path d="M 18 36 C 18 30, 22 26, 28 26" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <path d="M 34 34 C 34 28, 38 24, 44 24" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <circle cx="28" cy="22" r="3" stroke="currentColor" stroke-width="1.2" fill="none"/>
-          <circle cx="44" cy="20" r="3" stroke="currentColor" stroke-width="1.2" fill="none"/>
-        </svg>
-        <h3>Бандипур</h3>
-        <span class="region">Карнатака · Нилгири</span>
-        <p>Часть биосферного резервата Нилгири. Классическое индийское сафари по сухому листопадному лесу. Стада слонов здесь особенно крупные — до пятидесяти особей вместе.</p>
-        <span class="best-time">Лучшее время · март — май</span>
-      </div>
-    </div>
-
-    <div class="reserves-note reveal">
-      <div class="label">Статус популяции</div>
-      <p>Вид внесён в <strong>Красную книгу МСОП</strong> как находящийся под угрозой. С 1992 года правительство Индии ведёт программу «<strong>Проект Слон</strong>» — финансирует охрану, коридоры миграции и противодействие браконьерству. Численность продолжает снижаться на 2–3% в год.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ MIND ============ -->
-<section class="story mind" id="mind">
-  <div class="container">
-    <div class="mind-head">
-      <div class="section-index reveal"><span class="num">IV</span>ГЛАВА ЧЕТВЁРТАЯ</div>
-      <h2 class="section-title reveal reveal-delay-1" style="max-width: none;">Не просто <em>большое</em><br>животное</h2>
-      <p class="reveal reveal-delay-2">Слоны узнают себя в зеркале. Помнят лица через годы. Различают языки. Плачут. Хоронят своих. Наука последних двадцати лет медленно догоняет то, что жители Кералы знали веками.</p>
-    </div>
-
-    <div class="facts-grid">
-      <div class="fact reveal">
-        <span class="fact-num">01 / ПАМЯТЬ</span>
-        <h3>Помнят лица<br>и голоса годами</h3>
-        <p>В контролируемых экспериментах индийские слоны через год безошибочно узнавали визуальные пары, с которыми работали. То же — со звуковыми сигналами. Матриархи помнят маршруты к водопоям, пройденные десятилетия назад.</p>
-      </div>
-
-      <div class="fact reveal reveal-delay-1">
-        <span class="fact-num">02 / МАТЕМАТИКА</span>
-        <h3>Считают точнее,<br>чем люди</h3>
-        <p>В тесте «в каком ведре больше яблок» индийская слониха Ашиа показала точность <strong>90%</strong>. Контрольная группа взрослых людей справилась только на <strong>67%</strong>. Слоны, похоже, оценивают количество не пересчётом, а напрямую.</p>
-      </div>
-
-      <div class="fact reveal reveal-delay-2">
-        <span class="fact-num">03 / ПРОЩАНИЕ</span>
-        <h3>Единственные,<br>кто хоронит своих</h3>
-        <p>Зоологи десятилетиями фиксируют ритуал: стадо подолгу стоит над умершим сородичем, прикрывает тело ветками и листьями, возвращается к этому месту годами. Подобное описано только у людей.</p>
-      </div>
-    </div>
-
-    <div class="mind-quote reveal">
-      <blockquote>«Стадо возглавляет старшая самка — она помнит больше. Индийский слон живёт в матриархате, где знания передают поколениями, как книгу.»</blockquote>
-      <div class="cite">— этологи, проект «Элефант»</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FINAL ============ -->
-<section class="final" id="final">
-  <div class="container final-inner">
-    <div class="section-index reveal"><span class="num">V</span>ГЛАВА ПОСЛЕДНЯЯ</div>
-    <h2 class="reveal reveal-delay-1">Поезжайте,<br>пока они <em>есть</em></h2>
-    <p class="lead reveal reveal-delay-2">Тришшур Пурам проходит с конца апреля по начало мая. Сафари в Перияре — октябрь и декабрь. Казиранга открыта до Холи. Если вы читаете это — лучшее время уже складывается.</p>
-
-    <div class="cta-row reveal reveal-delay-3">
-      <a href="#reserves" class="btn btn-primary">Составить маршрут →</a>
-      <a href="#mind" class="btn btn-ghost">Об этичном туризме</a>
-    </div>
-
-    <p class="final-threat reveal reveal-delay-4">
-      Численность индийских слонов снижается на <strong>2–3%</strong> ежегодно. В 2023–2024 годах в столкновениях с людьми в Индии погибли <strong>629 человек</strong> — и сотни слонов в ответ. Этика путешествия начинается со знания: не кататься, не поддерживать шоу с прикованными животными, выбирать заповедники с программой реабилитации.
-    </p>
-  </div>
-</section>
-
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="container row">
-    <div><span class="brand-small">Слоны · Индия</span> · путеводитель-тизер, собран в 2026 году</div>
-    <div>Данные: Wikipedia · Kerala Tourism · IUCN · Проект «Элефант», Индия</div>
+  <div class="footer-bar">
+    <div><span class="k">FILE</span><span class="v">INDIA/EL/2026</span></div>
+    <div><span class="k">REV</span><span class="v">2.6 · 23.04.2026</span></div>
+    <div><span class="k">CLASS</span><span class="v">HERITAGE / HE—01</span></div>
+    <div><span class="k">AUTH</span><span class="v">FIELD · PUBLIC</span></div>
+  </div>
+
+  <div class="footer-closing">
+    INDIA <em>®</em> ELEPHANTS<br>2500 B.C. — <em>ONGOING</em>
+  </div>
+
+  <div class="footer-meta">
+    <span>/// END OF DOSSIER ///</span>
+    <span class="barcode"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+    <span>SRC · WIKIPEDIA · IUCN · KERALA TOURISM · PROJECT ELEPHANT</span>
   </div>
 </footer>
-
-<script>
-  // Navbar scroll state
-  const nav = document.querySelector('header.nav');
-  const onScroll = () => {
-    if (window.scrollY > 24) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach((el) => io.observe(el));
-
-  // Fallback: immediately reveal items already in viewport at load
-  requestAnimationFrame(() => {
-    const vh = window.innerHeight;
-    reveals.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < vh * 0.95) {
-        el.classList.add('in');
-        io.unobserve(el);
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
