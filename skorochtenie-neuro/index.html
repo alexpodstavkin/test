@@ -8,6 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / соцсети -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Бесплатный шоу-урок по скорочтению — Matrius">
+  <meta property="og:description" content="За 45 минут покажем, как ваш ребёнок может читать на 30% быстрее. Игровая диагностика навыков и работа по авторской методологии онлайн-школы Matrius.">
+  <meta property="og:image" content="1.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
       --ink: #292A32;
@@ -69,6 +77,8 @@
     *, *::before, *::after { box-sizing: border-box; }
     * { margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    /* Anchor scroll учитывает высоту sticky nav */
+    section[id] { scroll-margin-top: 88px; }
     body {
       font-family: var(--font-body);
       background: var(--bg);
@@ -143,13 +153,35 @@
     }
     .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 8px 22px rgba(56, 86, 129, 0.3); }
     .btn-primary:hover { background: var(--primary-2); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(56, 86, 129, 0.4); }
+    .btn-primary:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(56, 86, 129, 0.4); }
     .btn-accent { background: var(--accent); color: #fff; box-shadow: 0 8px 22px rgba(239, 100, 50, 0.35); }
     .btn-accent:hover { background: var(--accent-2); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(221, 80, 29, 0.45); }
+    .btn-accent:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(221, 80, 29, 0.4); }
+    .btn:focus-visible {
+      outline: 3px solid var(--highlight);
+      outline-offset: 3px;
+    }
     .btn-large { padding: 19px 34px; font-size: 17px; }
     .btn-sm { padding: 11px 22px; font-size: 14px; }
-    .btn svg { width: 18px; height: 18px; }
+    .btn svg { width: 18px; height: 18px; transition: transform .2s ease; }
+    .btn:hover svg { transform: translateX(2px); }
     .hero .btn-accent { box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25); }
     .hero .btn-accent:hover { box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32); }
+    .hero .btn-accent:focus-visible { outline-color: #fff; }
+
+    /* Глобальный фокус для ссылок и интерактивных элементов */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .skills-dark a:focus-visible,
+    .hero a:focus-visible { outline-color: var(--highlight); }
+    input:focus-visible, select:focus-visible {
+      outline: none; /* кастомный focus стиль уже внутри form-row input:focus */
+    }
 
     /* Photo container — реальные фото с object-fit cover */
     .photo {
@@ -828,6 +860,24 @@
       outline: none; border-color: var(--primary);
       box-shadow: 0 0 0 4px var(--primary-soft);
     }
+    .form-row input[aria-invalid="true"],
+    .form-row select[aria-invalid="true"] {
+      border-color: #D14B40;
+      box-shadow: 0 0 0 4px rgba(209, 75, 64, 0.12);
+    }
+    .form-error {
+      display: none;
+      color: #D14B40;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .form-row.has-error .form-error { display: block; }
+    .btn[disabled], .btn[aria-busy="true"] {
+      opacity: 0.7;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
     .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 480px) { .form-grid-2 { grid-template-columns: 1fr; } }
     .form-submit { width: 100%; margin-top: 6px; }
@@ -963,8 +1013,18 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
       html { scroll-behavior: auto; }
+      .btn:hover, .card:hover, .review-card:hover,
+      .compare-col:hover, .stat-card:hover, .bento-card:hover,
+      .faq-item:hover, .what-card:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -975,7 +1035,7 @@
     <div class="container nav-inner">
       <a href="#" aria-label="Matrius — главная" class="logo-link">
         <span class="logo-slot">
-          <img src="logo.png" alt="Matrius" loading="eager" decoding="async">
+          <img src="logo.png" alt="Matrius — онлайн-школа" width="48" height="48" loading="eager" decoding="async">
         </span>
       </a>
       <a href="#booking" class="btn btn-accent btn-sm">Записаться бесплатно</a>
@@ -1025,7 +1085,7 @@
       </div>
 
       <div class="hero-photo-wrap">
-        <img src="1.png" alt="Девочка читает книгу — ученица Matrius" loading="eager" decoding="async">
+        <img src="1.png" alt="Мальчик с учебником в школьной аудитории — ученик Matrius" width="1122" height="1402" loading="eager" decoding="async" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -1198,7 +1258,7 @@
         </div>
 
         <div class="method-photo photo">
-          <img src="2.png" alt="Педагог и ребёнок на занятии в Matrius" loading="lazy" decoding="async">
+          <img src="2.png" alt="Педагог и ребёнок на занятии в Matrius" width="1254" height="1254" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -1348,7 +1408,7 @@
       <div class="card-grid-3">
         <div class="review-card reveal">
           <div class="review-photo">
-            <img src="3.png" alt="Анна с сыном Артёмом" loading="lazy" decoding="async">
+            <img src="3.png" alt="Анна с сыном Артёмом" width="1254" height="1254" loading="lazy" decoding="async">
           </div>
           <div class="stars">★ ★ ★ ★ ★</div>
           <p>Сын раньше неохотно брался за&nbsp;книгу — после шоу-урока сам стал читать с&nbsp;интересом. За&nbsp;полгода оценки по&nbsp;литературе поднялись с&nbsp;тройки до&nbsp;пятёрки. Главное — учёба теперь без&nbsp;напряжения.</p>
@@ -1362,7 +1422,7 @@
 
         <div class="review-card reveal">
           <div class="review-photo">
-            <img src="4.png" alt="Елена с дочерью Алисой" loading="lazy" decoding="async">
+            <img src="4.png" alt="Елена с дочерью Алисой" width="1254" height="1254" loading="lazy" decoding="async">
           </div>
           <div class="stars">★ ★ ★ ★ ★</div>
           <p>Думала, скорочтение — это&nbsp;про&nbsp;скорость. Оказалось — про&nbsp;мышление. Дочка стала быстрее справляться с&nbsp;контрольными и&nbsp;увереннее работать с&nbsp;большими текстами.</p>
@@ -1376,7 +1436,7 @@
 
         <div class="review-card reveal">
           <div class="review-photo">
-            <img src="5.jpeg" alt="Дмитрий с сыновьями Мишей и Костей" loading="lazy" decoding="async">
+            <img src="5.jpeg" alt="Дмитрий с сыновьями Мишей и Костей" width="512" height="512" loading="lazy" decoding="async">
           </div>
           <div class="stars">★ ★ ★ ★ ★</div>
           <p>Урок прошёл в&nbsp;формате квеста — Миша даже не&nbsp;заметил, что&nbsp;это&nbsp;было занятие. После записал и&nbsp;Костю. Понравились прозрачные условия, опытный педагог и&nbsp;подробный отчёт после каждого урока.</p>
@@ -1425,28 +1485,33 @@
 
               <div class="form-row">
                 <label for="parent">Ваше имя</label>
-                <input id="parent" name="parent" type="text" placeholder="Например, Мария" required>
+                <input id="parent" name="parent" type="text" placeholder="Например, Мария"
+                       autocomplete="given-name" required aria-describedby="parent-error">
+                <span class="form-error" id="parent-error">Укажите ваше имя</span>
               </div>
 
               <div class="form-row">
                 <label for="phone">Телефон</label>
-                <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+                <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__"
+                       autocomplete="tel" inputmode="tel" required aria-describedby="phone-error">
+                <span class="form-error" id="phone-error">Введите номер телефона</span>
               </div>
 
               <div class="form-grid-2">
                 <div class="form-row">
                   <label for="child">Имя ребёнка</label>
-                  <input id="child" name="child" type="text" placeholder="Имя">
+                  <input id="child" name="child" type="text" placeholder="Имя" autocomplete="off">
                 </div>
                 <div class="form-row">
                   <label for="age">Возраст</label>
-                  <select id="age" name="age" required>
+                  <select id="age" name="age" required aria-describedby="age-error">
                     <option value="">Выберите</option>
                     <option>6 лет</option><option>7 лет</option><option>8 лет</option>
                     <option>9 лет</option><option>10 лет</option><option>11 лет</option>
                     <option>12 лет</option><option>13 лет</option><option>14 лет</option>
                     <option>15 лет</option><option>16 лет</option>
                   </select>
+                  <span class="form-error" id="age-error">Выберите возраст</span>
                 </div>
               </div>
 
@@ -1507,17 +1572,47 @@
 
     const form = document.getElementById('bookingForm');
     const success = document.getElementById('formSuccess');
+
+    function setFieldError(el, hasError) {
+      const row = el.closest('.form-row');
+      if (!row) return;
+      if (hasError) {
+        row.classList.add('has-error');
+        el.setAttribute('aria-invalid', 'true');
+      } else {
+        row.classList.remove('has-error');
+        el.removeAttribute('aria-invalid');
+      }
+    }
+
+    // Очистка ошибки при вводе
+    form.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', () => {
+        if (el.value.trim()) setFieldError(el, false);
+      });
+    });
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const required = form.querySelectorAll('[required]');
-      let ok = true;
+      let firstInvalid = null;
       required.forEach(el => {
-        if (!el.value.trim()) { el.style.borderColor = '#FF6B5B'; ok = false; }
-        else { el.style.borderColor = ''; }
+        const empty = !el.value.trim();
+        setFieldError(el, empty);
+        if (empty && !firstInvalid) firstInvalid = el;
       });
-      if (!ok) return;
-      form.style.display = 'none';
-      success.classList.add('shown');
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+      // Имитация отправки — блокируем кнопку, показываем успех
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.setAttribute('aria-busy', 'true');
+      setTimeout(() => {
+        form.style.display = 'none';
+        success.classList.add('shown');
+        submitBtn.removeAttribute('aria-busy');
+      }, 200);
     });
   </script>
 </body>
