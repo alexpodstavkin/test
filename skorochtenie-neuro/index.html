@@ -102,6 +102,8 @@
       letter-spacing: var(--ls-display);
       line-height: 1.1;
       color: var(--ink);
+      text-wrap: balance;
+      hyphens: manual;
     }
     h3 {
       font-family: var(--font-body);
@@ -109,12 +111,13 @@
       letter-spacing: var(--ls-tight);
       line-height: 1.25;
       color: var(--ink);
+      text-wrap: balance;
     }
     h1 { font-size: var(--text-display); }
     h2 { font-size: var(--text-h2); line-height: 1.12; }
     h3 { font-size: var(--text-h3); }
     em { font-style: normal; }
-    p { font-size: var(--text-body); }
+    p { font-size: var(--text-body); text-wrap: pretty; }
 
     /* Tabular numbers для статов и трекинга цифр */
     .stat-num, .num-pill, .compare-head .subtitle {
@@ -649,9 +652,7 @@
       font-size: clamp(1rem, 1.5vw, 1.25rem);
       margin-bottom: var(--space-2xs);
       letter-spacing: var(--ls-tight);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      text-wrap: balance;
     }
     .compare-col.strong .compare-head h3 { color: #fff; }
     .compare-head .subtitle {
@@ -1048,7 +1049,7 @@
       <div class="hero-copy">
         <div class="hero-pills">
           <span class="hero-pill">Бесплатно</span>
-          <span class="hero-pill">Для детей от&nbsp;6 до&nbsp;16 лет</span>
+          <span class="hero-pill">Для&nbsp;детей от&nbsp;6 до&nbsp;16 лет</span>
         </div>
 
         <h1>
@@ -1236,8 +1237,8 @@
             <div class="method-point">
               <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
               <div>
-                <strong>Игра как ведущая деятельность</strong>
-                <span>То, что&nbsp;интересно, лучше&nbsp;всего запоминается. Поэтому каждый урок построен как сюжет.</span>
+                <strong>Игра как&nbsp;ведущая деятельность</strong>
+                <span>То, что&nbsp;интересно, лучше&nbsp;всего запоминается. Поэтому каждый урок построен как&nbsp;сюжет.</span>
               </div>
             </div>
             <div class="method-point">
