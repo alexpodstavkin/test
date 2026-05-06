@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru" class="plus_jakarta_sans_beddda0c-module__XXgp5q__variable">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бесплатное занятие по AI — Школа будущего</title>
+<meta name="description" content="За 60 минут научим вашего ребёнка 10–14 лет работать с AI. Онлайн, с нуля, бесплатно.">
+<link rel="stylesheet" href="https://alexpodstavkin.github.io/test/ai-start/_next/static/chunks/07ovpvq40kfio.css">
+<style>
+  /* Доп. утилиты под этот ленд — в стилистике основного сайта */
+  .container-x { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+  @media (min-width: 768px) { .container-x { padding-left: 2rem; padding-right: 2rem; } }
+
+  .tag-pill {
+    display: inline-flex; align-items: center; gap: .375rem;
+    padding: .375rem .75rem; border-radius: 9999px;
+    background: #ffffff08; border: 1px solid #ffffff14;
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: #d4d4d8; font-weight: 600;
+    white-space: nowrap;
+  }
+  .tag-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .tag-dot-lime { background: #d4ff00; box-shadow: 0 0 10px #d4ff00aa; }
+  .tag-dot-violet { background: #a78bfa; box-shadow: 0 0 10px #a78bfaaa; }
+  .tag-dot-sky { background: #38bdf8; box-shadow: 0 0 10px #38bdf8aa; }
+
+  .hero-cell .bz-i {
+    background: radial-gradient(120% 120% at 50% 0%, #8b5cf61f 0%, #ffffff05 35%, #ffffff03 100%);
+  }
+
+  .num-chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 12px;
+    background: #ffffff08; border: 1px solid #ffffff14;
+    font-weight: 700; font-size: 13px; color: #fafafa;
+    letter-spacing: .05em;
+  }
+
+  .skill-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .skill-icon svg { width: 26px; height: 26px; stroke-width: 2; }
+
+  .form-input {
+    width: 100%;
+    background: #ffffff08;
+    border: 1px solid #ffffff14;
+    color: #fafafa;
+    padding: 1rem 1.125rem;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all .3s cubic-bezier(.32,.72,0,1);
+  }
+  .form-input::placeholder { color: #71717a; }
+  .form-input:focus { outline: none; border-color: #8b5cf699; background: #ffffff12; }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 1.125rem center;
+    padding-right: 2.5rem;
+  }
+
+  .check-row {
+    display: flex; align-items: flex-start; gap: .625rem;
+    color: #a1a1aa; font-size: .875rem;
+  }
+  .check-row svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: #d4ff00; }
+
+  /* Edge-to-edge bento — занимает всю ширину контейнера */
+  .bz-full { width: 100%; }
+
+  /* Лёгкий пульс на лайм-точке */
+  @keyframes soft-pulse { 0%,100% { opacity: .9 } 50% { opacity: .5 } }
+  .live-dot { animation: soft-pulse 2s ease-in-out infinite; }
+
+  /* Заголовок секции */
+  .sec-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+  @media (min-width: 768px) { .sec-title { font-size: 3.25rem; } }
+
+  /* Скилл-ячейка: тонкая подсветка сверху при ховере */
+  .skill-cell { transition: transform .5s cubic-bezier(.32,.72,0,1); }
+  .skill-cell:hover { transform: translateY(-3px); }
+  /* Заголовки скилл-ячеек — выравниваем по 2 строкам, чтобы карточки одинаковой высоты */
+  .skill-cell h3 { min-height: 2.6em; }
+
+  /* Hero: свой H1, чтобы перебить глобальное правило h1{font-size:2.5rem!important} на мобайле */
+  .hero-h1 { font-size: 1.85rem !important; line-height: 1.05 !important; letter-spacing: -0.02em !important; }
+  @media (min-width: 640px) { .hero-h1 { font-size: 2.5rem !important; } }
+  @media (min-width: 1024px) { .hero-h1 { font-size: 3.5rem !important; } }
+  @media (min-width: 1280px) { .hero-h1 { font-size: 4rem !important; } }
+  /* Принудительный перенос «с AI-инструментами» только на десктопе */
+  .hero-h1 br { display: none; }
+  @media (min-width: 768px) { .hero-h1 br { display: block; } }
+
+  /* Hero-бенто: высота под контент на мобайле, фиксированная на десктопе */
+  .hero-bento { min-height: auto; padding: 1.5rem !important; }
+  @media (min-width: 768px) { .hero-bento { min-height: 70vh; padding: 4rem !important; } }
+
+  /* Сжимаем вертикальные отступы секций на мобайле */
+  @media (max-width: 767px) {
+    section.sec { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  }
+  /* На десктопе тоже уменьшаем — стандарт 10rem слишком большой */
+  @media (min-width: 768px) {
+    section.sec { padding-top: 5rem; padding-bottom: 5rem; }
+  }
+
+  /* Сетка 5 в ряд — нет в базовых классах */
+  .grid-skills { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 640px) { .grid-skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .grid-skills { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.25rem; } }
+
+  /* Двух-колоночная форма в блоке 4 — fallback на случай если md:grid-cols-2 не сработает */
+  .grid-form { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+  @media (min-width: 768px) { .grid-form { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+</style>
+</head>
+<body>
+
+<!-- Background orbs (как на основном сайте) -->
+<div class="orb-1"></div>
+<div class="orb-2"></div>
+<div class="orb-3"></div>
+
+<!-- ===== HERO ===== -->
+<section class="sec" style="padding-top: 0;">
+  <div class="container-x">
+    <div class="bz-o bz-full hero-cell">
+      <div class="bz-i hero-bento text-center flex flex-col items-center justify-center">
+
+        <!-- Логотип и название школы по центру сверху -->
+        <a href="#" class="flex items-center gap-3 mb-8 md:mb-12">
+          <span class="logo-orb logo-orb-lg" aria-hidden="true"></span>
+          <span class="flex flex-col leading-none text-left">
+            <span class="text-lg md:text-xl font-extrabold tracking-tight text-white">Школа будущего</span>
+            <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mt-1">BUILD THE FUTURE</span>
+          </span>
+        </a>
+
+        <!-- Бейджи над заголовком -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-10">
+          <span class="tag-pill"><span class="dot tag-dot-lime live-dot"></span>Бесплатно</span>
+          <span class="tag-pill"><span class="dot tag-dot-violet"></span>Онлайн</span>
+          <span class="tag-pill"><span class="dot tag-dot-sky"></span>С нуля</span>
+        </div>
+
+        <!-- Заголовок -->
+        <h1 class="hero-h1 text-white font-extrabold tracking-tight mb-6 md:mb-8 max-w-5xl mx-auto">
+          За 60 минут <span class="grad-t">погрузим</span> вашего ребёнка 10–14 лет <span class="grad-t">в работу <br class="hidden md:block">с AI-инструментами</span>
+        </h1>
+
+        <!-- Подпись под заголовком -->
+        <p class="text-zinc-400 text-sm md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+          Онлайн-урок с практикующим преподавателем. Ребёнок попробует AI-инструменты в деле и уйдёт со своей первой работой.
+        </p>
+
+        <!-- CTA -->
+        <a href="#form" class="inline-flex items-center gap-3 rounded-full bg-accent text-white px-8 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold btn-p">
+          Записаться на бесплатное занятие
+          <span class="btn-icon inline-flex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 2: ЧТО БУДЕТ НА ЗАНЯТИИ ===== -->
+<section class="sec">
+  <div class="container-x">
+
+    <!-- Заголовок секции -->
+    <div class="mb-10 md:mb-16 max-w-3xl">
+      <span class="tag-pill mb-5"><span class="dot tag-dot-violet"></span>Программа занятия</span>
+      <h2 class="sec-title text-white mt-5 mb-5">
+        Что будет <span class="grad-t">на занятии</span>
+      </h2>
+      <p class="text-zinc-400 text-base md:text-lg leading-relaxed">
+        Это онлайн-занятие с практикой. Ребёнок попробует AI-инструменты в деле под руководством преподавателя, а вы узнаете, подходит ли ему данное направление.
+      </p>
+    </div>
+
+    <!-- 4 бенто-ячейки -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+
+      <!-- 01 -->
+      <div class="bz-o bz-full">
+        <div class="bz-i p-6 md:p-9">
+          <div class="flex items-center justify-between mb-6">
+            <span class="num-chip">01</span>
+            <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">5–7 минут</span>
+          </div>
+          <h3 class="text-white text-xl md:text-2xl font-bold mb-3 leading-tight">
+            Знакомство и интересы ребёнка
+          </h3>
+          <p class="text-zinc-400 leading-relaxed">
+            Преподаватель узнаёт, чем ребёнок увлекается, и подбирает тему практики под него — игры, дизайн, видео или тексты.
+          </p>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="bz-o bz-full">
+        <div class="bz-i p-6 md:p-9">
+          <div class="flex items-center justify-between mb-6">
+            <span class="num-chip">02</span>
+            <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">10–15 минут</span>
+          </div>
+          <h3 class="text-white text-xl md:text-2xl font-bold mb-3 leading-tight">
+            Как работают <span class="text-lime">AI-агенты</span>
+          </h3>
+          <p class="text-zinc-400 leading-relaxed">
+            Простое объяснение без скучной теории: что нейросеть умеет, в чём ошибается, как с ней правильно разговаривать, чтобы получать результат.
+          </p>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="bz-o bz-full featured">
+        <div class="bz-i p-6 md:p-9">
+          <div class="flex items-center justify-between mb-6">
+            <span class="num-chip" style="background:#d4ff0026;border-color:#d4ff0066;color:#d4ff00;">03</span>
+            <span class="text-xs uppercase tracking-wider text-lime font-semibold">30–35 минут</span>
+          </div>
+          <h3 class="text-white text-xl md:text-2xl font-bold mb-3 leading-tight">
+            Практика: ребёнок делает первую работу
+          </h3>
+          <p class="text-zinc-400 leading-relaxed">
+            Своими руками под тему, которая его интересует. Под руководством преподавателя, шаг за шагом. К концу урока работа готова.
+          </p>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="bz-o bz-full">
+        <div class="bz-i p-6 md:p-9">
+          <div class="flex items-center justify-between mb-6">
+            <span class="num-chip">04</span>
+            <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">5–10 минут</span>
+          </div>
+          <h3 class="text-white text-xl md:text-2xl font-bold mb-3 leading-tight">
+            Разбор и рекомендации родителю
+          </h3>
+          <p class="text-zinc-400 leading-relaxed">
+            Преподаватель честно говорит: что у ребёнка получилось, что ему откликнулось, в каком направлении стоит развиваться дальше.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 3: ЧТО РЕБЁНОК ПОЛУЧИТ ===== -->
+<section class="sec">
+  <div class="container-x">
+
+    <div class="mb-10 md:mb-16 max-w-3xl">
+      <span class="tag-pill mb-5"><span class="dot tag-dot-lime"></span>Результат урока</span>
+      <h2 class="sec-title text-white mt-5">
+        За 60 минут <span class="grad-t">ребёнок получит:</span>
+      </h2>
+    </div>
+
+    <!-- 5 ячеек -->
+    <div class="grid-skills">
+
+      <!-- 1 -->
+      <div class="bz-o bz-full skill-cell">
+        <div class="bz-i p-6 md:p-7">
+          <div class="skill-icon" style="background:#d4ff001a;color:#d4ff00;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="9" y1="15" x2="15" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="text-white text-lg md:text-xl font-bold leading-tight mb-2">
+            Первый AI-проект<br>в портфолио
+          </h3>
+          <p class="text-zinc-500 text-xs uppercase tracking-wider font-semibold">Hard skill</p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="bz-o bz-full skill-cell">
+        <div class="bz-i p-6 md:p-7">
+          <div class="skill-icon" style="background:#8b5cf61a;color:#a78bfa;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08 4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08 4.24-4.24"/>
+            </svg>
+          </div>
+          <h3 class="text-white text-lg md:text-xl font-bold leading-tight mb-2">
+            Понимание<br>возможностей AI
+          </h3>
+          <p class="text-zinc-500 text-xs uppercase tracking-wider font-semibold">Hard skill</p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="bz-o bz-full skill-cell">
+        <div class="bz-i p-6 md:p-7">
+          <div class="skill-icon" style="background:#38bdf81a;color:#38bdf8;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-white text-lg md:text-xl font-bold leading-tight mb-2">
+            Навык чёткой<br>формулировки
+          </h3>
+          <p class="text-zinc-500 text-xs uppercase tracking-wider font-semibold">Soft skill</p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="bz-o bz-full skill-cell">
+        <div class="bz-i p-6 md:p-7">
+          <div class="skill-icon" style="background:#f59e0b1a;color:#fbbf24;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 9.5 12 7l-2.5 2.5"/>
+              <path d="M12 7v10"/>
+              <path d="M5 21h14"/>
+              <path d="M5 3h14"/>
+            </svg>
+          </div>
+          <h3 class="text-white text-lg md:text-xl font-bold leading-tight mb-2">
+            Уверенность<br>пробовать новое
+          </h3>
+          <p class="text-zinc-500 text-xs uppercase tracking-wider font-semibold">Soft skill</p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="bz-o bz-full skill-cell">
+        <div class="bz-i p-6 md:p-7">
+          <div class="skill-icon" style="background:#ec48991a;color:#f472b6;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6"/><path d="M10 22h4"/>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+            </svg>
+          </div>
+          <h3 class="text-white text-lg md:text-xl font-bold leading-tight mb-2">
+            Навыки для учёбы<br>и карьеры
+          </h3>
+          <p class="text-zinc-500 text-xs uppercase tracking-wider font-semibold">Soft skill</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 4: ФОРМА ===== -->
+<section class="sec pb-16" id="form">
+  <div class="container-x">
+    <div class="bz-o bz-full featured">
+      <div class="bz-i p-6 md:p-12">
+
+        <div class="grid-form">
+
+          <!-- Левая колонка: смысл -->
+          <div>
+            <span class="tag-pill mb-5"><span class="dot tag-dot-lime live-dot"></span>Бесплатно</span>
+            <h2 class="sec-title text-white mt-5 mb-5">
+              Запишите ребёнка <span class="grad-t">на бесплатное занятие</span>
+            </h2>
+            <p class="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
+              Оставьте контакты — мы свяжемся в течение рабочего дня, чтобы подобрать удобное время для занятия.
+            </p>
+
+            <div class="space-y-3">
+              <div class="check-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>60 минут с практикующим преподавателем</span>
+              </div>
+              <div class="check-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Готовая работа ребёнка к концу урока</span>
+              </div>
+              <div class="check-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Личные рекомендации родителю по итогам</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая колонка: форма -->
+          <form class="space-y-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-2">Имя</label>
+              <input type="text" class="form-input" placeholder="Как к вам обращаться" required>
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-2">Почта</label>
+              <input type="email" class="form-input" placeholder="example@mail.com" required>
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-2">Телефон</label>
+              <input type="tel" class="form-input" placeholder="+7 ___ ___-__-__" required>
+            </div>
+
+            <button type="submit" class="w-full inline-flex items-center justify-center gap-3 rounded-full bg-accent text-white px-8 py-4 md:py-5 text-base md:text-lg font-bold btn-p mt-6">
+              Записаться на занятие
+              <span class="btn-icon inline-flex">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                  <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+              </span>
+            </button>
+
+            <p class="text-zinc-500 text-xs text-center leading-relaxed mt-3">
+              Нажимая кнопку, вы соглашаетесь с <a href="https://buildthefuture.io/privacy.html" target="_blank" rel="noopener" class="underline hover:text-zinc-300 transition-colors">политикой конфиденциальности</a>
+            </p>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-12 md:py-16 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10">
+
+      <!-- Логотип -->
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="logo-orb logo-orb-lg" aria-hidden="true"></span>
+          <div>
+            <div class="text-base md:text-lg font-extrabold tracking-tight text-white leading-none">Школа будущего</div>
+            <div class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mt-1">BUILD THE FUTURE</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Контакты -->
+      <div>
+        <div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-3">Контакты</div>
+        <ul class="space-y-2">
+          <li><a href="mailto:hello@buildthefuture.io" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">hello@buildthefuture.io</a></li>
+          <li><a href="https://t.me/buildthefutureio_bot" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Telegram</a></li>
+        </ul>
+      </div>
+
+      <!-- Программы -->
+      <div>
+        <div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-3">Программы</div>
+        <ul class="space-y-2">
+          <li><a href="https://buildthefuture.io/master-google-ai.html" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Мастер Google AI</a></li>
+          <li><a href="https://buildthefuture.io/avtomatizator-n8n.html" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Автоматизатор n8n</a></li>
+          <li><a href="https://buildthefuture.io/prompt-engineer.html" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Промпт Инженер</a></li>
+          <li><a href="https://buildthefuture.io/kod-novogo-pokoleniya.html" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Код нового поколения</a></li>
+          <li><a href="https://buildthefuture.io/ai-start.html" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">AI-старт</a></li>
+        </ul>
+      </div>
+
+      <!-- Документы -->
+      <div>
+        <div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-3">Документы</div>
+        <ul class="space-y-2">
+          <li><a href="https://buildthefuture.io/privacy.html" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Политика конфиденциальности</a></li>
+          <li><a href="https://buildthefuture.io/legal.html" class="text-sm text-zinc-400 hover:text-white transition-colors duration-500">Юридические реквизиты</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/5 pt-6 text-xs text-zinc-600 text-center">© Школа будущего</div>
+  </div>
+</footer>
+
+</body>
+</html>
