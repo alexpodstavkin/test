@@ -286,6 +286,59 @@ a { text-decoration: none; color: inherit; }
 }
 .utp.tint-sky { background: linear-gradient(135deg, #38bdf8b0 0%, #38bdf828 45%, #ffffff08 100%); }
 
+/* Featured cell — главный УТП с оранжевой подсветкой */
+.utp.tint-featured {
+  background: linear-gradient(135deg, #ff8a3d 0%, #ff8a3d80 40%, #ff8a3d33 100%);
+  box-shadow:
+    0 0 0 1px #ff8a3d80,
+    0 14px 40px -10px #ff8a3d80,
+    0 0 60px -10px #ff5a008c;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+.utp.tint-featured .bz-i {
+  background:
+    radial-gradient(170% 150% at 100% 0%, #ff8a3d6e 0%, #ff8a3d24 30%, transparent 65%),
+    linear-gradient(180deg, #2a1408 0%, #170a04 100%);
+}
+.utp.tint-featured h3 { color: #ffffff; }
+.utp.tint-featured p  { color: #f4d4c2; }
+
+.icon-featured {
+  background: linear-gradient(135deg, #ffd9a8 0%, #ff8a3d 45%, #ff4d00 100%);
+  color: #2a0d00;
+  box-shadow:
+    inset 0 1px 0 #ffffffa0,
+    0 6px 18px -4px #ff5a00b0;
+}
+
+.utp-badge {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ffd9a8 0%, #ff8a3d 50%, #ff4d00 100%);
+  color: #2a0d00;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px -4px #ff5a00b0, inset 0 1px 0 #ffffffa0;
+}
+
+@keyframes featured-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px #ff8a3d80, 0 14px 40px -10px #ff8a3d80, 0 0 60px -10px #ff5a008c; }
+  50%      { box-shadow: 0 0 0 1px #ff8a3dbb, 0 14px 50px -8px #ff8a3dbb, 0 0 90px -8px #ff5a00cc; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .utp.tint-featured { animation: featured-pulse 2.8s ease-in-out infinite; }
+}
+
 /* ===== Photo block ===== */
 .hero-right {
   min-width: 0;
@@ -535,8 +588,27 @@ body.modal-open { overflow: hidden; }
 
 /* Mobile carousel for bento cells */
 @media (max-width: 700px) {
-  .hero-title { font-size: clamp(20px, 5.7vw, 30px); letter-spacing: -0.025em; line-height: 1.08; }
-  .hero-sub { font-size: 14.5px; }
+  .brand {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .hero-title {
+    font-size: clamp(20px, 5.7vw, 30px);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    text-align: center;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-sub {
+    font-size: 14.5px;
+    text-align: center;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .utp-grid {
     display: flex;
