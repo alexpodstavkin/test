@@ -214,6 +214,10 @@ a { text-decoration: none; color: inherit; }
   color: transparent;
 }
 .nowrap { white-space: nowrap; }
+.mobile-br { display: none; }
+@media (max-width: 700px) {
+  .mobile-br { display: inline; }
+}
 
 .hero-sub {
   color: #d4d4d8;
