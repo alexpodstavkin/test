@@ -431,6 +431,7 @@ a { text-decoration: none; color: inherit; }
   justify-content: center;
   padding: 20px;
 }
+.modal[hidden] { display: none !important; }
 .modal.is-open { display: flex; }
 .modal-backdrop {
   position: absolute;

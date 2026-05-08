@@ -19,6 +19,7 @@
 
   function openModal(course) {
     currentCourse = course || window.PAGE_COURSE || "AI-старт мини";
+    overlay.hidden = false;
     overlay.classList.add("is-open");
     document.body.classList.add("modal-open");
     setTimeout(function () {
@@ -29,6 +30,7 @@
 
   function closeModal() {
     overlay.classList.remove("is-open");
+    overlay.hidden = true;
     document.body.classList.remove("modal-open");
   }
 
