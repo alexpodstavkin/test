@@ -24,8 +24,7 @@ html, body {
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 img { max-width: 100%; display: block; }
@@ -63,7 +62,7 @@ a { text-decoration: none; color: inherit; }
 .screen {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  min-height: 100vh;
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -88,6 +87,7 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 18px #ff78288c, 0 0 36px #ff500040, inset -3px -4px 8px #781e0080;
 }
 .logo-orb-lg { width: 36px; height: 36px; }
+.logo-orb-sm { width: 24px; height: 24px; box-shadow: 0 0 12px #ff7828aa, 0 0 24px #ff500030, inset -2px -3px 5px #781e0080; }
 
 .brand-text {
   display: flex;
@@ -592,6 +592,67 @@ a { text-decoration: none; color: inherit; }
 }
 
 body.modal-open { overflow: hidden; }
+
+/* ===== Footer ===== */
+.site-footer {
+  margin-top: 18px;
+  padding: 36px clamp(20px, 3vw, 48px) 26px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #ffffff04 0%, #ffffff02 100%);
+  border: 1px solid var(--line);
+  color: var(--text-mute);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: clamp(20px, 3vw, 56px);
+  align-items: start;
+  margin-bottom: 28px;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.footer-col strong {
+  color: #a1a1aa;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.footer-col a {
+  color: #e4e4e7;
+  font-size: 15px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color .2s ease;
+  width: fit-content;
+}
+.footer-col a:hover { color: #d4ff00; }
+.footer-brand { display: flex; align-items: center; }
+.footer-brand .brand { margin-bottom: 0; }
+.footer-copy {
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 26px; text-align: center; }
+  .footer-col { align-items: center; }
+  .footer-brand { justify-content: center; }
+  .footer-brand .brand { margin-left: auto; margin-right: auto; }
+}
 
 /* ===== Stack on narrow viewports ===== */
 @media (max-width: 1100px) {
