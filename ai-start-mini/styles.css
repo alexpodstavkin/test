@@ -421,6 +421,27 @@ a { text-decoration: none; color: inherit; }
 .cta-btn:hover .cta-arrow { transform: translateX(3px); }
 .cta-btn-block { padding: 16px 24px; }
 
+/* Inactive state — visible but not clickable until form is valid */
+.cta-btn.is-inactive,
+.cta-btn:disabled {
+  background: linear-gradient(180deg, #d4ff0040 0%, #b6e00033 100%);
+  border-color: #d4ff0033;
+  color: #1a1a1a99;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
+}
+.cta-btn.is-inactive:hover,
+.cta-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+.cta-btn.is-inactive .cta-arrow,
+.cta-btn:disabled .cta-arrow {
+  transform: none;
+  opacity: 0.6;
+}
+
 /* ===== Modal ===== */
 .modal {
   position: fixed;

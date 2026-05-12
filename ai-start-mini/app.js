@@ -41,12 +41,34 @@
     if (successEl)   successEl.hidden = true;
     if (errorEl)     errorEl.hidden   = true;
     if (submitBtn) {
-      submitBtn.disabled = false;
       submitBtn.innerHTML = 'Отправить заявку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="cta-arrow"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
     }
     form.querySelectorAll(".input-error").forEach(function (el) {
       el.classList.remove("input-error");
     });
+    updateSubmitState(); // вернёт кнопку в неактивный «приглушённый» вид
+  }
+
+  // Проверяем, заполнены ли все поля валидно — и переключаем кнопку
+  function isFormValid() {
+    var name  = document.getElementById("fieldName");
+    var email = document.getElementById("fieldEmail");
+    var phone = document.getElementById("fieldPhone");
+    if (!name || !email || !phone) return false;
+    return name.value.trim().length >= 2
+      && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())
+      && phone.value.replace(/\D/g, "").length >= 7;
+  }
+
+  function updateSubmitState() {
+    if (!submitBtn) return;
+    var valid = isFormValid();
+    submitBtn.disabled = !valid;
+    submitBtn.classList.toggle("is-inactive", !valid);
+  }
+
+  if (form) {
+    form.addEventListener("input", updateSubmitState);
   }
 
   // Открытие по любой кнопке с class open-modal-btn или id openModalBtn
@@ -116,12 +138,23 @@
         mode:   "no-cors"
       })
         .then(function () {
+          // Meta Pixel — событие Lead засчитываем только после успешной отправки
+          if (typeof fbq === "function") {
+            try {
+              fbq("track", "Lead", {
+                content_name: currentCourse,
+                value: 0,
+                currency: "RUB"
+              });
+            } catch (err) { /* блокировщик / pixel не загрузился */ }
+          }
           if (form)      form.hidden = true;
           if (successEl) successEl.hidden = false;
         })
         .catch(function () {
           if (errorEl) errorEl.hidden = false;
           submitBtn.disabled = false;
+          submitBtn.classList.remove("is-inactive");
           submitBtn.textContent = "Отправить заявку";
         });
     });
