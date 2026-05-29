@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+  <rect width="480" height="360" fill="#E5F4FF"/>
+  <circle cx="240" cy="180" r="120" fill="#00B8FF" opacity="0.16"/>
+  <text x="240" y="188" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-size="22" font-weight="700" fill="#0099E0">доступ</text>
+</svg>

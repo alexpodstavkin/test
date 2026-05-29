@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" preserveAspectRatio="xMidYMid slice">
+  <rect width="360" height="300" fill="#E5F4FF"/>
+  <circle cx="180" cy="150" r="100" fill="#00B8FF" opacity="0.16"/>
+  <text x="180" y="158" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-size="22" font-weight="700" fill="#0099E0">менторы</text>
+</svg>

@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Дизайн-система Зерокодер — фирменный зелёный (как на сертификате гранта) */
+  --accent-heliotrope: #22B24C;        /* основной зелёный */
+  --accent-purple-heart: #1F8F3D;      /* hover / тёмный зелёный */
+  --surface-cta: #22B24C;
+  --surface-cta-hover: #1F8F3D;
+  --hh-red: #D6001C;
+  --surface-dark: #0C2E18;             /* глубокий зелёный для CTA-блоков и Footer (фон сертификата) */
+  --surface-dark-2: #0A2614;
+  --n-white: #FFFFFF;
+  --n-alabaster: #F1F8F3;              /* лёгкий зелёный тон фона секций */
+  --n-seashell: #DCEFE2;               /* обводки / разделители */
+  --n-shark-1: #1A1A1A;
+  --n-shark-2: #262626;
+  --n-mine-shaft: #4A4F58;
+  --ease-zen: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-default: opacity 0.32s var(--ease-zen);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--n-white);
+  color: var(--n-shark-1);
+  font-family: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+}
+
+button, a, input, textarea, select {
+  font-family: inherit;
+  font-feature-settings: "ss01" on, "ss02" on;
+}
+
+h1, h2, h3, h4 { font-family: inherit; }
+
+input:focus, textarea:focus, button:focus-visible {
+  outline: 2px solid var(--accent-heliotrope);
+  outline-offset: 2px;
+}
+
+/* Базовый утилитарный hover на opacity */
+.hover-opacity {
+  transition: var(--transition-default);
+}
+.hover-opacity:hover {
+  opacity: 0.85;
+}
+
+/* Body-strong — акцент внутри текста, тот же шрифт и размер */
+.body-strong {
+  font-weight: 700;
+}
+
+/* Eyebrow убран по запросу пользователя — класс оставлен пустым, чтобы не падали остатки разметки */
+.eyebrow {
+  display: none;
+}
+
+/* Hairline-обводка — тонкая зелёная линия */
+.hairline {
+  box-shadow: 0 0 0 1px rgba(34, 178, 76, 0.12);
+}
+
+/* Soft-elevation — мягкая тень для крупных карточек, чтобы они отрывались от фона */
+.soft-shadow {
+  box-shadow:
+    0 0 0 1px rgba(34, 178, 76, 0.10),
+    0 2px 4px rgba(12, 46, 24, 0.04),
+    0 12px 32px -12px rgba(12, 46, 24, 0.14);
+}
+
+/* Scroll-reveal — fade-up + blur, контролируется IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 900ms var(--ease-zen),
+    transform 900ms var(--ease-zen),
+    filter 700ms var(--ease-zen);
+  will-change: opacity, transform, filter;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; filter: none; }
+}
+
+/* CTA — плоский стиль kids.zerocoder.ru */
+.cta-magnetic {
+  transition:
+    background 240ms var(--ease-zen),
+    transform 240ms var(--ease-zen),
+    opacity 240ms var(--ease-zen);
+  will-change: transform;
+}
+.cta-magnetic:hover {
+  background: var(--surface-cta-hover);
+}
+.cta-magnetic:active { transform: scale(0.985); }
+
+/* Скролл-бар */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--n-seashell); }
+::-webkit-scrollbar-thumb { background: var(--n-mine-shaft); border-radius: 5px; }
