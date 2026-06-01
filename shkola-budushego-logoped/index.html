@@ -19,7 +19,8 @@
     --font-unbounded:'Unbounded',system-ui,sans-serif;
     --font-onest:'Onest',system-ui,sans-serif;
   }
-  body{font-family:var(--font-onest);background:var(--paper-warm);color:var(--ink-900);margin:0;-webkit-font-smoothing:antialiased;}
+  body{font-family:var(--font-onest);background:#0A1628;color:var(--ink-900);margin:0;-webkit-font-smoothing:antialiased;}
+  main{background:var(--paper-warm);}
   *{box-sizing:border-box}
 
   /* === ОТКЛЮЧАЕМ scroll-reveal анимации (требуют JS из Next.js, которого тут нет) === */
@@ -140,6 +141,22 @@
   .hw-card__num{font-family:var(--font-unbounded);font-weight:800;font-size:34px;color:var(--azure-500);line-height:1;letter-spacing:-.03em;}
   .hw-card__ttl{font-family:var(--font-unbounded);font-weight:700;font-size:16px;color:var(--ink-900);margin:0;line-height:1.3;}
   .hw-card__body{font-size:14px;color:var(--ink-500);line-height:1.55;margin:0;}
+
+  /* Hero niche sticker — жёлтая пилюля «Логопедия» рядом с eyebrow */
+  .h3-niche{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#FFE066;color:#0A1628;
+    padding:5px 12px 5px 10px;border-radius:999px;
+    font-family:var(--font-unbounded),Unbounded,sans-serif;
+    font-size:11px;font-weight:800;letter-spacing:0;
+    margin-right:10px;vertical-align:middle;
+    box-shadow:0 1px 2px rgba(255,193,7,.3), inset 0 0 0 1px rgba(218,178,16,.35);
+    text-transform:none;
+  }
+  .h3-niche svg{width:12px;height:12px;flex-shrink:0;}
+  @media (max-width:480px){
+    .h3-niche{display:inline-flex;margin-bottom:8px;font-size:10.5px;padding:4px 10px 4px 8px;}
+  }
 
   /* Hero CTA button override (нет формы) */
   .hero-cta{
@@ -511,8 +528,16 @@
   <div class="h3-glow h3-glow--b" aria-hidden="true"></div>
   <div class="h3-inner" style="grid-template-columns:1.15fr 1fr;gap:3rem;">
     <div class="h3-left">
-      <span class="h3-eyebrow">Бесплатно · 45 минут · онлайн · дети 4–17 лет</span>
-      <h1 class="h3-h1">Ваш ребёнок плохо <em>выговаривает буквы?</em> Бесплатно покажем, как исправить это</h1>
+      <span class="h3-eyebrow">
+        <span class="h3-niche">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          Логопедия
+        </span>
+        Бесплатно · 45 минут · онлайн · дети 4–17 лет
+      </span>
+      <h1 class="h3-h1">Ваш ребёнок <em>плохо выговаривает буквы?</em> Бесплатно покажем, как исправить это</h1>
       <p class="h3-lede">
         За 45 минут в игровой форме профессиональный логопед разберёт речь ребёнка и ответит на ваши вопросы.
       </p>
