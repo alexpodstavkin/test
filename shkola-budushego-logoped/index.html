@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Школа будущего — бесплатная диагностика речи ребёнка с логопедом</title>
+<meta name="description" content="За 45 минут в игровой форме профессиональный логопед разберёт речь ребёнка 4–17 лет и даст письменные рекомендации. Онлайн, без стресса для ребёнка.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  :root{
+    --font-unbounded:'Unbounded',system-ui,sans-serif;
+    --font-onest:'Onest',system-ui,sans-serif;
+  }
+  body{font-family:var(--font-onest);background:var(--paper-warm);color:var(--ink-900);margin:0;-webkit-font-smoothing:antialiased;}
+  *{box-sizing:border-box}
+
+  /* === ОТКЛЮЧАЕМ scroll-reveal анимации (требуют JS из Next.js, которого тут нет) === */
+  [data-reveal],
+  [data-reveal="true"],
+  [data-reveal="left"],
+  [data-reveal="right"],
+  [data-reveal="scale"]{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+
+  /* === BENEFITS 6-cell grid (новый) === */
+  .bn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:2.5rem;}
+  @media(max-width:900px){.bn-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.bn-grid{grid-template-columns:1fr}}
+  .bn-card{
+    position:relative;background:#fff;border:1px solid var(--ink-100);border-radius:var(--r-xl);
+    padding:24px 22px 26px;box-shadow:var(--shadow-1);
+    transition:transform var(--t-base) var(--ease-out),box-shadow var(--t-base) var(--ease-out),border-color var(--t-base) var(--ease-out);
+  }
+  .bn-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-3);border-color:var(--azure-200);}
+  .bn-card__icon{
+    width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--azure-50),#fff);
+    display:flex;align-items:center;justify-content:center;color:var(--azure-600);
+    border:1px solid var(--azure-100);margin-bottom:14px;
+  }
+  .bn-card__icon svg{width:24px;height:24px;}
+  .bn-card__title{font-family:var(--font-unbounded);font-size:16px;font-weight:700;color:var(--ink-900);line-height:1.35;letter-spacing:-.01em;margin:0 0 8px;}
+  .bn-card__title em{font-style:normal;background:linear-gradient(180deg,transparent 62%,var(--spark-soft) 62%);padding:0 2px;}
+  .bn-card__text{font-size:14px;color:var(--ink-500);line-height:1.5;margin:0;}
+
+  /* === Dark section (как HERO) === */
+  .sec-dark{
+    position:relative;background:#0A1628;color:#fff;overflow:hidden;
+    padding:5rem 0;
+  }
+  .sec-dark .container-x{position:relative;z-index:2;}
+  .sec-dark .eyebrow{color:#7DDFFF;}
+  .sec-dark .sec-title,
+  .sec-dark h2,
+  .sec-dark h3{color:#fff !important;}
+  .sec-dark p{color:rgba(255,255,255,.72);}
+  .sec-dark .brand-hl{
+    background:linear-gradient(180deg,transparent 62%,rgba(255,224,102,.35) 62%);
+    color:#fff;
+  }
+  .sec-dark__glow{
+    position:absolute;top:-100px;left:-100px;width:520px;height:520px;border-radius:50%;
+    background:#1F8AFF;opacity:.22;filter:blur(110px);pointer-events:none;z-index:1;
+  }
+  .sec-dark__glow--b{
+    top:auto;left:auto;bottom:-150px;right:-100px;width:600px;height:600px;
+    background:#FFE066;opacity:.10;
+  }
+
+  /* override .b2-* для тёмного фона */
+  .sec-dark .b2-ttl{color:#fff !important;}
+  .sec-dark .b2-body{color:rgba(255,255,255,.65) !important;}
+  .sec-dark .b2-tag{color:#7DDFFF !important;}
+  .sec-dark .b2-line{background-image:linear-gradient(90deg,rgba(125,223,255,.55) 40%,transparent 0) !important;}
+  /* 4-колоночная сетка для нашего «отбора» */
+  @media (min-width:768px){
+    .sec-dark .b2-steps{grid-template-columns:repeat(4,1fr) !important;}
+  }
+
+  /* HW grid (как мы решаем) на тёмном фоне */
+  .sec-dark .hw-card{
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(12px);
+  }
+  .sec-dark .hw-card__num{color:#FFE066;}
+  .sec-dark .hw-card__ttl{color:#fff !important;}
+  .sec-dark .hw-card__body{color:rgba(255,255,255,.65) !important;}
+
+  /* === Teacher card overlay === */
+  .tp-card{position:relative;overflow:hidden;border-radius:var(--r-xl);background:linear-gradient(180deg,#E6F2FF,#F2F8FF);min-width:260px;}
+  .tp-photo-ph{
+    width:100%;aspect-ratio:260/312;display:flex;align-items:center;justify-content:center;
+    background:repeating-linear-gradient(45deg,#EFF8FF,#EFF8FF 14px,#DDEFFF 14px,#DDEFFF 28px);
+    color:var(--ink-300);font-family:var(--font-unbounded);font-size:13px;letter-spacing:.08em;
+  }
+  .tp-meta{padding:14px 16px 18px;background:#fff;border-top:1px solid var(--ink-100);}
+  .tp-meta__name{font-family:var(--font-unbounded);font-weight:700;font-size:15px;color:var(--ink-900);margin:0 0 4px;}
+  .tp-meta__role{font-size:13px;color:var(--azure-600);font-weight:600;margin:0 0 6px;}
+  .tp-meta__text{font-size:13px;color:var(--ink-500);line-height:1.5;margin:0;min-height:80px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .tp-meta{min-height:170px;}
+
+  /* === Result block (photo + text two-col) === */
+  .rs-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;margin-top:2.5rem;}
+  @media(max-width:900px){.rs-wrap{grid-template-columns:1fr;gap:28px;}}
+  .rs-photo{
+    aspect-ratio:4/3;border-radius:var(--r-xl);border:1px solid var(--azure-200);
+    background:
+      radial-gradient(60% 70% at 25% 30%,rgba(255,224,102,.55),transparent 60%),
+      radial-gradient(70% 80% at 80% 80%,rgba(31,138,255,.18),transparent 60%),
+      linear-gradient(180deg,#F2F8FF,#E6F2FF);
+    display:flex;align-items:center;justify-content:center;color:var(--ink-300);
+    font-family:var(--font-unbounded);font-size:13px;letter-spacing:.08em;box-shadow:var(--shadow-3);
+  }
+  .rs-list{list-style:none;padding:0;margin:1rem 0 0;}
+  .rs-list li{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--ink-100);}
+  .rs-list li:first-child{border-top:0;}
+  .rs-list svg{flex-shrink:0;color:var(--success);}
+  .rs-list b{font-family:var(--font-unbounded);font-weight:700;color:var(--ink-900);font-size:15px;display:block;margin-bottom:2px;}
+  .rs-list span{font-size:14px;color:var(--ink-500);line-height:1.55;}
+
+  /* === HOW WE SOLVE 4-feature === */
+  .hw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:2.5rem;}
+  @media(max-width:1100px){.hw-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.hw-grid{grid-template-columns:1fr}}
+  .hw-card{
+    background:linear-gradient(180deg,#fff,#F2F8FF);border:1px solid var(--azure-100);
+    border-radius:var(--r-xl);padding:24px 22px;box-shadow:var(--shadow-1);
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .hw-card__num{font-family:var(--font-unbounded);font-weight:800;font-size:34px;color:var(--azure-500);line-height:1;letter-spacing:-.03em;}
+  .hw-card__ttl{font-family:var(--font-unbounded);font-weight:700;font-size:16px;color:var(--ink-900);margin:0;line-height:1.3;}
+  .hw-card__body{font-size:14px;color:var(--ink-500);line-height:1.55;margin:0;}
+
+  /* Hero CTA button override (нет формы) */
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:10px;padding:18px 32px;background:var(--spark);color:var(--ink-900);
+    font-family:var(--font-unbounded);font-weight:700;font-size:16px;border-radius:999px;text-decoration:none;
+    box-shadow:0 8px 22px rgba(255,193,7,.35),inset 0 0 0 1px rgba(218,178,16,.45);
+    transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out);
+  }
+  .hero-cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,193,7,.45),inset 0 0 0 1px rgba(218,178,16,.55);}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;color:rgba(255,255,255,.7);font-size:14px;}
+  .hero-meta b{color:#fff;}
+
+  /* container helper if missing */
+  .container-x{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* footer — структура задана inline-стилями в разметке (как в reference) */
+  footer a:hover{color:#fff !important;}
+
+  /* ============================================================ */
+  /*   RESPONSIVE ADAPT — tablet & mobile fixes                    */
+  /* ============================================================ */
+
+  /* HERO: одна колонка ниже 1024 — форма стекается ПОД текст */
+  @media (max-width:1023px){
+    .h3-inner{
+      grid-template-columns:1fr !important;
+      max-width:680px;
+      margin:0 auto;
+      gap:1.75rem !important;
+    }
+    .h3-left{padding-top:1.5rem;}
+    .h3-h1{font-size:2.25rem;line-height:1.05;hyphens:none !important;-webkit-hyphens:none !important;word-break:normal;overflow-wrap:normal;}
+    .h3-lede{max-width:none;}
+    .h3-card{padding:1.5rem;}
+  }
+  /* very small phones — ещё компактнее */
+  @media (max-width:480px){
+    .h3-h1{font-size:1.5rem;letter-spacing:-.02em;hyphens:none !important;-webkit-hyphens:none !important;word-break:normal;overflow-wrap:normal;}
+    .h3-eyebrow{font-size:10px;letter-spacing:.06em;}
+    .h3-lede{font-size:1rem;line-height:1.55;}
+    .h3-proof{flex-wrap:wrap;gap:.5rem .75rem;font-size:13px;}
+    .h3-proof > span:nth-child(2),
+    .h3-proof > span:nth-child(4){display:none;}  /* убираем точки-разделители */
+    .h3-card__title{font-size:1.25rem;}
+    .h3-card__bonus{
+      font-size:11px;padding:7px 14px;
+      top:-44px;right:auto;left:50%;
+      transform:translateX(-50%) rotate(2deg);
+      max-width:calc(100% - 1.5rem);
+      white-space:normal;text-align:center;line-height:1.3;
+    }
+    .h3-card{margin-top:36px;}
+  }
+
+  /* Section titles — крупные на мобиле всё ещё в виде brand-hl могут обрезаться */
+  @media (max-width:480px){
+    .sec-title{font-size:1.65rem !important;line-height:1.15;letter-spacing:-.015em;}
+    .h-section{font-size:1.75rem !important;}
+    .v2-section{padding:64px 0;}
+    .sec-dark{padding:3.5rem 0;}
+  }
+
+  /* NAV: на мобиле CTA должен поместиться в pill */
+  @media (max-width:640px){
+    .nav-pill{
+      gap:.5rem !important;
+      padding:.4rem .4rem .4rem 1rem !important;
+      max-width:calc(100vw - 24px) !important;
+    }
+    .nav-cta{
+      font-size:12px !important;
+      padding:.5rem .85rem !important;
+    }
+    /* укорачиваем текст CTA */
+    .nav-cta__long{display:none;}
+    .nav-cta__short{display:inline;}
+  }
+  @media (min-width:641px){
+    .nav-cta__long{display:inline;}
+    .nav-cta__short{display:none;}
+  }
+
+  /* Бренд-пилюля: на самых узких скрываем текст «Школа будущего» — оставляем молнию */
+  @media (max-width:380px){
+    .nav-brand-name{display:none;}
+    .nav-brand-pill{padding:6px 10px !important;}
+  }
+
+  /* Reviews — на мобиле фичер-карточка не должна слишком давить */
+  @media (max-width:560px){
+    .v2-reviews__feat{padding:24px 20px !important;}
+    .v2-reviews__feat-quote{font-size:1.05rem !important;line-height:1.5 !important;}
+    .v2-reviews__grid{grid-template-columns:1fr !important;}
+  }
+
+  /* CTA finальный — на мобиле должен быть одной колонкой */
+  @media (max-width:900px){
+    .v2-fcta__inner{grid-template-columns:1fr !important;gap:2rem !important;padding:2.5rem 1.25rem !important;}
+    .v2-fcta__form{padding:1.5rem !important;}
+  }
+
+  /* Teachers: 5 в ряд на десктопе → 3 → 2 → 1 */
+  @media (max-width:1100px){.tp-track{grid-template-columns:repeat(3,1fr) !important;}}
+  @media (max-width:700px){.tp-track{grid-template-columns:repeat(2,1fr) !important;}}
+  @media (max-width:440px){.tp-track{grid-template-columns:1fr !important;}}
+
+  /* Result section: фото-плейсхолдер не должен быть слишком большим на мобиле */
+  @media (max-width:900px){
+    .rs-photo{aspect-ratio:16/10;}
+  }
+
+  /* Touch targets: ≥44px на мобиле */
+  @media (max-width:768px){
+    .nav-cta,.hero-cta,.h3-submit,.v2-btn{min-height:48px;}
+    .nav-links a{padding:8px 0;}
+  }
+
+  /* HERO h3-proof — на узких viewport вертикальный stack лучше */
+  @media (max-width:480px){
+    .h3-proof{display:flex;flex-direction:column;align-items:flex-start;}
+  }
+
+  /* B2-wrap для блока «Отбор»: на планшете 4 колонки → 2 */
+  @media (max-width:900px){
+    .sec-dark .b2-steps{grid-template-columns:repeat(2,1fr) !important;gap:2rem !important;}
+    .sec-dark .b2-line,.sec-dark .b2-fill{display:none !important;}  /* линия не подходит для 2×2 */
+  }
+  @media (max-width:480px){
+    .sec-dark .b2-steps{grid-template-columns:1fr !important;}
+  }
+
+  /* Sticky nav: чтобы pill не закрывал контент при якорной навигации */
+  main{scroll-padding-top:90px;}
+  html{scroll-padding-top:90px;}
+
+  /* ============================================================ */
+  /*   PATCH-3: карусели + белая форма CTA + nav-fix + reviews     */
+  /* ============================================================ */
+
+  /* === Teachers carousel — flex со scroll-snap (и веб, и mobile) === */
+  .tp-track{
+    display:flex !important;
+    gap:18px !important;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    margin:2rem -1.25rem 0;
+    padding:0 1.25rem 1rem;
+  }
+  .tp-track::-webkit-scrollbar{display:none;}
+  .tp-track .tp-card{
+    flex:0 0 260px !important;
+    scroll-snap-align:start;
+    min-width:260px !important;
+  }
+  /* Visual cue для пользователя: подсказка справа */
+  .tp-track::after{
+    content:"";flex:0 0 1px;
+  }
+
+  /* === Reviews carousel — только на мобиле === */
+  @media (max-width:900px){
+    .v2-reviews__grid{
+      display:flex !important;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      gap:14px !important;
+      grid-template-columns:none !important;
+      margin:1.5rem -1.25rem 0 !important;
+      padding:0 1.25rem 1rem !important;
+      scrollbar-width:none;
+    }
+    .v2-reviews__grid::-webkit-scrollbar{display:none;}
+    .rcard{
+      flex:0 0 min(85vw, 340px) !important;
+      scroll-snap-align:start;
+      min-width:auto !important;
+    }
+  }
+
+  /* === Reviews footer (4.9/5 + кол-во отзывов) — нормальный layout на мобиле === */
+  @media (max-width:560px){
+    .v2-reviews__footer{
+      flex-direction:column;gap:8px !important;margin-top:24px !important;
+    }
+    .v2-reviews__avg{
+      flex-direction:row;flex-wrap:wrap;justify-content:center;
+      gap:8px 12px !important;font-size:13px;text-align:center;
+      align-items:baseline;
+    }
+    .v2-reviews__avg b{font-size:20px !important;}
+    .v2-reviews__avg > span:last-child{width:100%;text-align:center;}
+  }
+
+  /* === CTA: форма БЕЛАЯ на тёмном фоне === */
+  .v2-fcta__form{
+    background:#FFFFFF !important;
+    border:1px solid var(--ink-100) !important;
+    box-shadow:var(--shadow-3);
+    color:var(--ink-900);
+    position:relative;  /* для бонус-плашки */
+  }
+  .v2-fcta__form .h3-card__bonus{z-index:2;}
+  .v2-fcta__form .v2-fcta__form-ttl{color:var(--ink-900) !important;}
+  .v2-fcta__form .v2-fcta__form-sub{color:var(--ink-500) !important;}
+  .v2-fcta__form .v2-field label{color:var(--ink-700) !important;}
+  .v2-fcta__form .v2-field input{
+    background:#FBFBF7 !important;border-color:var(--ink-200) !important;color:var(--ink-900) !important;
+  }
+  .v2-fcta__form .v2-fcta__form-legal{color:var(--ink-400) !important;}
+  .v2-fcta__form .v2-fcta__form-legal a{color:var(--azure-600) !important;}
+
+  /* === NAV pill: фикс обрезки CTA на узких экранах === */
+  .nav-pill{overflow:visible;}
+  @media (max-width:640px){
+    .nav-pill{
+      padding:.4rem .5rem .4rem .85rem !important;
+      gap:.5rem !important;
+      max-width:calc(100vw - 20px) !important;
+    }
+    .nav-cta{
+      font-size:12px !important;
+      padding:.55rem .9rem !important;
+      box-shadow:none !important;
+    }
+  }
+  @media (max-width:380px){
+    .nav-pill{padding:.35rem .45rem .35rem .55rem !important;gap:.4rem !important;}
+    .nav-cta{font-size:11.5px !important;padding:.5rem .8rem !important;}
+    .nav-brand-pill{padding:5px 8px !important;}
+  }
+  /* Sticky nav wrapper padding на мобиле — меньше */
+  @media (max-width:480px){
+    body > div[style*="sticky"]{padding-left:10px !important;padding-right:10px !important;}
+  }
+
+  /* === H3-legal в HERO форме — text-align left чтобы был лаконичнее === */
+  .h3-legal{text-align:center;}
+
+  /* ============================================================ */
+  /*   PATCH-5: mobile header + sticky CTA + a11y + indicators     */
+  /* ============================================================ */
+
+  /* === Mobile NAV: убираем кнопку, бренд центрируем === */
+  @media (max-width:768px){
+    .nav-pill{justify-content:center !important;}
+    .nav-cta{display:none !important;}
+    .nav-brand{margin:0 auto !important;}
+    .nav-brand-pill{padding:6px 14px 6px 10px !important;}
+    .nav-brand-name{display:inline !important;}
+  }
+  @media (max-width:380px){
+    .nav-brand-name{display:inline !important;}  /* возвращаем бренд-текст т.к. кнопки нет */
+  }
+
+  /* === STICKY MOBILE CTA — фиксированная кнопка снизу === */
+  .sticky-cta{
+    display:none;
+    position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
+    z-index:60;padding:14px 28px;
+    background:#1F8AFF;color:#fff;font-family:var(--font-unbounded);
+    font-weight:700;font-size:15px;letter-spacing:-.005em;
+    text-decoration:none;border-radius:999px;white-space:nowrap;
+    box-shadow:0 12px 30px rgba(31,138,255,.45), 0 4px 12px rgba(31,138,255,.25);
+    transition:opacity .25s,transform .25s;
+    min-height:52px;align-items:center;
+  }
+  .sticky-cta:active{transform:translateX(-50%) scale(.96);}
+  @media (max-width:768px){
+    .sticky-cta{display:inline-flex;}
+  }
+  .sticky-cta.is-hidden{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(20px);}
+
+  /* === HIDE 2 benefits cards on mobile === */
+  @media (max-width:768px){
+    .bn-card--hide-mobile{display:none !important;}
+  }
+
+  /* === Touch feedback на интерактивных карточках === */
+  .bn-card,.tp-card,.hw-card,.rcard,.v2-faq__item summary,.b2-step,
+  .pg-row,.h3-submit,.v2-btn,.hero-cta,.nav-cta,.nav-brand{
+    -webkit-tap-highlight-color:transparent;
+  }
+  @media (hover:none){
+    .bn-card:active,.tp-card:active,.hw-card:active,.rcard:active,
+    .b2-step:active{
+      transform:scale(.98) !important;
+      transition:transform .12s ease-out;
+    }
+  }
+
+  /* === FAQ tap-zone — мин. 56px и вся строка кликабельна === */
+  .v2-faq__q{
+    min-height:56px !important;
+    cursor:pointer;
+    -webkit-tap-highlight-color:rgba(31,138,255,.08);
+  }
+  .v2-faq__item summary:active{
+    background:rgba(31,138,255,.04);
+  }
+
+  /* === Carousel scroll indicators === */
+  .carousel-hint{
+    display:none;
+    align-items:center;justify-content:center;gap:8px;
+    margin-top:.75rem;font-size:12px;color:var(--ink-400);
+    font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .carousel-hint svg{width:14px;height:14px;}
+  @media (max-width:900px){
+    .carousel-hint{display:flex;}
+  }
+  /* Fade-edge справа у карусели — «есть ещё контент» */
+  .carousel-wrap{position:relative;}
+  .carousel-wrap::after{
+    content:"";position:absolute;top:0;right:0;bottom:0;width:48px;
+    background:linear-gradient(90deg,transparent,var(--paper-warm) 70%);
+    pointer-events:none;
+  }
+  /* На тёмном фоне fade — другого цвета */
+  .sec-alt .carousel-wrap::after{background:linear-gradient(90deg,transparent,#EFF8FF 70%);}
+  .v2-reviews .carousel-wrap::after{background:linear-gradient(90deg,transparent,var(--sky-mist) 70%);}
+
+  /* Reviews carousel hint — только мобильное */
+  @media (min-width:901px){
+    .reviews-hint{display:none;}
+  }
+
+  /* === Smaller / lighter мобильный hero на P0 (короткий H1 = новый текст с ?) === */
+  @media (max-width:480px){
+    .h3-h1{font-size:1.55rem;line-height:1.1;}
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============ NAV ============ -->
+<div style="position:sticky;top:16px;z-index:50;display:flex;justify-content:center;padding:0 20px;pointer-events:none;">
+  <nav class="nav-pill">
+    <a href="#" class="nav-brand" aria-label="Школа будущего">
+      <span class="nav-brand-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        <span class="nav-brand-name">Школа будущего</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#benefits">Для кого подойдёт</a>
+      <a href="#programme">Программа</a>
+      <a href="#teachers">Преподаватели</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="nav-cta" href="#cta">
+      <span class="nav-cta__long">Записать ребёнка →</span>
+      <span class="nav-cta__short">Записать →</span>
+    </a>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<div class="h3-hero-wrap" id="hero">
+  <div class="h3-glow" aria-hidden="true"></div>
+  <div class="h3-glow h3-glow--b" aria-hidden="true"></div>
+  <div class="h3-inner" style="grid-template-columns:1.15fr 1fr;gap:3rem;">
+    <div class="h3-left">
+      <span class="h3-eyebrow">Бесплатно · 45 минут · онлайн · дети 4–17 лет</span>
+      <h1 class="h3-h1">Ваш ребёнок плохо <em>выговаривает буквы?</em> Бесплатно покажем, как исправить это</h1>
+      <p class="h3-lede">
+        За 45 минут в игровой форме профессиональный логопед разберёт речь ребёнка и ответит на ваши вопросы.
+      </p>
+      <div class="h3-proof" style="margin-top:1.25rem;">
+        <span>📞 свяжемся <b>в течение часа</b></span>
+        <span style="color:rgba(255,255,255,.25)">·</span>
+        <span><b>10 000+</b> семей уже прошли</span>
+        <span style="color:rgba(255,255,255,.25)">·</span>
+        <span>средняя оценка <b>4.9/5</b></span>
+      </div>
+    </div>
+
+    <div class="h3-card" id="form">
+      <div class="h3-card__bonus">Пошаговый план развития речи от логопеда — в подарок</div>
+      <form style="display:contents" noValidate>
+        <div>
+          <div class="h3-card__title">Записать ребёнка</div>
+          <div class="h3-card__sub">Менеджер свяжется в течение часа</div>
+        </div>
+        <div class="h3-field">
+          <label for="h3-name">Ваше имя</label>
+          <input id="h3-name" type="text" placeholder="Как к вам обращаться" autocomplete="given-name">
+        </div>
+        <div class="h3-field">
+          <label for="h3-phone">Телефон</label>
+          <input id="h3-phone" type="tel" placeholder="Какой у вас актуальный номер" autocomplete="tel">
+        </div>
+        <div class="h3-field">
+          <label for="h3-email">Email</label>
+          <input id="h3-email" type="email" placeholder="Ваша актуальная почта" autocomplete="email">
+        </div>
+        <button type="submit" class="h3-submit">Записать ребёнка к логопеду →</button>
+        <p class="h3-legal">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BENEFITS — 6 признаков ============ -->
+<section class="sec sec-alt" id="benefits">
+  <div class="container-x">
+    <div style="max-width:50rem" data-reveal="true">
+      <span class="eyebrow">Зачем нужна диагностика речи</span>
+      <h2 class="sec-title" style="margin-top:.75rem">
+        Когда стоит записать ребёнка <span class="brand-hl">к логопеду</span>
+      </h2>
+    </div>
+
+    <div class="bn-grid" data-reveal="true">
+
+      <div class="bn-card">
+        <div class="bn-card__icon">
+          <!-- mouth/articulation -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12c3-4 15-4 18 0-3 4-15 4-18 0z"/>
+            <circle cx="12" cy="12" r="2.5" fill="currentColor" opacity=".2"/>
+          </svg>
+        </div>
+        <h3 class="bn-card__title">Не может чётко <em>выговорить С, Ш, Р, Л</em></h3>
+        <p class="bn-card__text">Заменяет, пропускает или искажает свистящие, шипящие, сонорные. Слышно даже в коротких словах.</p>
+      </div>
+
+      <div class="bn-card">
+        <div class="bn-card__icon">
+          <!-- swap/confusion -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7h14l-3-3"/>
+            <path d="M21 17H7l3 3"/>
+          </svg>
+        </div>
+        <h3 class="bn-card__title">Путает звуки — речь <em>трудно разобрать</em> даже близким</h3>
+        <p class="bn-card__text">Меняет «р» на «л», «ш» на «с», переставляет слоги. Близким приходится «переводить» речь ребёнка чужим.</p>
+      </div>
+
+      <div class="bn-card">
+        <div class="bn-card__icon">
+          <!-- speech bubble unclear -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a8 8 0 1 1-3.2-6.4L21 4l-1 4a8 8 0 0 1 1 4z"/>
+            <path d="M8 11h.01M12 11h.01M16 11h.01" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <h3 class="bn-card__title">Говорит с «<em>кашей во рту</em>» — сложно выражает свои мысли</h3>
+        <p class="bn-card__text">Глотает окончания, говорит быстро и невнятно. Не может объяснить, что чувствует.</p>
+      </div>
+
+      <div class="bn-card bn-card--hide-mobile">
+        <div class="bn-card__icon">
+          <!-- book -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4z"/>
+            <path d="M20 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/>
+          </svg>
+        </div>
+        <h3 class="bn-card__title">Плохо <em>читает, пишет</em> и запоминает стихи</h3>
+        <p class="bn-card__text">Путает буквы при чтении, пропускает их в письме, не может пересказать текст — слабая речевая память.</p>
+      </div>
+
+      <div class="bn-card">
+        <div class="bn-card__icon">
+          <!-- wave/stutter -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12c1.5-3 3-3 4.5 0s3 3 4.5 0 3-3 4.5 0 3 3 4.5 0"/>
+          </svg>
+        </div>
+        <h3 class="bn-card__title">Запинается, <em>заикается</em> — повторяет слоги, тянет звуки</h3>
+        <p class="bn-card__text">Боится начинать фразу, нервничает в разговоре, иногда отказывается говорить вовсе.</p>
+      </div>
+
+      <div class="bn-card bn-card--hide-mobile">
+        <div class="bn-card__icon">
+          <!-- clock/behind -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 2"/>
+          </svg>
+        </div>
+        <h3 class="bn-card__title">Речь <em>отстаёт от сверстников</em> — а окружающие говорят «перерастёт»</h3>
+        <p class="bn-card__text">Внутри есть тревога, что что-то не так. Окружение успокаивает, но речь не выравнивается.</p>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2rem;display:flex;justify-content:center;">
+      <a href="#cta" class="v2-btn v2-btn--spark v2-btn--lg">Записать ребёнка к логопеду →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMME — Не тестируем, а играем ============ -->
+<section class="sec" id="programme">
+  <div class="container-x">
+    <div class="pg-grid">
+      <aside class="pg-head pg-sticky" data-reveal="left">
+        <span class="eyebrow">Программа диагностики</span>
+        <h2>Не тестируем ребёнка, <br><em>а играем с ним</em></h2>
+        <p>
+          Так у ребёнка нет стресса — он вовлекается в процесс и получает удовольствие от занятия,
+          а логопед в это время фиксирует, где есть проблемы. 45 минут пройдут незаметно.
+        </p>
+      </aside>
+
+      <ol class="pg-list" data-reveal="right">
+
+        <li class="pg-row" style="cursor:default">
+          <div class="pg-num">01</div>
+          <div>
+            <div class="pg-time">5 мин · знакомство</div>
+            <h3 class="pg-ttl">Знакомимся и располагаем к себе</h3>
+            <p class="pg-sub">
+              Логопед мягко начинает разговор: спрашивает про любимый мультик, игрушку, что было в саду или школе.
+              Ребёнок раскрывается, перестаёт стесняться камеры.
+            </p>
+          </div>
+        </li>
+
+        <li class="pg-row is-active" style="cursor:default">
+          <div class="pg-num">02</div>
+          <div>
+            <div class="pg-time">15 мин · игра</div>
+            <h3 class="pg-ttl">Играем — а логопед слушает</h3>
+            <p class="pg-sub">
+              Ребёнок отгадывает картинки, помогает героям, повторяет слова в сказке. Это для него игра.
+              Для логопеда — точная фиксация всех проблемных звуков, слогов, грамматики.
+            </p>
+          </div>
+        </li>
+
+        <li class="pg-row" style="cursor:default">
+          <div class="pg-num">03</div>
+          <div>
+            <div class="pg-time">10 мин · нейрогимнастика</div>
+            <h3 class="pg-ttl">Нейрогимнастика и артикуляция</h3>
+            <p class="pg-sub">
+              Весёлые упражнения на пальцы, дыхание, язык. Логопед смотрит, как ребёнок держит позу,
+              переключается между движениями, насколько подвижен артикуляционный аппарат.
+            </p>
+          </div>
+        </li>
+
+        <li class="pg-row" style="cursor:default">
+          <div class="pg-num">04</div>
+          <div>
+            <div class="pg-time">10 мин · фонематика</div>
+            <h3 class="pg-ttl">Проверяем слух и память на слова</h3>
+            <p class="pg-sub">
+              Игровые задания: «найди лишнее слово», «повтори за мной», «придумай рифму».
+              Логопед оценивает фонематический слух, речевую память, словарный запас.
+            </p>
+          </div>
+        </li>
+
+        <li class="pg-row" style="cursor:default">
+          <div class="pg-num">05</div>
+          <div>
+            <div class="pg-time">5–10 мин · ответы родителю</div>
+            <h3 class="pg-ttl">Ответы на ваши вопросы и пошаговый план</h3>
+            <p class="pg-sub">
+              Логопед подключает родителя: подробно объясняет, что увидел, отвечает на все вопросы
+              и сразу обозначает, нужны ли занятия и какая программа подойдёт.
+            </p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SELECTION — Как мы выбираем преподавателей ============ -->
+<section class="sec sec-dark" id="selection">
+  <div class="sec-dark__glow" aria-hidden="true"></div>
+  <div class="sec-dark__glow sec-dark__glow--b" aria-hidden="true"></div>
+  <div class="container-x">
+    <div style="max-width:42rem" data-reveal="true">
+      <span class="eyebrow">Отбор специалистов</span>
+      <h2 class="sec-title" style="margin-top:.75rem">
+        Как мы выбираем <span class="brand-hl">преподавателей</span>
+      </h2>
+      <p style="font-size:1rem;line-height:1.6;margin-top:1rem;">
+        Из 100 присланных резюме до работы с детьми мы допускаем 3-4 специалиста.
+        Воронка отбора — четыре жёстких ступени.
+      </p>
+    </div>
+
+    <div class="b2-wrap" data-reveal="true">
+      <div class="b2-line"></div>
+      <div class="b2-fill"></div>
+      <div class="b2-steps">
+
+        <div class="b2-step">
+          <div class="b2-node">1</div>
+          <div class="b2-content">
+            <span class="b2-tag">документы</span>
+            <h3 class="b2-ttl">Профильное образование</h3>
+            <p class="b2-body">Дефектологический или педагогический вуз, специальность «логопед» или «логопед-дефектолог». Проверяем диплом.</p>
+          </div>
+        </div>
+
+        <div class="b2-step">
+          <div class="b2-node">2</div>
+          <div class="b2-content">
+            <span class="b2-tag">опыт</span>
+            <h3 class="b2-ttl">Минимум 3 года с детьми</h3>
+            <p class="b2-body">Опыт работы с возрастной группой 4-17 лет в детских центрах, школах или частной практике.</p>
+          </div>
+        </div>
+
+        <div class="b2-step">
+          <div class="b2-node">3</div>
+          <div class="b2-content">
+            <span class="b2-tag">методика</span>
+            <h3 class="b2-ttl">Тестовое с методистом</h3>
+            <p class="b2-body">Кандидат проводит демо-диагностику с нашим методистом по реальному кейсу. Проверяем владение методиками.</p>
+          </div>
+        </div>
+
+        <div class="b2-step">
+          <div class="b2-node">4</div>
+          <div class="b2-content">
+            <span class="b2-tag">эмпатия</span>
+            <h3 class="b2-ttl">Пробный урок с ребёнком</h3>
+            <p class="b2-body">Заключительный шаг — занятие с ребёнком из фокус-группы. Контакт за первые 5 минут.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEACHERS GALLERY ============ -->
+<section class="sec" id="teachers">
+  <div class="container-x">
+    <div class="tp-header" data-reveal="true">
+      <div>
+        <span class="eyebrow">Наши логопеды</span>
+        <h2 class="sec-title" style="margin-top:.75rem">
+          С вашим ребёнком будут работать <span class="brand-hl">только лучшие специалисты</span>
+        </h2>
+        <p style="color:#5C6B86;font-size:1rem;line-height:1.6;margin-top:1rem;max-width:42rem">
+          Опыт работы с детьми от 4 до 17 лет. Каждый прошёл нашу 4-ступенчатую систему отбора.
+          Если ребёнку не понравится преподаватель — заменим без вопросов.
+        </p>
+      </div>
+    </div>
+
+    <div class="tp-track">
+
+      <div class="tp-card" data-reveal="true" data-delay="1">
+        <div class="tp-photo-ph">ФОТО</div>
+        <div class="tp-meta">
+          <p class="tp-meta__name">Анна Г.</p>
+          <p class="tp-meta__role">Логопед-дефектолог · 9 лет опыта</p>
+          <p class="tp-meta__text">Специализация: постановка звуков Р, Л, шипящих. Работала в центре раннего развития, ведёт авторский курс по дислалии.</p>
+        </div>
+      </div>
+
+      <div class="tp-card" data-reveal="true" data-delay="2">
+        <div class="tp-photo-ph">ФОТО</div>
+        <div class="tp-meta">
+          <p class="tp-meta__name">Екатерина М.</p>
+          <p class="tp-meta__role">Логопед, нейропсихолог · 7 лет опыта</p>
+          <p class="tp-meta__text">Работа с заиканием и ОНР. Сертифицирована по методике Богомоловой и нейроподходу Семенович.</p>
+        </div>
+      </div>
+
+      <div class="tp-card" data-reveal="true" data-delay="3">
+        <div class="tp-photo-ph">ФОТО</div>
+        <div class="tp-meta">
+          <p class="tp-meta__name">Мария В.</p>
+          <p class="tp-meta__role">Логопед-психолог · 6 лет опыта</p>
+          <p class="tp-meta__text">Дошкольники 3-6 лет. Запуск речи у молчунов, преодоление речевого негативизма, игровая мотивация.</p>
+        </div>
+      </div>
+
+      <div class="tp-card" data-reveal="true" data-delay="4">
+        <div class="tp-photo-ph">ФОТО</div>
+        <div class="tp-meta">
+          <p class="tp-meta__name">Ольга К.</p>
+          <p class="tp-meta__role">Логопед-дефектолог · 11 лет опыта</p>
+          <p class="tp-meta__text">Дисграфия, дислексия у школьников 7-12 лет. Готовит детей к школе без слёз.</p>
+        </div>
+      </div>
+
+      <div class="tp-card" data-reveal="true" data-delay="1">
+        <div class="tp-photo-ph">ФОТО</div>
+        <div class="tp-meta">
+          <p class="tp-meta__name">Наталья С.</p>
+          <p class="tp-meta__role">Логопед, методист · 13 лет опыта</p>
+          <p class="tp-meta__text">Дизартрия, сложные нарушения. Автор внутренней программы Школы будущего по постановке звуков.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2.5rem;display:flex;justify-content:center;">
+      <a href="#cta" class="v2-btn v2-btn--spark v2-btn--lg">Записать ребёнка к логопеду →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULT — Что родитель получает после ============ -->
+<section class="sec sec-alt" id="result">
+  <div class="container-x">
+    <div style="max-width:42rem" data-reveal="true">
+      <span class="eyebrow">Результат диагностики</span>
+      <h2 class="sec-title" style="margin-top:.75rem">
+        После занятия родитель получает <span class="brand-hl">письменные рекомендации</span>
+      </h2>
+    </div>
+
+    <div class="rs-wrap">
+      <div class="rs-photo" data-reveal="left">ФОТО · письменный отчёт + ребёнок на экране</div>
+
+      <div data-reveal="right">
+        <p style="color:#5C6B86;font-size:16px;line-height:1.6;margin:0 0 1rem;">
+          Не «давайте созвонимся ещё раз». А конкретный документ, с которым вы уходите —
+          и понимаете, что делать дальше.
+        </p>
+        <ul class="rs-list">
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <b>Заключение по речи ребёнка</b>
+              <span>Что в норме, что требует коррекции, какие звуки нарушены, есть ли особенности фонематики, грамматики, словаря.</span>
+            </div>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <b>План коррекции — какие звуки в каком порядке</b>
+              <span>Сколько занятий нужно на каждый звук, в какой последовательности их ставить, чтобы не было «перебоев».</span>
+            </div>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <b>Сколько времени необходимо для улучшения речи</b>
+              <span>Логопед оценит масштаб задачи и даст ориентир — к какому сроку стоит планировать видимый результат.</span>
+            </div>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <b>Домашние упражнения на первую неделю</b>
+              <span>Чёткие, на 5-10 минут в день. Без «возьмите зеркало и поиграйте» — конкретные задания, которые работают.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE SOLVE — Как Школа будущего решает проблемы ============ -->
+<section class="sec sec-dark" id="how">
+  <div class="sec-dark__glow" aria-hidden="true"></div>
+  <div class="sec-dark__glow sec-dark__glow--b" aria-hidden="true"></div>
+  <div class="container-x">
+    <div style="max-width:50rem" data-reveal="true">
+      <span class="eyebrow">Как мы работаем</span>
+      <h2 class="sec-title" style="margin-top:.75rem">
+        Как Школа будущего <span class="brand-hl">решает проблемы с речью</span>
+      </h2>
+      <p style="font-size:1rem;line-height:1.6;margin-top:1rem;">
+        Мы не «занимаемся с логопедом». Мы строим систему, где ребёнок прогрессирует
+        от занятия к занятию, родитель видит результат, а не «поверьте, мы делаем».
+      </p>
+    </div>
+
+    <div class="hw-grid" data-reveal="true">
+      <div class="hw-card">
+        <div class="hw-card__num">01</div>
+        <h3 class="hw-card__ttl">Индивидуальная программа под ребёнка</h3>
+        <p class="hw-card__body">После диагностики составляем план — какие звуки, в какой последовательности, сколько занятий. Не шаблон «всем подряд».</p>
+      </div>
+      <div class="hw-card">
+        <div class="hw-card__num">02</div>
+        <h3 class="hw-card__ttl">Игровые тренажёры и интерактив</h3>
+        <p class="hw-card__body">Авторская платформа с играми, мультгероями, заданиями. Ребёнок занимается с интересом — а не «ну ещё одно занятие».</p>
+      </div>
+      <div class="hw-card">
+        <div class="hw-card__num">03</div>
+        <h3 class="hw-card__ttl">Контроль прогресса каждую неделю</h3>
+        <p class="hw-card__body">Родитель получает короткий отчёт после каждого занятия и общую сводку раз в неделю. Видно, что меняется в речи.</p>
+      </div>
+      <div class="hw-card">
+        <div class="hw-card__num">04</div>
+        <h3 class="hw-card__ttl">Материалы для дома без сложностей</h3>
+        <p class="hw-card__body">Короткие задания на 5-10 минут в день, видеоинструкции для родителя. Чтобы между занятиями результат закреплялся.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS — живые ============ -->
+<section class="v2-reviews v2-section">
+  <div class="v2-container">
+    <div class="v2-reviews__head" data-reveal="true">
+      <div>
+        <span class="v2-eyebrow">Отзывы родителей</span>
+        <h2 class="h-section">Что говорят родители <span class="marker">после диагностики</span></h2>
+      </div>
+    </div>
+
+    <div class="v2-reviews__feat" data-reveal="true">
+      <div class="v2-reviews__feat-glow"></div>
+      <span class="v2-reviews__feat-mark">"</span>
+      <p class="v2-reviews__feat-quote">
+        Пришли с тем, что сын в 5 лет не выговаривает «р». Логопед минут 10 с ним общалась как с другом,
+        и я поняла — он расслабился, чего у обычного логопеда не бывает.
+        Через 40 минут она показала мне отчёт: оказалось, ещё и шипящие смазаны, я этого не слышала.
+        Дала чёткий план — <em>14 занятий, начинаем с шипящих</em>. Записались сразу.
+      </p>
+      <div class="v2-reviews__feat-by">
+        <div class="v2-reviews__feat-stars">★★★★★</div>
+        <div class="v2-reviews__feat-name">Марина Д.</div>
+        <div class="v2-reviews__feat-meta">сын, 5 лет · постановка Р + Ш</div>
+      </div>
+    </div>
+
+    <div class="v2-reviews__grid">
+
+      <div class="rcard" data-reveal="true" data-delay="1">
+        <div class="rcard__stars">★★★★★</div>
+        <p class="rcard__quote">
+          Дочь 4 года, в саду логопед сказал «придёт сам». Прошёл год — не пришёл.
+          Записались сюда, провели диагностику онлайн — я не верила что ребёнок 45 минут просидит. Просидел.
+          <span class="marker">План на руках, начали занятия</span>. Через месяц первое «р» — пусть с грехом, но прозвучало.
+        </p>
+        <div class="rcard__by">
+          <span class="rcard__av avc1">И</span>
+          <div>
+            <div class="rcard__name">Ирина С.</div>
+            <div class="rcard__meta">дочь, 5 лет · дислалия</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rcard" data-reveal="true" data-delay="2">
+        <div class="rcard__stars">★★★★★</div>
+        <p class="rcard__quote">
+          Сын первоклассник, в школе путал б-п, д-т при письме. На диагностике логопед мягко поговорила,
+          поиграла в «найди лишнее слово». Я сначала думала — а где собственно проверка?
+          В конце <span class="marker">всё разобрала по полочкам</span>: фонематика страдает, дисграфия начинается. Без её взгляда я бы прозевала.
+        </p>
+        <div class="rcard__by">
+          <span class="rcard__av avc3">С</span>
+          <div>
+            <div class="rcard__name">Светлана К.</div>
+            <div class="rcard__meta">сын, 7 лет · профилактика дисграфии</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rcard" data-reveal="true" data-delay="3">
+        <div class="rcard__stars">★★★★★</div>
+        <p class="rcard__quote">
+          У дочки заикание после переезда. Боялись, что онлайн не сработает —
+          ей и так с чужими тяжело. Логопед оказался очень внимательным,
+          дочь сама захотела «ещё поиграть». Получили <span class="marker">подробные рекомендации</span> что делать дома прямо сейчас, до первых занятий.
+        </p>
+        <div class="rcard__by">
+          <span class="rcard__av avc2">А</span>
+          <div>
+            <div class="rcard__name">Алёна П.</div>
+            <div class="rcard__meta">дочь, 6 лет · логоневроз</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="v2-reviews__footer" data-reveal="true">
+      <div class="v2-reviews__avg">
+        <span style="color:var(--spark);font-size:18px;letter-spacing:2px">★★★★★</span>
+        <b>4.9 / 5</b>
+        <span>средняя оценка · 2 480 родителей</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="v2-faq v2-section" id="faq">
+  <div class="v2-container">
+    <div class="v2-faq__inner">
+      <div class="v2-faq__head" data-reveal="true">
+        <span class="v2-eyebrow" style="justify-content:center">Вопросы и ответы</span>
+        <h2 class="h-section" style="text-align:center">Частые вопросы родителей</h2>
+      </div>
+      <div class="v2-faq__list" data-reveal="true">
+
+        <details class="v2-faq__item">
+          <summary class="v2-faq__q">
+            <span class="v2-faq__q-num">01</span>
+            <span class="v2-faq__q-text">Это правда бесплатно? Без скрытых условий?</span>
+            <span class="v2-faq__q-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="v2-faq__a">
+            <b>Да, полностью бесплатно.</b> Это пробная диагностика — мы знакомимся с ребёнком, оцениваем речь, выдаём вам письменные рекомендации.
+            Если понравится — расскажем про абонемент и программу. Не понравится — никто не позвонит дважды.
+          </p>
+        </details>
+
+        <details class="v2-faq__item">
+          <summary class="v2-faq__q">
+            <span class="v2-faq__q-num">02</span>
+            <span class="v2-faq__q-text">Как онлайн-логопед может проверить речь? Это же не вживую</span>
+            <span class="v2-faq__q-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="v2-faq__a">
+            Через камеру логопед слышит звуки и видит артикуляцию не хуже, чем в кабинете. Для постановки звуков и автоматизации
+            этого достаточно — это подтверждают исследования и многолетняя международная практика.
+            Сложные случаи (например, тяжёлая дизартрия) — заранее обсудим с родителем.
+          </p>
+        </details>
+
+        <details class="v2-faq__item">
+          <summary class="v2-faq__q">
+            <span class="v2-faq__q-num">03</span>
+            <span class="v2-faq__q-text">Мой ребёнок не сидит на месте 45 минут — это вообще получится?</span>
+            <span class="v2-faq__q-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="v2-faq__a">
+            Получится. Каждые 5-10 минут — новая активность: игра, картинка, упражнение, разговор.
+            Ребёнок не успевает заскучать. Если устанет — логопед сделает перерыв, занятие можно растянуть на 50 минут без доплаты.
+          </p>
+        </details>
+
+        <details class="v2-faq__item">
+          <summary class="v2-faq__q">
+            <span class="v2-faq__q-num">04</span>
+            <span class="v2-faq__q-text">Что нужно для занятия технически?</span>
+            <span class="v2-faq__q-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="v2-faq__a">
+            Ноутбук, планшет или компьютер с камерой и микрофоном. Ничего скачивать не надо.
+            Стабильный интернет от 5 Мбит/с. Если что-то не работает — техподдержка подключится к вам за 5 минут.
+          </p>
+        </details>
+
+        <details class="v2-faq__item">
+          <summary class="v2-faq__q">
+            <span class="v2-faq__q-num">05</span>
+            <span class="v2-faq__q-text">С какого возраста можно записываться?</span>
+            <span class="v2-faq__q-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="v2-faq__a">
+            С 4 лет — это оптимальный возраст для онлайн-диагностики: ребёнок уже способен удерживать внимание 45 минут.
+            Берём детей до 17 лет: подростковая логопедия не менее важна — постановка звуков, заикание, дисграфия и техника речи перед публичными выступлениями.
+          </p>
+        </details>
+
+        <details class="v2-faq__item">
+          <summary class="v2-faq__q">
+            <span class="v2-faq__q-num">06</span>
+            <span class="v2-faq__q-text">А если на диагностике окажется, что всё в порядке?</span>
+            <span class="v2-faq__q-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="v2-faq__a">
+            Так и скажем. У нас нет KPI «продать абонемент во что бы то ни стало». Если ребёнок развивается по норме —
+            вы уйдёте со спокойной совестью и письменным заключением, что всё ок. Без попыток «дозанять» вас.
+          </p>
+        </details>
+
+        <details class="v2-faq__item">
+          <summary class="v2-faq__q">
+            <span class="v2-faq__q-num">07</span>
+            <span class="v2-faq__q-text">Ребёнку не понравится логопед — что делать?</span>
+            <span class="v2-faq__q-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </span>
+          </summary>
+          <p class="v2-faq__a">
+            Скажите нам — заменим логопеда без вопросов и проведём диагностику с другим специалистом ещё раз бесплатно.
+            Контакт с ребёнком — главное, и мы это знаем.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="v2-fcta" id="cta">
+  <div class="v2-fcta__glow"></div>
+  <div class="v2-fcta__inner">
+    <div class="v2-fcta__left" data-reveal="true">
+      <span class="v2-eyebrow v2-eyebrow--light">Бесплатно. 1 минута на запись.</span>
+      <h2 class="h-section">Запишите ребёнка на <span class="marker">бесплатное занятие с логопедом</span></h2>
+      <p class="v2-fcta__lede">Менеджер свяжется в течение часа, согласует удобное время. Диагностику проведём в течение 2–4 дней.</p>
+      <ul class="v2-fcta__why">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>45 минут 1:1 с дипломированным логопедом — бесплатно</span>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Письменное заключение и план коррекции по итогам</span>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Домашние упражнения на первую неделю — в подарок</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="v2-fcta__form" data-reveal="true">
+      <div class="h3-card__bonus">Пошаговый план развития речи от логопеда — в подарок</div>
+      <div class="v2-fcta__form-head">
+        <h3 class="v2-fcta__form-ttl">Записать ребёнка</h3>
+        <div class="v2-fcta__form-sub">Менеджер свяжется в течение часа</div>
+      </div>
+      <form noValidate>
+        <div class="v2-field">
+          <label>Ваше имя</label>
+          <input type="text" placeholder="Как к вам обращаться" autocomplete="given-name">
+        </div>
+        <div class="v2-field">
+          <label>Телефон</label>
+          <input type="tel" placeholder="Какой у вас актуальный номер" autocomplete="tel">
+        </div>
+        <div class="v2-field">
+          <label>Email</label>
+          <input type="email" placeholder="Ваша актуальная почта" autocomplete="email">
+        </div>
+        <button type="submit" class="v2-btn v2-btn--spark v2-btn--lg v2-btn--block" style="margin-top:8px">
+          Записать ребёнка к логопеду →
+        </button>
+        <p class="v2-fcta__form-legal">
+          Нажимая кнопку, вы соглашаетесь с
+          <a href="#" target="_blank" rel="noopener" style="text-decoration:underline;">политикой конфиденциальности</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<a href="#cta" class="sticky-cta" id="stickyCta" aria-label="Записать к логопеду">
+  Записать к логопеду →
+</a>
+
+<footer style="background:#0A1628;padding-top:2.5rem;padding-bottom:2.5rem">
+  <div class="container-x">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style="color:rgba(255,255,255,0.55)">
+
+      <a href="#" class="inline-flex items-center" style="gap:8px;background:#FFE066;color:#0A1628;padding:6px 14px 6px 10px;border-radius:999px;box-shadow:0 1px 2px rgba(255,193,7,0.30), 0 0 0 1px rgba(218,178,16,0.35) inset;text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        <span style="font-family:var(--font-unbounded),Unbounded,sans-serif;font-weight:800;font-size:13px;letter-spacing:-0.01em;color:#0A1628">Школа будущего</span>
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-x-5 gap-y-2">
+        <a href="mailto:hello@buildthefuture.io" class="transition-colors hover:text-white" style="color:inherit;text-decoration:none;">hello@buildthefuture.io</a>
+        <a href="#" target="_blank" rel="noopener" class="transition-colors hover:text-white" style="color:inherit;text-decoration:none;">Политика конфиденциальности</a>
+        <a href="#" target="_blank" rel="noopener" class="transition-colors hover:text-white" style="color:inherit;text-decoration:none;">Оферта</a>
+      </div>
+
+      <div style="color:rgba(255,255,255,0.40)">© 2026 Школа будущего</div>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+/* === Sticky mobile CTA: прячем когда на экране есть форма/кнопка регистрации === */
+(function(){
+  var btn = document.getElementById('stickyCta');
+  if(!btn) return;
+
+  // Все «registration triggers» — формы + любые CTA-ссылки на #cta или #form
+  var selectors = [
+    '#hero',                           // hero с формой
+    '#cta',                            // финальный CTA-блок с формой
+    '#form',                           // ID карточки HERO-формы
+    'a[href="#cta"]',                  // все ссылки-кнопки на CTA
+    'a[href="#form"]',                 // ссылки на HERO-форму
+    '.h3-card',                        // HERO-карточка с формой
+    '.v2-fcta__form',                  // финальная форма
+  ];
+  var triggers = Array.from(document.querySelectorAll(selectors.join(','))).filter(function(el){
+    // исключаем саму sticky-кнопку и спрятанную nav-cta
+    return el.id !== 'stickyCta' && !el.classList.contains('sticky-cta');
+  });
+  if(!triggers.length) return;
+
+  var visible = new Set();
+
+  // IntersectionObserver не сработает если элемент display:none (например .nav-cta на мобиле) — это ок
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) visible.add(e.target);
+      else visible.delete(e.target);
+    });
+    btn.classList.toggle('is-hidden', visible.size > 0);
+  }, { threshold: [0, 0.05, 0.5] });
+
+  triggers.forEach(function(t){ io.observe(t); });
+})();
+
+/* === Типографика: убираем висячие предлоги/союзы через nbsp === */
+(function fixOrphans(){
+  // короткие слова (1-2 буквы) — предлоги, союзы, частицы. Не должны оставаться в конце строки.
+  var re = /(\s)(а|и|в|во|к|ко|на|не|но|о|об|обо|от|по|с|со|то|у|уж|же|ли|бы|вы|ты|мы|он|их|им|её|ей|до|за|из|или|для|без|под|над|про|при|что|это|где|как|чем|чтобы|если|когда|пока|тоже|даже|пусть|хотя|потому|раз|ну|так|там|тут|уже|ещё|был|была|быть|есть|нет|или|либо|ни|же|ль)(\s)/gi;
+  function walk(root){
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+    var nodes=[], n;
+    while(n = w.nextNode()) nodes.push(n);
+    nodes.forEach(function(node){
+      var p = node.parentNode;
+      if(!p || /^(SCRIPT|STYLE|TEXTAREA|INPUT|CODE|PRE)$/i.test(p.tagName)) return;
+      var t = node.textContent;
+      // первый проход
+      var t2 = t.replace(re, '$1$2 ');
+      // второй проход на случай двух предлогов подряд (а и, у нас) — повторяем
+      t2 = t2.replace(re, '$1$2 ');
+      if(t2 !== t) node.textContent = t2;
+    });
+  }
+  walk(document.body);
+})();
+</script>
+
+</body>
+</html>
