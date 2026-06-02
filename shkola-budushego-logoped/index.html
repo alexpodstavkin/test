@@ -114,13 +114,11 @@
   .rs-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;margin-top:2.5rem;}
   @media(max-width:900px){.rs-wrap{grid-template-columns:1fr;gap:28px;}}
   .rs-photo{
-    aspect-ratio:4/3;border-radius:var(--r-xl);border:1px solid var(--azure-200);
-    background:
-      radial-gradient(60% 70% at 25% 30%,rgba(255,224,102,.55),transparent 60%),
-      radial-gradient(70% 80% at 80% 80%,rgba(31,138,255,.18),transparent 60%),
-      linear-gradient(180deg,#F2F8FF,#E6F2FF);
-    display:flex;align-items:center;justify-content:center;color:var(--ink-300);
-    font-family:var(--font-unbounded);font-size:13px;letter-spacing:.08em;box-shadow:var(--shadow-3);
+    width:100%;aspect-ratio:3/2;
+    border-radius:var(--r-xl);border:1px solid var(--azure-200);
+    object-fit:cover;display:block;
+    box-shadow:var(--shadow-3);
+    background:#F2F8FF;
   }
   .rs-list{list-style:none;padding:0;margin:1rem 0 0;}
   .rs-list li{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--ink-100);}
@@ -828,16 +826,16 @@
     <div class="tp-track">
 
       <div class="tp-card" data-reveal="true" data-delay="1">
-        <div class="tp-photo-ph">ФОТО</div>
+        <img class="tp-photo" src="assets/teachers/irina.jpg" alt="Ирина С., логопед-дефектолог" loading="lazy" width="520" height="624">
         <div class="tp-meta">
-          <p class="tp-meta__name">Анна Г.</p>
+          <p class="tp-meta__name">Ирина С.</p>
           <p class="tp-meta__role">Логопед-дефектолог · 9 лет опыта</p>
           <p class="tp-meta__text">Специализация: постановка звуков Р, Л, шипящих. Работала в центре раннего развития, ведёт авторский курс по дислалии.</p>
         </div>
       </div>
 
       <div class="tp-card" data-reveal="true" data-delay="2">
-        <div class="tp-photo-ph">ФОТО</div>
+        <img class="tp-photo" src="assets/teachers/ekaterina.jpg" alt="Екатерина М., логопед, нейропсихолог" loading="lazy" width="520" height="624">
         <div class="tp-meta">
           <p class="tp-meta__name">Екатерина М.</p>
           <p class="tp-meta__role">Логопед, нейропсихолог · 7 лет опыта</p>
@@ -846,7 +844,7 @@
       </div>
 
       <div class="tp-card" data-reveal="true" data-delay="3">
-        <div class="tp-photo-ph">ФОТО</div>
+        <img class="tp-photo" src="assets/teachers/maria.jpg" alt="Мария В., логопед-психолог" loading="lazy" width="520" height="624">
         <div class="tp-meta">
           <p class="tp-meta__name">Мария В.</p>
           <p class="tp-meta__role">Логопед-психолог · 6 лет опыта</p>
@@ -855,7 +853,7 @@
       </div>
 
       <div class="tp-card" data-reveal="true" data-delay="4">
-        <div class="tp-photo-ph">ФОТО</div>
+        <img class="tp-photo" src="assets/teachers/olga.jpg" alt="Ольга К., логопед-дефектолог" loading="lazy" width="520" height="624">
         <div class="tp-meta">
           <p class="tp-meta__name">Ольга К.</p>
           <p class="tp-meta__role">Логопед-дефектолог · 11 лет опыта</p>
@@ -864,7 +862,7 @@
       </div>
 
       <div class="tp-card" data-reveal="true" data-delay="1">
-        <div class="tp-photo-ph">ФОТО</div>
+        <img class="tp-photo" src="assets/teachers/natalya.jpg" alt="Наталья С., логопед, методист" loading="lazy" width="520" height="624">
         <div class="tp-meta">
           <p class="tp-meta__name">Наталья С.</p>
           <p class="tp-meta__role">Логопед, методист · 13 лет опыта</p>
@@ -891,7 +889,7 @@
     </div>
 
     <div class="rs-wrap">
-      <div class="rs-photo" data-reveal="left">ФОТО · письменный отчёт + ребёнок на экране</div>
+      <img class="rs-photo" src="assets/result/report.jpg" alt="Письменный отчёт логопеда по итогам диагностики речи в Zoom" loading="lazy" data-reveal="left">
 
       <div data-reveal="right">
         <p style="color:#5C6B86;font-size:16px;line-height:1.6;margin:0 0 1rem;">
