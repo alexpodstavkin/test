@@ -17,7 +17,7 @@ export default function Page() {
         <div
           className="top-zone-bg"
           aria-hidden
-          style={{ backgroundImage: `url(${basePath}/flag-rf.jpeg)` }}
+          style={{ backgroundImage: `url(${basePath}/hero-classroom.png)` }}
         />
         <div className="top-zone-overlay" aria-hidden />
         <TopBar />
