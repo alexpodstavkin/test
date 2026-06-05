@@ -3,7 +3,7 @@ export default function StickyMobileCta() {
     <a
       href="#cta"
       className="sticky-mobile-cta"
-      aria-label="Подать заявку на бесплатный урок"
+      aria-label="Подать заявку на бесплатный урок"
     >
       Подать заявку
       <span aria-hidden style={{ fontWeight: 700 }}>→</span>

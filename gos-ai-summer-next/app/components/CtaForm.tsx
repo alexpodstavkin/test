@@ -29,7 +29,7 @@ export default function CtaForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !age || !phone || !agree) return;
-    // TODO: передать в скилл getcourse-api — payload { name, age, phone }
+    // TODO: передать в скилл getcourse-api — payload { name, age, phone }
     setSubmitted(true);
   };
 
