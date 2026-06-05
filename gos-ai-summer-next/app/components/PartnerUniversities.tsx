@@ -13,6 +13,8 @@ const partners = [
     name: 'РАНХиГС',
     full: 'Российская академия народного хозяйства и государственной службы при Президенте РФ',
     logo: '/partners/ranepa.png',
+    // PNG has heavy whitespace around the eagle — compensate with extra max-height
+    logoMaxHeight: 130,
   },
   {
     name: 'Университет Иннополис',
@@ -40,6 +42,7 @@ export default function PartnerUniversities() {
                   alt={p.full}
                   className="partner-logo-img"
                   loading="lazy"
+                  style={'logoMaxHeight' in p ? { maxHeight: (p as { logoMaxHeight: number }).logoMaxHeight } : undefined}
                 />
               </div>
               <span className="partner-cell-label">{p.name}</span>
