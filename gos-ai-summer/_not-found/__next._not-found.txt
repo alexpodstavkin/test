@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[2185,["/test/gos-ai-summer/_next/static/chunks/07xiqq54xt_j_.js"],"default"]
-3:I[33416,["/test/gos-ai-summer/_next/static/chunks/07xiqq54xt_j_.js"],"default"]
+2:I[35313,["/test/gos-ai-summer/_next/static/chunks/00pvh4bry-7~a.js","/test/gos-ai-summer/_next/static/chunks/0tlzjspg8kvfh.js"],"default"]
+3:I[57704,["/test/gos-ai-summer/_next/static/chunks/00pvh4bry-7~a.js","/test/gos-ai-summer/_next/static/chunks/0tlzjspg8kvfh.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"kGR3Xmu9kdxssDDWwR6sM"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"Y55fbGjaUTsK2RVJj7Uo7"}
