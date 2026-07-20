@@ -55,7 +55,6 @@ export default function Program() {
         <div className="program-section">
           {/* Entry plate — frames the free lesson as the gateway */}
           <div className="entry-plate">
-            <span className="entry-mark">Регламент участия</span>
             <p className="entry-text">
               Чтобы стать участником, необходимо записаться на&nbsp;бесплатный вводный урок.
             </p>
