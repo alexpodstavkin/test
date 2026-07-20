@@ -46,7 +46,7 @@ export default function Program() {
             </div>
             <div className="mission-stat">
               <span className="mission-stat-num">№1</span>
-              <p className="mission-stat-text">навык будущего по&nbsp;версии ВЭФ. Нейросети тренируют его: ребёнок ставит задачу, проверяет ответ ИИ и&nbsp;рассуждает структурно — это <b>повышает успеваемость</b> в&nbsp;школе.</p>
+              <p className="mission-stat-text">нейросети — навык будущего по&nbsp;версии ВЭФ. Нейросети тренируют его: ребёнок ставит задачу, проверяет ответ ИИ и&nbsp;рассуждает структурно — это <b>повышает успеваемость</b> в&nbsp;школе.</p>
             </div>
           </div>
         </div>

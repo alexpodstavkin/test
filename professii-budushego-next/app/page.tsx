@@ -25,8 +25,8 @@ export default function Page() {
       </div>
       <main>
         <Reveal><Program /></Reveal>
-        <Reveal><PartnerUniversities /></Reveal>
         <Reveal><Questions /></Reveal>
+        <Reveal><PartnerUniversities /></Reveal>
         <Reveal><Gifts /></Reveal>
         <Reveal><CtaForm /></Reveal>
       </main>
