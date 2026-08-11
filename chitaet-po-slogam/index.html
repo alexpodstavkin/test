@@ -229,17 +229,13 @@
   }
   .footer__col a:hover{color:#fff}
 
-  .socials{display:flex;gap:10px;margin-top:20px}
+  .socials{display:flex;align-items:center;gap:12px;margin-top:20px}
   .social{
-    width:38px;height:38px;border-radius:50%;
-    background:rgba(255,255,255,.08);
-    display:flex;align-items:center;justify-content:center;
-    color:#c2cbdb;text-decoration:none;
-    transition:background .15s ease,color .15s ease;
+    width:36px;height:36px;display:block;
+    opacity:.92;transition:opacity .15s ease,transform .15s ease;
   }
-  .social:hover{background:rgba(255,255,255,.17);color:#fff}
-  .social svg{width:19px;height:19px;fill:currentColor;display:block}
-  .social b{font-size:11px;font-weight:800;letter-spacing:.03em}
+  .social:hover{opacity:1;transform:translateY(-1px)}
+  .social img{width:100%;height:100%;display:block}
 
   .footer__bottom{
     margin-top:42px;padding-top:20px;
@@ -555,10 +551,10 @@
 
         <div class="socials">
           <a class="social" href="#" aria-label="Telegram" title="Telegram">
-            <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            <img src="assets/icon-telegram.svg" alt="Telegram" width="36" height="36">
           </a>
           <a class="social" href="#" aria-label="MAX" title="MAX">
-            <b>MAX</b>
+            <img src="assets/icon-max.svg" alt="MAX" width="36" height="36">
           </a>
         </div>
       </div>
