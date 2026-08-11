@@ -210,27 +210,56 @@
   .also a{display:block;color:var(--blue);text-decoration:underline;text-underline-offset:2px;font-size:15px;margin-bottom:11px}
 
   /* ---------- ПОДВАЛ ---------- */
-  .footer{background:var(--footer);color:#fff;padding:44px 24px 54px}
-  .footer__in{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px}
-  .footer__brand{min-width:230px;flex:1}
-  .footer__brand .n{font-size:18px;font-weight:600;margin-bottom:8px}
-  .footer__brand .d{font-size:13px;color:#98a0b0;line-height:1.5;max-width:220px}
-  .footer__col{min-width:150px}
-  .footer__col h4{font-size:14px;font-weight:700;margin-bottom:14px}
-  .footer__col a{display:block;color:#98a0b0;text-decoration:none;font-size:14px;margin-bottom:9px}
-  .footer__col a:hover{color:#fff}
-  .socials{display:flex;gap:12px}
-  .socials i{width:22px;height:22px;display:block;background:#98a0b0;border-radius:4px}
+  .footer{background:var(--footer);color:#fff;padding:54px 24px 30px}
+  .footer__in{max-width:1200px;margin:0 auto}
+  .footer__grid{
+    display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px 32px;
+  }
 
-  .adnote{
-    max-width:1200px;margin:0 auto;padding:18px 24px 0;
-    color:#5c6472;font-size:12px;
+  .footer__logo{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .footer__logo svg{width:26px;height:26px;flex:none}
+  .footer__logo span{font-size:17px;font-weight:700;letter-spacing:-.02em}
+  .footer__brand p{font-size:13.5px;color:#8d97ab;line-height:1.5;max-width:260px;margin:0}
+
+  .footer__col h4{font-size:13px;font-weight:700;margin-bottom:15px;letter-spacing:.01em}
+  .footer__col a{
+    display:block;color:#8d97ab;text-decoration:none;
+    font-size:14px;line-height:1.4;margin-bottom:11px;
+    transition:color .15s ease;
+  }
+  .footer__col a:hover{color:#fff}
+
+  .socials{display:flex;gap:10px;margin-top:20px}
+  .social{
+    width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;
+    color:#c2cbdb;text-decoration:none;
+    transition:background .15s ease,color .15s ease;
+  }
+  .social:hover{background:rgba(255,255,255,.17);color:#fff}
+  .social svg{width:19px;height:19px;fill:currentColor;display:block}
+  .social b{font-size:11px;font-weight:800;letter-spacing:.03em}
+
+  .footer__bottom{
+    margin-top:42px;padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.09);
+    display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;
+    font-size:13px;color:#727d92;
   }
 
   @media (max-width:1040px){
     .card{padding:40px 44px}
   }
+  @media (max-width:900px){
+    .footer__grid{grid-template-columns:1fr 1fr;gap:34px 28px}
+    .footer__brand{grid-column:1 / -1}
+    .footer__brand p{max-width:420px}
+  }
   @media (max-width:760px){
+    .footer{padding:40px 20px 26px}
+    .footer__grid{grid-template-columns:1fr;gap:28px}
+    .footer__bottom{margin-top:32px}
     body{font-size:16px}
     .header__in{gap:14px;padding:12px 16px}
     .nav,.search{display:none}
@@ -510,29 +539,60 @@
 <!-- ================= ПОДВАЛ ================= -->
 <footer class="footer">
   <div class="footer__in">
-    <div class="footer__brand">
-      <div class="n">Школа и Дети</div>
-      <div class="d">Новостной портал о современном образовании</div>
+
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="15" stroke="#f5822a" stroke-width="2"/>
+            <path d="M16 4a12 12 0 1 1-8.49 20.49" stroke="#e8503a" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 10a6 6 0 1 0 4.24 10.24" stroke="#f5a623" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <span>Школа и Дети</span>
+        </div>
+        <p>Новостной портал о современном школьном образовании</p>
+
+        <div class="socials">
+          <a class="social" href="#" aria-label="Telegram" title="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          </a>
+          <a class="social" href="#" aria-label="MAX" title="MAX">
+            <b>MAX</b>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__col">
+        <h4>Разделы</h4>
+        <a href="#">Общество</a>
+        <a href="#">Технологии</a>
+        <a href="#">Образование</a>
+      </nav>
+
+      <nav class="footer__col">
+        <h4>О проекте</h4>
+        <a href="#">О нас</a>
+        <a href="#">Редакция</a>
+        <a href="#">Контакты</a>
+        <a href="#">Реклама</a>
+      </nav>
+
+      <nav class="footer__col">
+        <h4>Документы</h4>
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Пользовательское соглашение</a>
+        <a href="#">Правила комментирования</a>
+      </nav>
+
     </div>
-    <div class="footer__col">
-      <h4>Разделы</h4>
-      <a href="#">Общество</a>
-      <a href="#">Технологии</a>
-      <a href="#">Образование</a>
+
+    <div class="footer__bottom">
+      <span>© 2026 «Школа и Дети»</span>
+      <span>Возрастная категория сайта 12+</span>
     </div>
-    <div class="footer__col">
-      <h4>О проекте</h4>
-      <a href="#">О нас</a>
-      <a href="#">Контакты</a>
-      <a href="#">Реклама</a>
-      <a href="#">Правила</a>
-    </div>
-    <div class="footer__col">
-      <h4>Социальные сети</h4>
-      <div class="socials"><i></i><i></i></div>
-    </div>
+
   </div>
-  <div class="adnote">Реклама. Рекламодатель: ООО «___». ИНН ___. Erid: ___</div>
 </footer>
 
 <script>
