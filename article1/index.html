@@ -647,5 +647,71 @@ _tmr.push({id: "3743427", type: "pageView", start: (new Date()).getTime()});
   })();
 </script>
 
+<script>
+  // проброс меток: utm с которыми пришёл читатель, доезжают до страницы урока
+  (function () {
+    var TARGET_HOSTS = ['matrius.online'];                 // домены, куда пробрасываем метки
+    var CLICK_IDS = ['yclid', 'ymclid', 'gclid', 'gbraid', 'wbraid', 'fbclid',
+                     'ttclid', 'vk_click_id', 'rb_clickid', '_openstat', 'roistat'];
+    var STORE_KEY = 'mn_track';
+
+    function tracked(name) {
+      return name.lastIndexOf('utm_', 0) === 0 || CLICK_IDS.indexOf(name.toLowerCase()) > -1;
+    }
+
+    // метки текущего адреса
+    var marks = {};
+    try {
+      new URLSearchParams(location.search).forEach(function (value, name) {
+        if (value && tracked(name)) marks[name] = value;
+      });
+    } catch (e) { return; }
+
+    // в адресе пусто — значит читатель уже ходит по порталу, берём метки входа
+    try {
+      if (Object.keys(marks).length) sessionStorage.setItem(STORE_KEY, JSON.stringify(marks));
+      else marks = JSON.parse(sessionStorage.getItem(STORE_KEY) || '{}') || {};
+    } catch (e) {}
+
+    var hasUtm = Object.keys(marks).some(function (n) { return n.lastIndexOf('utm_', 0) === 0; });
+
+    // чем закрыть utm_medium, если читатель пришёл без меток: имя папки статьи
+    var slug = location.pathname.replace(/\/+$/, '').split('/').pop().replace(/\.html$/, '') || 'index';
+
+    function isTarget(url) {
+      return TARGET_HOSTS.some(function (host) {
+        return url.hostname === host || url.hostname.slice(-(host.length + 1)) === '.' + host;
+      });
+    }
+
+    [].slice.call(document.querySelectorAll('a[href]')).forEach(function (a) {
+      var raw = a.getAttribute('href');
+      if (!raw || raw.charAt(0) === '#' || /^(mailto:|tel:|javascript:)/i.test(raw)) return;
+
+      var url;
+      try { url = new URL(raw, location.href); } catch (e) { return; }
+      if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
+
+      var outside = url.hostname !== location.hostname;
+      if (outside && !isTarget(url)) return;                // чужие домены не трогаем
+
+      if (outside) {
+        // метки рекламы важнее вшитых в статью, поэтому вшитые убираем
+        if (hasUtm) {
+          var drop = [];
+          url.searchParams.forEach(function (value, name) {
+            if (name.lastIndexOf('utm_', 0) === 0) drop.push(name);
+          });
+          drop.forEach(function (name) { url.searchParams.delete(name); });
+        }
+        if (!url.searchParams.has('article')) url.searchParams.set('article', slug);
+      }
+
+      Object.keys(marks).forEach(function (name) { url.searchParams.set(name, marks[name]); });
+      a.setAttribute('href', url.href);
+    });
+  })();
+</script>
+
 </body>
 </html>
