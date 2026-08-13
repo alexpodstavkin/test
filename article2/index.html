@@ -652,6 +652,9 @@ _tmr.push({id: "3743427", type: "pageView", start: (new Date()).getTime()});
     var CLICK_IDS = ['yclid', 'ymclid', 'gclid', 'gbraid', 'wbraid', 'fbclid',
                      'ttclid', 'vk_click_id', 'rb_clickid', '_openstat', 'roistat'];
     var STORE_KEY = 'mn_track';
+    var METRIKA_ID = 98858030;                             // тот же счётчик, что на лендингах
+    var TMR_ID = 3743427;
+    var GOAL = 'to_landing';                               // проходная цель «переход на урок»
 
     function tracked(name) {
       return name.lastIndexOf('utm_', 0) === 0 || CLICK_IDS.indexOf(name.toLowerCase()) > -1;
@@ -703,6 +706,12 @@ _tmr.push({id: "3743427", type: "pageView", start: (new Date()).getTime()});
           drop.forEach(function (name) { url.searchParams.delete(name); });
         }
         if (!url.searchParams.has('article')) url.searchParams.set('article', slug);
+
+        // проходная цель: клик по ссылке на урок, чтобы считать «дочитал → перешёл → записался»
+        a.addEventListener('click', function () {
+          try { if (window.ym) window.ym(METRIKA_ID, 'reachGoal', GOAL, { article: slug }); } catch (e) {}
+          try { if (window._tmr) window._tmr.push({ type: 'reachGoal', id: TMR_ID, goal: GOAL }); } catch (e) {}
+        });
       }
 
       Object.keys(marks).forEach(function (name) { url.searchParams.set(name, marks[name]); });
