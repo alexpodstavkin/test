@@ -679,7 +679,10 @@ _tmr.push({id: "3743427", type: "pageView", start: (new Date()).getTime()});
     var hasUtm = Object.keys(marks).some(function (n) { return n.lastIndexOf('utm_', 0) === 0; });
 
     // чем закрыть utm_medium, если читатель пришёл без меток: имя папки статьи
-    var slug = location.pathname.replace(/\/+$/, '').split('/').pop().replace(/\.html$/, '') || 'index';
+    var parts = location.pathname.split('/').filter(Boolean);
+    var last = (parts.pop() || 'index').replace(/\.html$/, '');
+    var slug = last === 'index' ? (parts.pop() || 'index') : last;   // папка статьи даже для /article1/index.html
+    var PAGE_GOAL = slug + '_to_matrius';                  // цель этой страницы: article1_to_matrius
 
     function isTarget(url) {
       return TARGET_HOSTS.some(function (host) {
@@ -711,6 +714,7 @@ _tmr.push({id: "3743427", type: "pageView", start: (new Date()).getTime()});
 
         // проходная цель: клик по ссылке на урок, чтобы считать «дочитал → перешёл → записался»
         a.addEventListener('click', function () {
+          try { if (window.ym) window.ym(METRIKA_ID, 'reachGoal', PAGE_GOAL); } catch (e) {}
           try { if (window.ym) window.ym(METRIKA_ID, 'reachGoal', GOAL, { article: slug }); } catch (e) {}
           try { if (window._tmr) window._tmr.push({ type: 'reachGoal', id: TMR_ID, goal: GOAL }); } catch (e) {}
         });
