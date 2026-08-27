@@ -11,7 +11,7 @@ export function Hero() {
     >
       <div className="hud-grid" aria-hidden="true" />
 
-      <div className="container-x relative grid grid-cols-1 items-center gap-10 pb-14 pt-10 d:grid-cols-[1.15fr_0.85fr] d:gap-12 d:pb-[88px] d:pt-[72px]">
+      <div className="container-x relative grid grid-cols-1 items-center gap-10 pb-14 pt-12 d:grid-cols-[1.15fr_0.85fr] d:gap-12 d:pb-[88px] d:pt-[96px]">
         {/* --- Текстовая колонка --- */}
         <div>
           <p className="pill">
@@ -25,8 +25,8 @@ export function Hero() {
             <span className="h1-main">
               Ваш ребёнок
               <br className="hidden d:inline" /> за 60 минут создаст
-              <br className="hidden d:inline" /> своего помощника —
-              <br className="hidden d:inline" /> <span className="hl">Джарвиса</span>
+              <br className="hidden d:inline" /> своего помощника
+              <br className="hidden d:inline" /> по учёбе — <span className="hl">Джарвиса</span>
             </span>
             <span className="h1-tail">на базе искусственного интеллекта</span>
           </h1>

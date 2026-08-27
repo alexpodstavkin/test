@@ -1,4 +1,3 @@
-import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { Sixty } from '@/components/Sixty'
 import { Useful } from '@/components/Useful'
@@ -16,7 +15,6 @@ import { StickyCta } from '@/components/StickyCta'
 export default function Page() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <Sixty />
