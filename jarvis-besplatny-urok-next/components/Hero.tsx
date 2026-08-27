@@ -21,19 +21,24 @@ export function Hero() {
 
           <h1 className="h1 mt-5">
             {/* Переносы только от 861px. Бюджет строки в левой колонке ~20 знаков
-                при 46px/800 — отсюда разбивка 11 / 19 / 18 / 8. */}
+                при 46px/800 — отсюда разбивка 11 / 19 / 16 / 19. */}
             <span className="h1-main">
               Ваш ребёнок
               <br className="hidden d:inline" /> за 60 минут создаст
               <br className="hidden d:inline" /> своего помощника
               <br className="hidden d:inline" /> по учёбе — <span className="hl">Джарвиса</span>
             </span>
-            <span className="h1-tail">на базе искусственного интеллекта</span>
+            <span className="h1-tail">
+              на базе искусственного интеллекта.{' '}
+              <strong className="font-bold text-[color:var(--fg)]">Бесплатно</strong>
+            </span>
           </h1>
 
           <p className="lead mt-[22px] max-w-[520px]">
-            Покажите ему на бесплатном уроке, что нейросети — это не ГДЗ, а{' '}
-            <strong className="font-semibold text-[color:var(--fg)]">способ создавать</strong>
+            Джарвис не выдаёт готовый ответ. Он объясняет и задаёт наводящие вопросы,{' '}
+            <strong className="font-semibold text-[color:var(--fg)]">
+              чтобы ребёнок дошёл до ответа сам
+            </strong>
           </p>
 
           <div className="mt-8">
