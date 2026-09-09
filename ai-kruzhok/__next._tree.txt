@@ -6,4 +6,4 @@
 :HL["/test/ai-kruzhok/uicons/brands/all.css","style"]
 :HL["/test/ai-kruzhok/photos/teen-portrait.jpg","image"]
 :HL["/test/ai-kruzhok/logo-zerocoder.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"pHxWs_7tsjzfFG1rCLdw4"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"46noMwP-xsM1uoCvz-nQr"}
